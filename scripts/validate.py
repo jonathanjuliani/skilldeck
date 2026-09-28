@@ -35,7 +35,11 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 # declared. Anything else belongs in README's "Optional companions", named with
 # its source, never as a bare /slash reference.
 HARNESS_BUILTINS = {"code-review", "simplify", "run", "dataviz", "security-review"}
+OPENAI_AGENT_FIELDS = {"interface", "policy", "dependencies"}
+OPENAI_POLICY_FIELDS = {"products", "allow_implicit_invocation"}
+OPENAI_PRODUCTS = {"CHAT", "CODEX"}
 errors, warnings, skills, inventory = [], [], {}, []
+skill_sources = {}
 
 
 def skill_body(text):
@@ -110,11 +114,34 @@ for f in sorted(ROOT.glob("skills/*/*/SKILL.md")):
             errors.append(f"{rel}: agents/openai.yaml is not valid YAML. {exc}")
             meta = None
         if meta is not None:
+            unknown = set(meta) - OPENAI_AGENT_FIELDS
+            if unknown:
+                errors.append(f"{rel}: agents/openai.yaml has unsupported top-level fields "
+                              f"{sorted(unknown)}")
             iface = meta.get("interface") or {}
             for key in ("display_name", "short_description"):
                 if not iface.get(key):
                     errors.append(f"{rel}: agents/openai.yaml missing interface.{key}")
-            implicit = (meta.get("policy") or {}).get("allow_implicit_invocation")
+            policy = meta.get("policy") or {}
+            if not isinstance(policy, dict):
+                errors.append(f"{rel}: agents/openai.yaml policy must be a mapping")
+                policy = {}
+            unknown_policy = set(policy) - OPENAI_POLICY_FIELDS
+            if unknown_policy:
+                errors.append(f"{rel}: agents/openai.yaml policy has unsupported fields "
+                              f"{sorted(unknown_policy)}")
+            products = policy.get("products")
+            if products is not None and (
+                not isinstance(products, list)
+                or not products
+                or any(product not in OPENAI_PRODUCTS for product in products)
+            ):
+                errors.append(f"{rel}: agents/openai.yaml policy.products must contain "
+                              "CHAT, CODEX, or both")
+            implicit = policy.get("allow_implicit_invocation")
+            if implicit is not None and not isinstance(implicit, bool):
+                errors.append(f"{rel}: agents/openai.yaml "
+                              "policy.allow_implicit_invocation must be true or false")
             if user_invoked and implicit is not False:
                 errors.append(f"{rel}: has disable-model-invocation but its openai.yaml "
                               f"does not set policy.allow_implicit_invocation: false.")
@@ -123,7 +150,13 @@ for f in sorted(ROOT.glob("skills/*/*/SKILL.md")):
                               f"frontmatter has no disable-model-invocation. Set both or neither.")
 
     if fm.get("name"):
+        if fm["name"] in skills:
+            errors.append(f"{rel}: duplicate skill name '{fm['name']}', first declared in "
+                          f"{skill_sources[fm['name']]}")
+        skill_sources[fm["name"]] = rel
         skills[fm["name"]] = text
+        if len(f"jon:{fm['name']}") > 64:
+            errors.append(f"{rel}: OpenAI plugin and skill identity exceeds 64 characters")
         body = skill_body(text)
         body_words = word_count(body)
         name = fm["name"]

@@ -21,7 +21,7 @@ There are two ways in, and they behave differently. **Pick one**: installing bot
 
 | | **Plugin** | **Files** (`npx skills`) |
 | --- | --- | --- |
-| What you get | A managed bundle of all 30, updating when the repo ships | Editable copies of the skills you choose |
+| What you get | A managed bundle of all 31, updating when the repo ships | Editable copies of the skills you choose |
 | Invocation | Namespaced: `/jon:setup-skills` | Bare: `/setup-skills` |
 | Install everything | yes | yes |
 | Install one skill | no | yes |
@@ -61,6 +61,19 @@ Reads `.codex-plugin/plugin.json`, which points at `skills/`. Skills are invoked
 codex plugin marketplace add jonathanjuliani/skills
 codex plugin add jon@skills
 ```
+
+### OpenAI skills-only import
+
+The categorized `skills/<category>/<name>/` tree is the source layout shared by every supported harness. OpenAI ZIP imports require each skill to be an immediate child of `skills/`, so build the import artifact instead of zipping the repository:
+
+```bash
+python3 scripts/build-openai-plugin.py
+python3 scripts/test-openai-package.py dist/openai/jon --archive dist/openai/jon-openai.zip
+```
+
+Upload `dist/openai/jon-openai.zip` as a skills-only plugin. The generated package contains a portable root `plugin.json`, a Codex compatibility manifest, and all 31 skills flattened to `skills/<name>/`. It also removes Claude-only invocation metadata from the generated copies while preserving `agents/openai.yaml`; source skills are never changed. The build output stays untracked under the ignored `dist/` directory.
+
+This artifact is for package import. A public Plugins Directory submission also needs its listing copy and branding assets to meet the directory requirements.
 
 ### Cursor
 

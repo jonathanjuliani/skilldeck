@@ -17,6 +17,10 @@ jobs:
       - run: pip install pyyaml
       - name: Structural checks
         run: python3 scripts/validate.py
+      - name: Build OpenAI import package
+        run: python3 scripts/build-openai-plugin.py --output "$RUNNER_TEMP/jon" --archive "$RUNNER_TEMP/jon-openai.zip"
+      - name: Validate OpenAI import package
+        run: python3 scripts/test-openai-package.py "$RUNNER_TEMP/jon" --archive "$RUNNER_TEMP/jon-openai.zip"
 
   links:
     # External links need the network and can flake, so they run separately and
