@@ -8,6 +8,7 @@ Which skill to reach for, by the moment it comes up. Each entry fires **once per
 | First turn of a non-trivial task, before any code | `align-first`. If nobody answers, proceed under the stated assumption rather than waiting |
 | A choice of package manager, test runner, linter, validation or naming comes up | `resolve-conventions` |
 | Deciding where a new package, module or folder belongs | `project-shape` |
+| A new or changed surface, before components or styling | `design-brief` |
 | About to install or choose a library | `dependency-choice` |
 | Writing a new unit with its own folder, wiring or public surface | `create` |
 | Restructuring existing code without changing what it does | `refactor` |

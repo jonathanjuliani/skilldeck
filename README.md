@@ -86,7 +86,7 @@ Then fully quit Cursor (`Cmd+Q`) and reopen, or run Developer: Reload Window. En
 gemini extensions install https://github.com/jonathanjuliani/skills
 ```
 
-Reads `gemini-extension.json`, which loads `GEMINI.md` as context.
+Reads `gemini-extension.json`, which loads `GEMINI.md` as context. That file tells the agent to open the routing block before a non-trivial task. The Coverage section is the human map of the same pack, not a second catalog for the agent.
 
 ### Then, once per repo
 
@@ -160,7 +160,7 @@ For scripting, the `claude plugin` shell commands do the same without opening th
 
 ### Design
 
-Design decides what a surface should be and whether it is good; engineering builds it.
+These skills are the decide half of System at Designs. The folder stays so that decision stays separate from the build in `frontend-craft`. See [Coverage](#coverage).
 
 - **design-brief** (model-invoked): establish the surface kind, the audience and what they are doing, the references, the dials, and the constraints that override taste. One sentence that the rest of the work is checked against.
 - **information-architecture** (model-invoked): content, hierarchy, navigation, screen and URL structure, naming and flows, decided before anything is styled.
@@ -171,11 +171,13 @@ Design decides what a surface should be and whether it is good; engineering buil
 
 They run in that order on a new surface: a read, then the structure, then the direction and its tokens, then the build in `engineering/`, then the score. On an existing product most of it is already answered and the job is to inherit rather than decide.
 
-`design-inspiration` ships a seed of captured references under `skills/design/design-inspiration/references/`, and accumulates further reads in a personal store at `~/.jon-skills/design/references/` by default. One file per reference, recording what was taken, what was rejected, and the audience it came from. New captures go to the personal store unless asked to ship. When a task needs the store (not only a named live URL or paste), `design-inspiration` confirms a session working set via `store-selection.md` before opening captures: seed, then default personal, then optional alternate paths the user names (for example a private pack). Merge and override apply to that task only and do not change files on disk. Both stores sit above the conventions in `patterns.md`. When the accepted set is thin or needs a gallery-driven refresh, `curate-design-inspiration` confirms scope, deduplicates against authorized locations, and writes new personal entries.
+`design-inspiration` ships a seed of captured references under `skills/design/design-inspiration/references/`, and accumulates further reads in a personal store at `~/.jon-skills/design/references/` by default. One file per reference, recording what was taken, what was rejected, and the audience it came from. New captures go to the personal store unless asked to ship. When a task needs the store (not only a named live URL or paste), `design-inspiration` confirms a session working set via `store-selection.md` before opening captures: seed, then default personal, then an alternate folder only if the user names the path. Merge and override apply to that task only and do not change files on disk. Both stores sit above the conventions in `patterns.md`. When the accepted set is thin or needs a gallery-driven refresh, `curate-design-inspiration` confirms scope, deduplicates against authorized locations, and writes new personal entries.
 
 Accessibility splits three ways rather than being one pass: a linter catches the static mistakes, `axe` in CI catches the computed ones, and only what neither can see reaches a human review. `frontend-craft` carries that split, and `design-review` refuses to spend attention on anything the first two tiers should have gated.
 
 ### Process
+
+These skills sit on the Process axis. `align-first` is model-invoked and runs once per non-trivial task through the routing block. `investigate-product`, `plan-delivery`, `retro`, and `diagram` are the Defines level. See [Coverage](#coverage).
 
 - **align-first** (model-invoked): restate the ask, name the assumptions you would otherwise make silently, surface only the branches whose answers change the work, then continue under stated defaults rather than blocking. Escalates into a bounded interview when that pass does not land, with the declared branch list as its budget.
 - **investigate-product** (user-invoked): investigate the product and user problem before any solution is designed. Output is a short problem brief.
@@ -187,6 +189,24 @@ Some things are deliberately left out:
 
 - a `bug-hunting` and a `quality` review skill, because Claude Code ships `/code-review` and `/simplify`. On another harness you may want an equivalent; this can change later
 - an `item estimation` skill lives inside the `plan-delivery` one
+
+## Coverage
+
+Folders are how the pack is authored. `foundation/`, `engineering/`, `design/`, and `process/` stay. The map below is how those skills cover an engineering job. It follows the five axes in [Engineering Ladders](https://github.com/jorgef/engineeringladders): Technology, System, People, Process, and Influence. A level on an axis is cumulative. This pack does not ship one skill per Developer, Tech Lead, or manager level. A ladder is which axes a role leans on. Developer leans Technology and System. Tech Lead leans System at Owns, Evolves, and Leads. A technical program manager leans Process. Engineering management is out of scope.
+
+`align-first` stays model-invoked. It is the Challenges move on Process, and it runs on tasks that never touch code. The routing block's first row is the delivery channel: once per non-trivial task, then proceed under the stated assumption. It is not a session-long output style. A persistent mode would apply it to a typo, which the skill tells you to skip.
+
+| Axis | Covered | Not in this pack |
+| --- | --- | --- |
+| Technology | Adopts to Masters: `resolve-conventions`, `ts-standards`, `create`, `project-shape`, `frontend-craft`, `forms`, `state-management`, `api-design`, `design-tokens`, `dependency-choice`, `perf-audit`, `security-hardening` | Creates: a new technology used by other teams |
+| System | Enhances to Evolves: `create`, `refactor`, `forms`, `frontend-craft`, `api-design`, `project-shape`, `design-brief`, `information-architecture`, `design-inspiration`, `curate-design-inspiration`, `design-review`, `observability`, `ship-flow`, `verify-before-done`, `migration`, `release-flow` | Leads. `project-shape` classifies a repo that exists. `create` scaffolds a unit inside one. An empty-repo bootstrap, a skill that records an architecture decision, and an incident or mitigation skill are not shipped. |
+| Process | Follows to Defines: `testing-strategy`, `verify-before-done`, `ship-flow`, `align-first`, `agent-instructions`, `investigate-product`, `plan-delivery`, `retro`, `diagram` | A deeper team-process design than `plan-delivery` and `retro` |
+| People | | Mentoring, career conversations, and engineering management. A review skill is omitted because Claude Code ships `/code-review`. |
+| Influence | `release-flow`, an artifact other teams can consume | Community reach, which is personal content rather than this pack |
+
+The three System gaps worth a later skill are an empty-repo bootstrap, an architecture-decision record, and incident mitigation. This change does not add them, and it does not add People skills or one skill per ladder level.
+
+The routing block stays a short moment table, read every turn once a repo opts in. The rows name recurring moments only. A new or changed surface reaches `design-brief` before components. `investigate-product`, `plan-delivery`, and `retro` stay off that table: they are user-invoked, so a line there would ask for a slash command on every coding task.
 
 ## Optional companions
 
