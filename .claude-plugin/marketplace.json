@@ -8,7 +8,7 @@
     {
       "name": "jon",
       "source": "./",
-      "description": "Detects a project's conventions and defers to them, recommends the current community default and asks before deciding. Engineering plus process/operational skills.",
+      "description": "Detects a project's conventions and defers to them, recommends the current community default and asks before deciding. Engineering, interface design, and delivery are one pack.",
       "category": "engineering",
       "keywords": [
         "typescript",

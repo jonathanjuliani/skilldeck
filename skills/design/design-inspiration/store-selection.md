@@ -19,9 +19,9 @@ Ordered defaults and offers. Scan a location only when this gate reaches that ti
 
 1. **Shipped seed:** [references/](references/) indexed by [references/README.md](references/README.md). Community starter reads that travel with the plugin.
 2. **Default personal:** `~/.jon-skills/design/references/`. Writable per machine. Default destination for new captures unless this session confirmed another path.
-3. **Known alternates (offer text only, never auto-probe):** a private pack path such as `…/private-skills/skills/design/personal-design-refs/references/` when the user has that plugin or clone; any other folder the user names.
+3. **Known alternates (offer text only, never auto-probe):** any other folder the user names.
 
-Do not search for private-skills or invent paths. List alternates in the external-tier confirm and wait for a yes plus a concrete path.
+Do not invent paths. List the offer in the external-tier confirm and wait for a yes plus a concrete path.
 
 ## Cheap scan rules
 
