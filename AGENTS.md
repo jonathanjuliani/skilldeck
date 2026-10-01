@@ -20,7 +20,7 @@ A new skill is not installed until it is listed in every harness manifest, and t
 
 - `.claude-plugin/plugin.json` and `plugins/jon/.cursor-plugin/plugin.json` list each skill path explicitly (plugin loaders do not recurse into bucket folders).
 - `.codex-plugin/plugin.json` points at `./skills/` as a directory and needs no per-skill entry.
-- `README.md` lists the skill under its bucket.
+- `docs/pack/skills.md` lists the skill under its bucket, and the four-bucket counts in `README.md` stay in sync.
 - A **user-invoked** skill also needs `disable-model-invocation: true` in its frontmatter, `policy.allow_implicit_invocation: false` in its `agents/openai.yaml`, and a page under `docs/<bucket>/`.
 
 ## When changing how skills reach each other

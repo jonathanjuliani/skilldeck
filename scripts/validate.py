@@ -32,8 +32,8 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 # Skills that ship with a harness rather than with this pack. Referencing one is
 # allowed only where the text says whose it is, which the check below enforces:
 # the repo is installable standalone and must not imply a dependency it has not
-# declared. Anything else belongs in README's "Optional companions", named with
-# its source, never as a bare /slash reference.
+# declared. Anything else belongs in docs/pack/inspirations.md under
+# "Optional companions", named with its source, never as a bare /slash reference.
 HARNESS_BUILTINS = {"code-review", "simplify", "run", "dataviz", "security-review"}
 errors, warnings, skills, inventory = [], [], {}, []
 
@@ -320,7 +320,7 @@ for f in sorted([*ROOT.glob("skills/**/*.md"), *ROOT.glob("docs/**/*.md"), ROOT 
             if ref in HARNESS_BUILTINS and re.search(r"Claude Code|harness|ships", line):
                 continue
             errors.append(f"{rel}:{i}: `/{ref}` is not in this pack. Say whose it is on the "
-                          f"same line, or list it under README's Optional companions.")
+                          f"same line, or list it under Optional companions in docs/pack/inspirations.md.")
 
 # Relative links: a renamed reference file breaks these with no other symptom.
 for f in sorted([*ROOT.glob("skills/**/*.md"), *ROOT.glob("docs/**/*.md"), ROOT / "README.md"]):
@@ -483,7 +483,11 @@ if "--links" in sys.argv:
                 continue
             if fenced:
                 continue
+            # Trailing backtick, sentence period, and similar prose marks are
+            # not part of the URL. Inline code like `https://host/path`. would
+            # otherwise be requested with the closer attached and 404.
             for u in re.findall(r"https://[^\s)\]]+", line):
+                u = u.rstrip("`.,;:!?\"'*")
                 if not any(d in u for d in RESERVED):
                     urls.add(u)
     for url in sorted(urls):
@@ -492,7 +496,9 @@ if "--links" in sys.argv:
                                          headers={"User-Agent": "jon-skills-validate"})
             urllib.request.urlopen(req, timeout=10)
         except urllib.error.HTTPError as e:
-            if e.code not in (403, 405):  # some hosts refuse HEAD or bots
+            # 403/405: host refuses HEAD or this user agent. 429: rate limit.
+            # The host answered, so the link is not dead.
+            if e.code not in (403, 405, 429):
                 errors.append(f"dead link: {url} ({e.code})")
         except Exception as e:
             errors.append(f"unreachable link: {url} ({type(e).__name__})")

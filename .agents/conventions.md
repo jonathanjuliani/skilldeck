@@ -12,7 +12,7 @@ Every skill is a folder under `skills/<bucket>/<skill-name>/` containing:
 
 Buckets: `foundation/` (the engine and setup), `engineering/` (code), `design/` (what an interface should be and whether it is good), `process/` (product and delivery).
 
-Those buckets are the install layout: `skills/<bucket>/<skill-name>/`, and discovery stops there. Do not add a level for an engineering axis, and do not merge `design/` or `process/` into `engineering/` so the tree matches the Coverage section in `README.md`. That section can list one skill on two axes. A folder cannot. The line between `design/` and `engineering/` stays: design decides and engineering builds. A skill that settles what a surface should look like, how it is structured, or whether it is any good belongs in `design/`. A skill that writes the components and meets the accessibility numbers in code belongs in `engineering/`.
+Those buckets are the install layout: `skills/<bucket>/<skill-name>/`, and discovery stops there. Do not add a level for an engineering axis, and do not merge `design/` or `process/` into `engineering/` so the tree matches the Coverage page in `docs/pack/coverage.md`. That section can list one skill on two axes. A folder cannot. The line between `design/` and `engineering/` stays: design decides and engineering builds. A skill that settles what a surface should look like, how it is structured, or whether it is any good belongs in `design/`. A skill that writes the components and meets the accessibility numbers in code belongs in `engineering/`.
 
 ## Progressive disclosure
 
