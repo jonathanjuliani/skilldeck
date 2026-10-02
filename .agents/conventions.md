@@ -49,7 +49,7 @@ Express a dependency as an operative instruction to `Call the Skill tool with "<
 
 Shared reference material lives inside the skill that owns it. Other skills reach it by calling that skill, not by linking across folders.
 
-Three rules keep the call graph from becoming a loop. The graph is dense (over fifty edges across thirty-one skills) and it already contains cycles, so these are what make it safe rather than what keeps it acyclic:
+Three rules keep the call graph from becoming a loop. The graph is dense (over fifty edges across thirty-six skills) and it already contains cycles, so these are what make it safe rather than what keeps it acyclic:
 
 - **A skill applies once per task.** If its guidance is already in play, a second call is a no-op and not a re-entry. This is the rule that makes the remaining cycles survivable, and it is the one to state explicitly whenever a skill can be reached from two directions.
 - **Chains run one direction.** Where two skills genuinely need each other, one names the other operatively and the other mentions it as prose without the invocation phrase. `testing-strategy` and `refactor` are resolved this way: `refactor` calls `testing-strategy` for the pinning test, and `testing-strategy` names `refactor` as a handoff without calling it.

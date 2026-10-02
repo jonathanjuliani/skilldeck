@@ -1,0 +1,3 @@
+interface:
+  display_name: "Bootstrap repo"
+  short_description: "Smallest runnable JS/TS project from an empty tree, stack confirmed first"

@@ -10,10 +10,14 @@ Which skill to reach for, by the moment it comes up. Each entry fires **once per
 | Deciding where a new package, module or folder belongs | `project-shape` |
 | A new or changed surface, before components or styling | `design-brief` |
 | About to install or choose a library | `dependency-choice` |
+| New entities, tables, or a persistence boundary, before the schema file | `data-model` |
 | Writing a new unit with its own folder, wiring or public surface | `create` |
 | Restructuring existing code without changing what it does | `refactor` |
 | Retiring a dependency, API or pattern the code still uses | `migration` |
 | Deciding what to test and at which seam | `testing-strategy` |
+| Something is broken and the cause is unknown | `debug` |
+| A new input, route, credential, log line, or client-visible error. Skip when the change does not cross a trust boundary | `security-hardening` |
+| Writing a new operation or screen that will run for a user in production. Apply the moment-0 baseline in that change. Skip a local script, a prototype, a library inside someone else's process, and a path that already emits the baseline | `observability` |
 | Before saying anything is done, fixed, passing, green or ready | `verify-before-done` |
 
 Anything not listed is still available; these are the moments that recur often enough to be worth naming.

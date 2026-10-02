@@ -1,0 +1,3 @@
+interface:
+  display_name: "Data model"
+  short_description: "Entities, invariants, and persistence shape before any schema file"

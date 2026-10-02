@@ -1,6 +1,6 @@
 ---
 name: ship-flow
-description: Get a change from a working tree to production safely, covering commit and branch discipline, change size, CI as a quality gate, feature flags, staged rollout, and a rollback path. Use when setting up or fixing a pipeline, planning how a risky change reaches users, deciding how to split work into commits or pull requests, or preparing a deploy. Not for version numbers, changelogs, or publishing a package, which is release-flow.
+description: Get a change from a working tree to production safely, covering commit and branch discipline, change size, CI as a quality gate, feature flags, staged rollout, and a rollback path. Use when setting up or fixing a pipeline, planning how a risky change reaches users, deciding how to split work into commits or pull requests, or preparing a deploy. Not for a production incident already hurting users, which is mitigate-incident, and not for version numbers, changelogs, or publishing a package, which is release-flow.
 ---
 
 # Ship flow
@@ -58,7 +58,7 @@ Deploying code and exposing behavior are separate acts, and separating them is w
 
 ## When this does not apply
 
-A personal project deploying by hand, a prototype, and a library with no deployment of its own do not need this. Reach for it when other people depend on the thing being up, which is the point at which an undo path stops being optional.
+A personal project deploying by hand, a prototype, and a library with no deployment of its own do not need this. A production incident already hurting users is not a planned deploy either; that job is `mitigate-incident`. Reach for this skill when other people depend on the thing being up, which is the point at which an undo path stops being optional.
 
 Where the project has no pipeline at all and building one is out of scope for the task, say which checks are running only in someone's shell, so the gap is visible rather than assumed covered.
 

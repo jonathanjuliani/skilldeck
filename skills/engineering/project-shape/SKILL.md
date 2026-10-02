@@ -1,6 +1,6 @@
 ---
 name: project-shape
-description: Determine whether a project is a single repo, a monorepo, or a modular single-deployable, and recommend folder and structure best practices per surface (backend, frontend, mobile) for JS/TS/React/React Native. Use when starting a project, adding a package or module, reorganizing folders, or deciding where new code should live. Not for choosing which tools a project uses, which is resolve-conventions, and not for writing the unit that goes in the folder, which is create.
+description: Determine whether a project is a single repo, a monorepo, or a modular single-deployable, and recommend folder and structure best practices per surface (backend, frontend, mobile) for JS/TS/React/React Native. Use when adding a package or module to an existing tree, reorganizing folders, or deciding where new code should live. Not for turning an empty tree into the first runnable project, which is bootstrap-repo, not for choosing which tools a project uses, which is resolve-conventions, and not for writing the unit that goes in the folder, which is create.
 ---
 
 # Project shape
@@ -46,4 +46,4 @@ The through-line across all surfaces: **organize by feature or domain, not by te
 
 ## When this does not apply
 
-Skip the shape read when the user asked where a single file goes and the answer is obvious from its neighbors, and when the work happens entirely inside one existing module. A structural read on a one-file change is overhead that teaches nobody anything.
+Skip the shape read when the user asked where a single file goes and the answer is obvious from its neighbors, and when the work happens entirely inside one existing module. A structural read on a one-file change is overhead that teaches nobody anything. An empty or near-empty tree has no shape to classify; that job is `bootstrap-repo`.

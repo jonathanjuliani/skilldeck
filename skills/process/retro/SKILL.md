@@ -1,6 +1,6 @@
 ---
 name: retro
-description: Run a retrospective after a delivery, phase, or incident and turn it into durable lessons and concrete changes.
+description: Run a retrospective after a delivery or phase, once any incident is stable, and turn it into durable lessons and concrete changes.
 disable-model-invocation: true
 ---
 
@@ -24,7 +24,9 @@ For the work under review, answer plainly:
 
 ## Make the lessons durable
 
-A lesson that lives only in the retro doc is forgotten by the next cycle. Land each accepted change where it will be seen at the moment it matters: a step added to a skill or checklist, a note in the project's `CONTEXT.md`, a ticket for a process fix, an ADR for a decision. Say where each one went.
+A lesson that lives only in the retro doc is forgotten by the next cycle. Land each accepted change where it will be seen at the moment it matters: a step added to a skill or checklist, a note in the project's `CONTEXT.md`, a ticket for a process fix. When the lesson is a lasting technical choice, call the Skill tool with "record-decision" and let that record be the home. Say where each one went.
+
+A live incident is not this skill. Stabilize it first (that job is `mitigate-incident`), then run the retro once the system is calm.
 
 ## Rules
 

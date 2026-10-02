@@ -72,6 +72,10 @@ Timing is most of the experience, and getting it wrong is the single most common
 - **One schema, both sides.** Client validation is a convenience layer over the server's rules, never a second set of them.
 - **Native before custom.** A rebuilt control starts by losing everything the platform gave you.
 
+## Trust and the failed submit
+
+Call the Skill tool with "security-hardening" when the form can put a token or secret in the client, or an error might render server text. Call the Skill tool with "observability" for the client moment-0 baseline on a submit the user can fail. Skip both for a control that never leaves the device.
+
 ## Excuses that do not hold
 
 | Excuse | Why it fails |

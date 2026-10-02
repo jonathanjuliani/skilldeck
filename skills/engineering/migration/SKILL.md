@@ -1,6 +1,6 @@
 ---
 name: migration
-description: Remove or replace something a codebase still depends on, covering deprecation, incremental migration to a new library or pattern, and deleting code nobody uses. Use when sunsetting a feature, upgrading across a breaking major version, replacing a dependency or an internal API, or clearing out code that looks dead. Not for restructuring code that is staying, which is refactor, and not for removing something with no callers left, which is just a deletion.
+description: Remove or replace something a codebase still depends on, covering deprecation, incremental migration to a new library or pattern, and deleting code nobody uses. Use when sunsetting a feature, upgrading across a breaking major version, replacing a dependency or an internal API, or clearing out code that looks dead. Not for the first design of a model nothing depends on yet, which is data-model, not for restructuring code that is staying, which is refactor, and not for removing something with no callers left, which is just a deletion.
 ---
 
 # Migration

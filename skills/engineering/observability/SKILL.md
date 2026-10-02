@@ -1,6 +1,6 @@
 ---
 name: observability
-description: Instrument a JS/TS backend, React web app, or React Native app so questions about production can be answered, covering structured logging, metrics, tracing, error tracking, and alerting on symptoms. Use when adding telemetry, shipping something that runs in production, debugging an incident with no data, or setting up alerts. Not for diagnosing and fixing a specific slow path you can already measure, which is perf-audit, and not for the rollout and rollback mechanics of a deploy, which is ship-flow.
+description: Instrument a JS/TS backend, React web app, or React Native app so questions about production can be answered, covering structured logging, metrics, tracing, error tracking, and alerting on symptoms. Use when adding telemetry, shipping something that runs in production, or setting up alerts. Not for diagnosing a local failure whose cause is unknown, which is debug, not for a live production incident, which is mitigate-incident, not for diagnosing and fixing a specific slow path you can already measure, which is perf-audit, and not for the rollout and rollback mechanics of a deploy, which is ship-flow.
 ---
 
 # Observability
@@ -35,6 +35,15 @@ Alert on what a user can feel: elevated error rate, latency past the budget, a q
 Every alert needs a human action. An alert that fires and is routinely ignored is worse than no alert, since it trains the team to ignore the next one too, and the next one is the real one. Where an alert has no action, either delete it or write the runbook line that gives it one.
 
 After you know the surface, read [surfaces.md](surfaces.md) for what to emit there. On frontend, field measurements that are over budget belong to perf-audit: call the Skill tool with "perf-audit" when the question is a number you can already measure.
+
+## Moment-0 baseline
+
+When a skill is creating a production path, it calls this one so the signals land in that same change, not after the first failure. Apply this minimum, and skip anything the project already emits for that path. `debug` only backfills a path that already shipped without it. Do not send the work back to the skill that called you.
+
+- **Backend operation.** A correlation id on the request. One structured log on the failure path (operation, error, correlation id, no secrets or personal data). One span across the handler and the datastore or external call. One aggregate signal for that operation: rate, errors, and duration.
+- **React or React Native surface.** Error tracking on the failure a user can hit. The client call carries the same correlation id as the server when one exists. React Native also gets crash reporting on that surface. A timing number you can already measure belongs to `perf-audit`, not to a new metric.
+
+A question nobody will ask still implies nothing. Do not add a log per function, a span per line, or a metric labelled by user id.
 
 ## Rules
 

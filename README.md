@@ -1,6 +1,6 @@
 # jon-skills
 
-31 skills for JavaScript, TypeScript, React, and React Native.
+36 skills for JavaScript, TypeScript, React, and React Native.
 They read the repo before they pick a stack.
 
 Detect before you decide. Recommend before you impose. Ask before you assume. Prove before you claim.
@@ -10,7 +10,7 @@ Detect before you decide. Recommend before you impose. Ask before you assume. Pr
 Pick one install. Both at once installs every skill twice.
 
 1. Any agent, choose which skills: `npx skills add jonathanjuliani/skills`
-2. All 31, as a plugin: [Claude, Codex, Cursor, or Gemini](docs/pack/install.md)
+2. All 36, as a plugin: [Claude, Codex, Cursor, or Gemini](docs/pack/install.md)
 
 Then once per repo:
 
@@ -22,7 +22,7 @@ That writes `.jon-skills/config.yaml`. It asks before it edits anything else.
 ## The pack
 
 - **foundation** (3) — detect conventions, set up, write agent instructions
-- **engineering** (17) — build, test, and ship
+- **engineering** (22) — build, test, and ship
 - **design** (6) — decide the surface before building it
 - **process** (5) — align, investigate, plan, diagram, retro
 

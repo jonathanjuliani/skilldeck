@@ -1,16 +1,16 @@
 ## What it does
 
-Runs a retrospective after a delivery, phase, or incident and turns it into a short list of durable lessons, each attached to a concrete change with an owner. It reconstructs what actually happened from the record before opinion enters.
+Runs a retrospective after a delivery or phase, once any incident is stable, and turns it into a short list of durable lessons, each attached to a concrete change with an owner. It reconstructs what actually happened from the record before opinion enters.
 
 Every finding must resolve to an action or an explicit decision not to act. It is not a feelings log; a retro that ends in observations changes nothing.
 
 ## When to reach for it
 
-You invoke this by typing `/retro`, and the agent will not reach for it on its own. Reach for it at the end of a phase or project, or after an incident, when you want the next cycle to run better rather than repeat the same misses. It closes the loop that `/plan-delivery` opens: planning, delivery, then reflection that feeds the next plan.
+You invoke this by typing `/retro`, and the agent will not reach for it on its own. Reach for it at the end of a phase or project, or after an incident has been stabilized, when you want the next cycle to run better rather than repeat the same misses. A live incident is not this skill. It closes the loop that `/plan-delivery` opens: planning, delivery, then reflection that feeds the next plan.
 
 ## The three questions
 
-What went well that we should deliberately keep, what went badly or surprised us, and what we will change. The first two are specific enough to repeat or avoid; the third is capped at two or three changes that will actually happen, each landed somewhere it will be seen at the right moment (a checklist, a `CONTEXT.md` entry, a ticket, an ADR).
+What went well that we should deliberately keep, what went badly or surprised us, and what we will change. The first two are specific enough to repeat or avoid; the third is capped at two or three changes that will actually happen, each landed somewhere it will be seen at the right moment (a checklist, a `CONTEXT.md` entry, a ticket, a decision record). A lasting technical choice is written with `record-decision`.
 
 ## Common questions
 

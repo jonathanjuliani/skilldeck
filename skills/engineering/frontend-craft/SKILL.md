@@ -43,6 +43,10 @@ Not a pass at the end, because the things that go wrong are structural and expen
 - **Accessibility is not negotiable against aesthetics.** Where a visual choice breaks contrast, keyboard access, or a target size, the visual choice changes.
 - **Show, do not describe.** When a direction is uncertain, build the smallest real version and let the user look at it. Where several directions are worth comparing, build them side by side behind one route rather than describing the difference.
 
+## Trust and failures a user can hit
+
+Call the Skill tool with "security-hardening" when this change can put a token, secret, or raw HTML in the client, or an error might render server text. Otherwise skip it. Call the Skill tool with "observability" when the user can hit a failed submit, a failed route, or a crash, and apply the client moment-0 baseline unless that failure is already reported.
+
 ## Excuses that do not hold
 
 | Excuse | Why it fails |
@@ -61,6 +65,6 @@ The accessibility obligations do not have an exception. They are the part that y
 
 Check the interface for the three failures that most often survive: a control that cannot be reached or operated by keyboard, an input whose only label is its placeholder, and a component that grew a new boolean prop instead of being split.
 
-For anything user-facing that is about to ship, call the Skill tool with "design-review" for a scored pass. This check covers the three failures of this skill's own output; that one judges whether the interface is any good.
+For anything user-facing about to ship, call the Skill tool with "design-review" for a scored pass.
 
 Then call the Skill tool with "verify-before-done", because a component that renders in front of you is the weakest possible evidence that it still builds, still type-checks, and still passes the tests around it.

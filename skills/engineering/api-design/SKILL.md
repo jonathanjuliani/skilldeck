@@ -1,6 +1,6 @@
 ---
 name: api-design
-description: Design an API boundary (REST, tRPC, or GraphQL) with typed, validated contracts. Use when the user is adding an endpoint, designing a service interface, or deciding how a client and server should talk. Chooses the API style from the project and consumers, validates every payload, and defers tool choices to resolve-conventions. Not for an internal function signature nothing outside the module depends on, and not for retiring a contract version, which is migration.
+description: Design an API boundary (REST, tRPC, or GraphQL) with typed, validated contracts. Use when the user is adding an endpoint, designing a service interface, or deciding how a client and server should talk. Chooses the API style from the project and consumers, validates every payload, and defers tool choices to resolve-conventions. Not for an internal function signature nothing outside the module depends on, not for how entities are stored, which is data-model, and not for retiring a contract version, which is migration.
 ---
 
 # API design
@@ -35,6 +35,12 @@ State the choice and the reason. When it is a close call, present the two credib
 - **No unvalidated input reaches logic.** The boundary is where trust begins.
 - **The transport stays thin.** Handlers parse, call a service, and shape the response. Business logic lives behind the boundary, where the `create` and `project-shape` skills place it.
 - **Contracts are shared, not duplicated.** In a monorepo, schemas and client types live in a shared package so both sides use one source of truth.
+
+## Trust and signals on the new operation
+
+Every new or changed contract accepts untrusted input. Call the Skill tool with "security-hardening" for the trust and authz pass. Shaping the contract stays here; that skill decides what the boundary is allowed to trust.
+
+Call the Skill tool with "observability" and apply the moment-0 baseline to the new operation in the same change. Skip a signal the project already emits for that operation.
 
 ## Excuses that do not hold
 

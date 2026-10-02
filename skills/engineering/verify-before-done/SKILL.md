@@ -1,6 +1,6 @@
 ---
 name: verify-before-done
-description: Turn a task into a verifiable criterion before starting, and prove that criterion with fresh command output before claiming the work is done, fixed, passing, or ready. Use whenever a task is about to be handed back, before committing, opening a PR, or reporting a fix, and whenever a claim about tests, builds, types, or behavior is about to be made. Not for choosing which seams to test or what kind of test to write, which is testing-strategy, and not for explaining or exploring, where no claim is being made.
+description: Turn a task into a verifiable criterion before starting, and prove that criterion with fresh command output before claiming the work is done, fixed, passing, or ready. Use whenever a task is about to be handed back, before committing, opening a PR, or reporting a fix, and whenever a claim about tests, builds, types, or behavior is about to be made. Not for finding an unknown cause, which is debug, not for choosing which seams to test or what kind of test to write, which is testing-strategy, and not for explaining or exploring, where no claim is being made.
 ---
 
 # Verify before done

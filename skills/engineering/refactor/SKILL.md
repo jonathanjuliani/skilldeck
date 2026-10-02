@@ -1,6 +1,6 @@
 ---
 name: refactor
-description: Execute a targeted, behavior-preserving refactor of existing JS/TS code to bring it in line with the project's conventions and standards. Use when the user wants to clean up, restructure, extract, rename, or de-duplicate code without changing what it does. Defers convention choices to the project. Not for work that changes behavior, and not for retiring something the codebase still depends on, which is migration.
+description: Execute a targeted, behavior-preserving refactor of existing JS/TS code to bring it in line with the project's conventions and standards. Use when the user wants to clean up, restructure, extract, rename, or de-duplicate code without changing what it does. Defers convention choices to the project. Not for work that changes behavior, not for finding why a behavior is wrong, which is debug, and not for retiring something the codebase still depends on, which is migration.
 ---
 
 # Refactor

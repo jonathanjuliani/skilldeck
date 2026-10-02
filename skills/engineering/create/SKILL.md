@@ -1,6 +1,6 @@
 ---
 name: create
-description: Scaffold new JS/TS code (component, hook, module, package, service, endpoint, or screen) to a project's resolved conventions and shape. Use when the user wants to add or generate a new unit of code and it should match how the project is already built. Detects the stack first; recommends and asks on greenfield. Not for changing code that already exists, which is refactor, and not for adding a line inside a file that already answers every convention question by example.
+description: Scaffold new JS/TS code (component, hook, module, package, service, endpoint, or screen) to a project's resolved conventions and shape. Use when the user wants to add or generate a new unit of code and it should match how the project is already built. Detects the stack first; recommends and asks on greenfield. Not for an empty or near-empty repo with nothing to match, which is bootstrap-repo, not for designing entities and persistence before any file exists, which is data-model, not for changing code that already exists, which is refactor, and not for adding a line inside a file that already answers every convention question by example.
 ---
 
 # Create
@@ -30,6 +30,7 @@ Say which rung you stopped at and why, in one line. When a rung between 1 and 5 
 4. **Confirm the plan, then generate.** State what will be created and where, in one short list (files, their folder, the conventions applied and their tier). On greenfield choices, show the recommendation and ask. Then write the files.
 5. **Match the neighbors.** Before writing, read one or two sibling units in the same folder and mirror their structure, imports, and naming. A consistent-but-imperfect match beats an ideal that stands out.
 6. **Wire it in.** Register the new unit where the project expects (route table, index export, navigator, DI/composition root), following the existing pattern. Do not invent a new registration mechanism.
+7. **Guard the path you just created.** Skip an internal helper, a local script, and a prototype. When the unit will run for a user in production, call the Skill tool with "security-hardening" if it accepts input, stores a credential, or writes a log, and call the Skill tool with "observability" for the moment-0 baseline. Do not paste their lists in here.
 
 ## What "consistent" means here
 
@@ -43,7 +44,7 @@ Say which rung you stopped at and why, in one line. When a rung between 1 and 5 
 - **Never introduce a new tool to satisfy a personal default.** If the project uses Jest, write a Jest test, not a Vitest one. The personal default applies only to a genuinely greenfield project, and even then it is offered, not imposed.
 - **Confirm before creating on greenfield.** When there is no convention to detect, show the recommended choice and its rationale and get a yes before generating.
 - **No scaffolding sprawl.** Generate the unit the user asked for and its direct wiring, not a speculative layer of folders "for later".
-- **Say what you assumed.** Where the request left something open (the name, the placement, the surface, whether it needs a test), state the assumption instead of silently picking. If two readings of the request produce different units, present both and ask rather than guessing and building.
+- **Say what you assumed.** Where the request left something open, state the assumption instead of silently picking. If two readings produce different units, present both and ask.
 - **Report what you did and why.** After generating, list the files and the tier each convention came from, so the choices stay auditable.
 
 ## Excuses that do not hold
@@ -56,7 +57,7 @@ Say which rung you stopped at and why, in one line. When a rung between 1 and 5 
 
 ## When this does not apply
 
-Adding a line to an existing file is not scaffolding a unit. Skip the full resolution when the change lands inside a file that already exists and already answers every convention question by example. Reach for this skill when something new arrives with its own folder, wiring, or public surface.
+Adding a line to an existing file is not scaffolding a unit. Skip the full resolution when the change lands inside a file that already exists and already answers every convention question by example. An empty or near-empty repository is not a unit either; that job is `bootstrap-repo`. Reach for this skill when something new arrives with its own folder, wiring, or public surface inside a project that already runs.
 
 ## Before you hand it over
 

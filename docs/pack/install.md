@@ -61,7 +61,7 @@ Reads `plugins/jon/.cursor-plugin/plugin.json`, which lists every skill path (Cu
 ./scripts/install-cursor.sh
 ```
 
-Then fully quit Cursor (`Cmd+Q`) and reopen, or run Developer: Reload Window. Enable **Include third-party Plugins, Skills, and other configs**. On Teams or Enterprise, an admin also needs **Allow Local Plugin Imports**. Confirm all 31 skills under Customize → Skills, then run `/setup-skills` (or `/jon:setup-skills` if the plugin is namespaced). Re-run the script after you change the plugin locally.
+Then fully quit Cursor (`Cmd+Q`) and reopen, or run Developer: Reload Window. Enable **Include third-party Plugins, Skills, and other configs**. On Teams or Enterprise, an admin also needs **Allow Local Plugin Imports**. Confirm all 36 skills under Customize → Skills, then run `/setup-skills` (or `/jon:setup-skills` if the plugin is namespaced). Re-run the script after you change the plugin locally.
 
 **GitHub import (any plan).** Customize → Plugins → From GitHub Repository → `https://github.com/jonathanjuliani/skills`. Cursor reads `.cursor-plugin/marketplace.json` and installs `jon` from `plugins/jon`. Choose user or project scope. Setup is `/jon:setup-skills` (or `/setup-skills` if Cursor does not namespace). If the import dialog closes with no plugin and no cache folder, use the local copy instead.
 

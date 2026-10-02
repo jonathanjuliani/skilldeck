@@ -245,9 +245,9 @@ for cycle in find_cycles():
 # rather than inferred so that a new code-changing skill has to be added here
 # deliberately, instead of shipping ungated because nothing noticed.
 MUST_REACH_GATE = {
-    "create", "refactor", "migration", "forms", "frontend-craft", "api-design",
+    "create", "debug", "bootstrap-repo", "refactor", "migration", "forms", "frontend-craft", "api-design",
     "state-management", "security-hardening", "observability", "design-tokens",
-    "perf-audit", "ship-flow", "release-flow", "testing-strategy",
+    "perf-audit", "ship-flow", "release-flow", "testing-strategy", "mitigate-incident",
 }
 for name in sorted(MUST_REACH_GATE):
     if name not in skills:

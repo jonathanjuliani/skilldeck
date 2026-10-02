@@ -1,0 +1,3 @@
+interface:
+  display_name: "Record decision"
+  short_description: "An architecture decision with the options that were rejected"

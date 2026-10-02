@@ -1,6 +1,6 @@
 ---
 name: state-management
-description: Decide how state should be managed in a React or React Native app, separating server state from client state and choosing the right tool for each. Use when the user is adding state, sees prop-drilling or sync bugs, or asks which state library to use. Defers library choices to resolve-conventions. Not for how a component is composed or made accessible, which is frontend-craft, and not for a single value owned by one component that nothing else reads.
+description: Decide how state should be managed in a React or React Native app, separating server state from client state and choosing the right tool for each. Use when the user is adding state, sees prop-drilling or sync bugs, or asks which state library to use. Defers library choices to resolve-conventions. Not for how a component is composed or made accessible, which is frontend-craft, not for how entities are persisted, which is data-model, and not for a single value owned by one component that nothing else reads.
 ---
 
 # State management

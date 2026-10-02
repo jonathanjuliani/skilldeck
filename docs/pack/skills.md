@@ -28,21 +28,26 @@ Every skill also carries the guardrails that earn their place in it: **When this
 ### Engineering
 
 - **project-shape** (model-invoked): detect single-repo, monorepo, or modular, and recommend folder and structure best practices per surface (backend, frontend, mobile).
+- **bootstrap-repo** (model-invoked): turn an empty or near-empty repo into the smallest runnable project, with community defaults confirmed before they are written.
 - **ts-standards** (model-invoked): JS/TS conventions reference (naming, types, error handling, module boundaries, validation at boundaries). Principles, not vendors.
 - **create** (model-invoked): scaffold a new component, module, package, service, or screen to the resolved conventions and shape. Walks a YAGNI ladder first, since the cheapest unit of code is the one nobody writes.
 - **refactor** (model-invoked): behavior-preserving refactor toward the project's conventions, tests green throughout, and no fence removed before it is understood.
 - **api-design** (model-invoked): choose REST, tRPC, or GraphQL by consumer, with typed, validated contracts.
-- **security-hardening** (model-invoked): find where the system extends trust (untrusted input, access control, secrets, supply chain) and put the right control there.
+- **data-model** (model-invoked): design entities, invariants, and persistence shape before any table, collection, or ORM file is written.
+- **security-hardening** (model-invoked): find where the system extends trust (untrusted input, access control, secrets, supply chain) and put the right control there. Also the trust pass when `create`, `api-design`, `frontend-craft`, or `forms` crosses a boundary.
 - **state-management** (model-invoked): separate server state from client state and pick the right tool for each.
 - **forms** (model-invoked): forms people can finish. Labels that persist, validation that fires at the right moment, errors that never destroy typed input, and submit that happens once.
 - **frontend-craft** (model-invoked): compose React and React Native components well and treat accessibility as part of the build, reaching for the platform before a dependency. Takes its direction from `design-brief`.
 - **testing-strategy** (model-invoked): choose seams and test kinds, concentrate effort on critical paths, and run the red-green loop.
+- **debug** (model-invoked): reproduce a failure whose cause is unknown, fix that cause, pin it, and backfill a silent path. New code does not get its first signals here.
 - **verify-before-done** (model-invoked): set the observable criterion before starting, then prove it with fresh command output before claiming anything is done, fixed, or passing.
 - **dependency-choice** (model-invoked): decide whether to add a dependency and which, judged on current community adoption, fit, and exposure.
 - **perf-audit** (model-invoked): measure, fix the dominant cost, re-measure; guidance per surface.
-- **observability** (model-invoked): instrument for the questions production will ask, and alert on symptoms a user can feel.
+- **observability** (model-invoked): instrument for the questions production will ask, and alert on symptoms a user can feel. A new production path gets the moment-0 baseline in the same change.
 - **ship-flow** (model-invoked): move a change to production in small steps, with CI as a gate, flags, staged rollout, and an undo path.
+- **mitigate-incident** (model-invoked): stabilize a production system that is hurting users before explaining it, then name any signal that was missing.
 - **migration** (model-invoked): retire an old dependency, API, or pattern with expand, migrate, contract, and treat deleting the old thing as the actual finish line.
+- **record-decision** (model-invoked): write an architecture decision, including the options that were rejected, into the project's existing decision home.
 - **release-flow** (model-invoked): versioning, changelog, and publishing, matching the project's existing process.
 
 ### Design

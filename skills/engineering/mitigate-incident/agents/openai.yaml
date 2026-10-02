@@ -1,0 +1,3 @@
+interface:
+  display_name: "Mitigate incident"
+  short_description: "Stop the bleeding first, then diagnose, status, and note missing signals"
