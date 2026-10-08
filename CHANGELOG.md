@@ -8,6 +8,7 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ### Added
 
+- Claude Code can install this pack from skilldeck as `skills@skilldeck` (`skilldeck install skills`). It is the same pack as `jon@skills`; pick one.
 - One version across the harness manifests, kept in step by `python3 scripts/version.py`, with this changelog and a GitHub Release on the tag.
 
 ## [0.1.0] - 2026-10-07

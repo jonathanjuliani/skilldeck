@@ -40,7 +40,19 @@ There is no category flag, so a whole category means listing its names. Add `-g`
 /plugin install jon@skills
 ```
 
-Skills arrive namespaced, so setup is `/jon:setup-skills`. Choose a scope when prompted: **user** (all your projects), **project** (committed to `.claude/settings.json`, shared with collaborators) or **local** (this repo, just you).
+Or, from skilldeck. This is the same pack. Do not install both.
+
+```bash
+/plugin marketplace add jonathanjuliani/skilldeck
+/plugin install skills@skilldeck
+```
+
+```bash
+npm i -g @jonathanjuliani/skilldeck
+skilldeck install skills
+```
+
+Skills arrive namespaced, so setup is `/jon:setup-skills` either way. Choose a scope when prompted: **user** (all your projects), **project** (committed to `.claude/settings.json`, shared with collaborators) or **local** (this repo, just you). The `skilldeck` command installs at user scope.
 
 ### Codex
 

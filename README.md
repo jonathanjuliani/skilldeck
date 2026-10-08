@@ -10,7 +10,7 @@ Detect before you decide. Recommend before you impose. Ask before you assume. Pr
 Pick one install. Both at once installs every skill twice.
 
 1. Any agent, choose which skills: `npx skills add jonathanjuliani/skills`
-2. All 36, as a plugin: [Claude, Codex, Cursor, or Gemini](docs/pack/install.md)
+2. All 36, as a plugin: [Claude, Codex, Cursor, or Gemini](docs/pack/install.md). In Claude Code, `jon@skills` and `skills@skilldeck` are the same pack; pick one.
 
 Then once per repo:
 
