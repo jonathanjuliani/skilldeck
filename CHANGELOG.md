@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-08
+
 ### Added
 
 - Claude Code can install this pack from skilldeck as `skills@skilldeck` (`skilldeck install skills`). It is the same pack as `jon@skills`; pick one.
@@ -19,5 +21,6 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skills/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skills/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/jonathanjuliani/skills/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/jonathanjuliani/skills/releases/tag/v0.1.0
