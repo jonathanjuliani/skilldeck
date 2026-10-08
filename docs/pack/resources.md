@@ -37,4 +37,14 @@ python3 scripts/validate.py --links   # also resolves external URLs
 
 Skip the hook for one commit with `git commit --no-verify`. Without pyyaml the validator still runs, reports that frontmatter is only partially checked, and CI covers the rest.
 
+## Releasing
+
+The version lives in `.claude-plugin/plugin.json`, `plugins/jon/.cursor-plugin/plugin.json`, `.codex-plugin/plugin.json`, `gemini-extension.json`, and on the `jon` entry in `.claude-plugin/marketplace.json`. They move together.
+
+1. Add each change under `## [Unreleased]` in [CHANGELOG.md](../../CHANGELOG.md) as you make it.
+2. On a clean `main`, run `python3 scripts/version.py patch` (or `minor` / `major`). It bumps the version, copies it into every manifest, turns Unreleased into a dated section, then commits and tags `vX.Y.Z`.
+3. `git push --follow-tags`. The [release workflow](../../.github/workflows/release.yml) checks that the tag, the manifests and the changelog agree, runs the validator, and creates the GitHub Release from that version's changelog section.
+
+Marketplace users only receive a change after a version bump, so every release needs one. `python3 scripts/version.py --check` checks the manifests agree. CI and the pre-commit hook run it.
+
 No Node toolchain here on purpose, and no markdown formatter: the repo is markdown, YAML and two scripts, so there is no JavaScript to lint, and a formatter was measured against it and rejected (384 lines changed across 24 files while every measurable axis was already uniform). The style is checked instead of rewritten; the reasoning is in [`.agents/conventions.md`](../../.agents/conventions.md).

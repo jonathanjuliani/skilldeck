@@ -27,6 +27,10 @@ A new skill is not installed until it is listed in every harness manifest, and t
 
 The phrase `Call the Skill tool with "<name>"` is load-bearing and Claude Code specific. It is the only cross-skill mechanism in this repo that has been observed working, so do not reword it for portability without measuring the replacement. See `evals/RESULTS.md` for what was measured and what was not.
 
+## When releasing
+
+Add each change under `## [Unreleased]` in [CHANGELOG.md](CHANGELOG.md) as you make it. Release with `python3 scripts/version.py <patch|minor|major>` on a clean `main`, then `git push --follow-tags`. Never change the version in one file by hand: `python3 scripts/version.py --check` fails, and marketplace users only receive a change after a version bump.
+
 ## What this repo does not have
 
 No Node toolchain, no package manager, no markdown formatter, no build step. The only dependency is pyyaml. A formatter was measured against this repo and rejected; the reasoning is in `.agents/conventions.md`. Do not add one back without reading that first.

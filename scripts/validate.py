@@ -484,18 +484,45 @@ if len(loaded) > 1:
         if len(set(values.values())) > 1:
             errors.append(f"manifests disagree on '{field}': {values}")
 
+canonical_version = loaded.get(".claude-plugin/plugin.json", {}).get("version")
+
 gem = ROOT / "gemini-extension.json"
 if not gem.exists():
     errors.append("gemini-extension.json: missing harness manifest")
 else:
     try:
-        ctx = json.loads(gem.read_text()).get("contextFileName")
+        gemini = json.loads(gem.read_text())
+        ctx = gemini.get("contextFileName")
         if not ctx:
             errors.append("gemini-extension.json: no contextFileName")
         elif not (ROOT / ctx).exists():
             errors.append(f"gemini-extension.json: contextFileName '{ctx}' does not exist")
+        if canonical_version and gemini.get("version") != canonical_version:
+            errors.append(
+                f"gemini-extension.json: version {gemini.get('version')!r} does not match "
+                f".claude-plugin/plugin.json {canonical_version!r}"
+            )
     except Exception as e:
         errors.append(f"gemini-extension.json: {e}")
+
+if canonical_version:
+    try:
+        claude_mkt = json.loads((ROOT / ".claude-plugin/marketplace.json").read_text())
+    except Exception:
+        claude_mkt = None
+    if isinstance(claude_mkt, dict):
+        entry = next(
+            (item for item in claude_mkt.get("plugins") or []
+             if isinstance(item, dict) and item.get("name") == "jon"),
+            None,
+        )
+        if entry is None:
+            errors.append(".claude-plugin/marketplace.json: no plugin named 'jon'")
+        elif entry.get("version") != canonical_version:
+            errors.append(
+                ".claude-plugin/marketplace.json: version "
+                f"{entry.get('version')!r} does not match .claude-plugin/plugin.json {canonical_version!r}"
+            )
 
 for required in ("AGENTS.md",):
     if not (ROOT / required).exists():
