@@ -10,7 +10,7 @@ There are two ways in, and they behave differently. **Pick one**: installing bot
 
 | | **Plugin** | **Files** (`npx skills`) |
 | --- | --- | --- |
-| What you get | A managed bundle of all 30, updating when the repo ships | Editable copies of the skills you choose |
+| What you get | A managed bundle of all 36, updating when the repo ships | Editable copies of the skills you choose |
 | Invocation | Namespaced: `/jon:setup-skills` | Bare: `/setup-skills` |
 | Install everything | yes | yes |
 | Install one skill | no | yes |

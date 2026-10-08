@@ -11,6 +11,10 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 - Claude Code can install this pack from skilldeck as `skills@skilldeck` (`skilldeck install skills`). It is the same pack as `jon@skills`; pick one.
 - One version across the harness manifests, kept in step by `python3 scripts/version.py`, with this changelog and a GitHub Release on the tag.
 
+### Fixed
+
+- The install page says the plugin is all 36 skills, matching the README.
+
 ## [0.1.0] - 2026-10-07
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
