@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-10-09
+
 ### Added
 
 - `scripts/marketplace_check.py` checks skill `name` and `description`, marketplace JSON, and that each `source` is a relative plugin directory. CI runs it. Another repo calls `.github/workflows/marketplace-check.yml` pinned to a tag.
@@ -61,7 +63,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.4...v1.0.0
 [0.1.4]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.1...v0.1.2
