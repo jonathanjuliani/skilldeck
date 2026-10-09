@@ -1,5 +1,5 @@
 {
-  "name": "skills",
+  "name": "skilldeck",
   "owner": {
     "name": "Jonathan Juliani"
   },
@@ -20,5 +20,9 @@
         "delivery"
       ]
     }
-  ]
+  ],
+  "renames": {
+    "skills": "skilldeck",
+    "skillverse": null
+  }
 }

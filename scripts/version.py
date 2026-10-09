@@ -30,7 +30,7 @@ CANONICAL = ".claude-plugin/plugin.json"
 VERSION_FILES = (
     ".claude-plugin/plugin.json",
     "plugins/skilldeck/.cursor-plugin/plugin.json",
-    ".codex-plugin/plugin.json",
+    "plugins/skilldeck/.codex-plugin/plugin.json",
     "gemini-extension.json",
 )
 MARKETPLACE = ".claude-plugin/marketplace.json"

@@ -29,7 +29,7 @@ rsync -a --delete --copy-links "${REPO_ROOT}/plugins/skilldeck/" "${DEST}/"
 echo "Cursor: copied plugin to ${DEST}"
 echo "  → Fully quit Cursor (Cmd+Q) and reopen, or Developer: Reload Window"
 echo "  → Enable Include third-party Plugins, Skills, and other configs"
-echo "  → Confirm all 31 skills under Customize → Skills"
+echo "  → Confirm all 36 skills under Customize → Skills"
 echo "  → Then run /skilldeck:setup-skills (or /setup-skills if not namespaced)"
 echo
 echo "Re-run this script after you change the plugin locally."

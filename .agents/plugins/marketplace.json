@@ -1,0 +1,20 @@
+{
+  "name": "skilldeck",
+  "interface": {
+    "displayName": "skilldeck"
+  },
+  "plugins": [
+    {
+      "name": "skilldeck",
+      "source": {
+        "source": "local",
+        "path": "./plugins/skilldeck"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

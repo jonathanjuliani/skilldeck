@@ -28,10 +28,10 @@ jobs:
         run: python3 scripts/validate.py
 
       - name: Build OpenAI import package
-        run: python3 scripts/build-openai-plugin.py --output "$RUNNER_TEMP/jon" --archive "$RUNNER_TEMP/jon-openai.zip"
+        run: python3 scripts/build-openai-plugin.py --output "$RUNNER_TEMP/skilldeck" --archive "$RUNNER_TEMP/skilldeck-openai.zip"
 
       - name: Validate OpenAI import package
-        run: python3 scripts/test-openai-package.py "$RUNNER_TEMP/jon" --archive "$RUNNER_TEMP/jon-openai.zip"
+        run: python3 scripts/test-openai-package.py "$RUNNER_TEMP/skilldeck" --archive "$RUNNER_TEMP/skilldeck-openai.zip"
 
       - name: GitHub Release from the changelog
         run: |

@@ -6,6 +6,17 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+### Changed
+
+- Claude, Cursor, Codex, and Gemini marketplaces are named `skilldeck`. The install id on this repo is `skilldeck@skilldeck`. The plugin is still the one pack.
+- Codex reads `plugins/skilldeck/.codex-plugin/plugin.json` via `.agents/plugins/marketplace.json`.
+- Claude `renames` maps the hub plugin `skills` to `skilldeck`, and records that `skillverse` is no longer in this marketplace.
+
+### Fixed
+
+- The OpenAI package build names its output directory `skilldeck`, matching the plugin name. CI was still writing `jon`.
+- Cursor GitHub import found no skills. The pack was a symlink out of `plugins/skilldeck`, which Cursor refuses. The files now live in that directory, and `skills/` at the repo root points there.
+
 ## [0.1.4] - 2026-10-09
 
 ### Changed

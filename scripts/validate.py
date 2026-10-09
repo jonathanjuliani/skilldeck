@@ -408,12 +408,14 @@ on_disk = {str(p.parent.relative_to(ROOT)) for p in ROOT.glob("skills/*/*/SKILL.
 # Harness manifests. They drift the moment one is edited alone, so the shared
 # fields are compared rather than trusted. Claude Code and Cursor list every
 # leaf path because their plugin loaders do not recurse into bucket folders.
-# Codex walks ./skills/ itself. Cursor's plugin.json lives under plugins/skilldeck
-# so GitHub import can resolve a subdirectory source.
+# Codex walks ./skills/ from the plugin directory. Cursor's plugin.json lives under
+# plugins/skilldeck so GitHub import can resolve a subdirectory source. The skill
+# files live in that directory too: Cursor refuses a symlink whose target leaves
+# the plugin directory.
 MANIFESTS = {
     ".claude-plugin/plugin.json": "list",
     "plugins/skilldeck/.cursor-plugin/plugin.json": "list",
-    ".codex-plugin/plugin.json": "dir",
+    "plugins/skilldeck/.codex-plugin/plugin.json": "dir",
 }
 loaded = {}
 for path, kind in MANIFESTS.items():
@@ -426,10 +428,12 @@ for path, kind in MANIFESTS.items():
         errors.append(f"{path}: {e}"); continue
     if kind == "dir":
         target = loaded[path].get("skills")
+        plugin_root = (ROOT / path).parent.parent
+        skills_dir = plugin_root / "skills"
         if target != "./skills/":
             errors.append(f"{path}: 'skills' should be './skills/', found {target!r}")
-        elif not (ROOT / "skills").is_dir():
-            errors.append(f"{path}: 'skills' points at a directory that does not exist")
+        elif skills_dir.is_symlink() or not skills_dir.is_dir():
+            errors.append(f"{path}: ./skills/ must be a real directory under {plugin_root.relative_to(ROOT)}")
     elif kind == "list":
         listed = loaded[path].get("skills")
         if not isinstance(listed, list):
@@ -463,19 +467,49 @@ try:
             errors.append(".cursor-plugin/marketplace.json: metadata.pluginRoot should be 'plugins'")
         if entry.get("source") != "skilldeck":
             errors.append(f".cursor-plugin/marketplace.json: source should be 'skilldeck', found {entry.get('source')!r}")
-        if mkt.get("name") != "skilldeck-skills":
-            errors.append(f".cursor-plugin/marketplace.json: name should be 'skilldeck-skills', found {mkt.get('name')!r}")
+        if mkt.get("name") != "skilldeck":
+            errors.append(f".cursor-plugin/marketplace.json: name should be 'skilldeck', found {mkt.get('name')!r}")
     cursor_skills = ROOT / "plugins/skilldeck/skills"
-    if not cursor_skills.is_symlink():
-        errors.append("plugins/skilldeck/skills: must be a symlink to ../../skills")
+    root_skills = ROOT / "skills"
+    if cursor_skills.is_symlink() or not cursor_skills.is_dir():
+        errors.append("plugins/skilldeck/skills: must be a real directory, not a symlink")
+    if not root_skills.is_symlink():
+        errors.append("skills: must be a symlink to plugins/skilldeck/skills")
     else:
-        link = cursor_skills.readlink()
-        if str(link) != "../../skills":
-            errors.append(f"plugins/skilldeck/skills: symlink should be ../../skills, found {str(link)!r}")
+        link = root_skills.readlink()
+        if str(link) != "plugins/skilldeck/skills":
+            errors.append(f"skills: symlink should be plugins/skilldeck/skills, found {str(link)!r}")
 except FileNotFoundError:
     errors.append(".cursor-plugin/marketplace.json: missing")
 except Exception as e:
     errors.append(f".cursor-plugin/marketplace.json: {e}")
+
+try:
+    codex_mkt = json.loads((ROOT / ".agents/plugins/marketplace.json").read_text())
+    if codex_mkt.get("name") != "skilldeck":
+        errors.append(
+            ".agents/plugins/marketplace.json: name should be 'skilldeck', "
+            f"found {codex_mkt.get('name')!r}"
+        )
+    codex_plugins = codex_mkt.get("plugins") or []
+    if len(codex_plugins) != 1:
+        errors.append(".agents/plugins/marketplace.json: expected exactly one plugin")
+    else:
+        source = codex_plugins[0].get("source") or {}
+        if codex_plugins[0].get("name") != "skilldeck":
+            errors.append(
+                ".agents/plugins/marketplace.json: plugin name should be 'skilldeck', "
+                f"found {codex_plugins[0].get('name')!r}"
+            )
+        if source.get("path") != "./plugins/skilldeck":
+            errors.append(
+                ".agents/plugins/marketplace.json: source.path should be './plugins/skilldeck', "
+                f"found {source.get('path')!r}"
+            )
+except FileNotFoundError:
+    errors.append(".agents/plugins/marketplace.json: missing")
+except Exception as e:
+    errors.append(f".agents/plugins/marketplace.json: {e}")
 
 if len(loaded) > 1:
     ref_path, ref = next(iter(loaded.items()))
@@ -497,6 +531,8 @@ else:
             errors.append("gemini-extension.json: no contextFileName")
         elif not (ROOT / ctx).exists():
             errors.append(f"gemini-extension.json: contextFileName '{ctx}' does not exist")
+        if gemini.get("name") != "skilldeck":
+            errors.append(f"gemini-extension.json: name should be 'skilldeck', found {gemini.get('name')!r}")
         if canonical_version and gemini.get("version") != canonical_version:
             errors.append(
                 f"gemini-extension.json: version {gemini.get('version')!r} does not match "
@@ -516,6 +552,17 @@ if canonical_version:
              if isinstance(item, dict) and item.get("name") == "skilldeck"),
             None,
         )
+        if claude_mkt.get("name") != "skilldeck":
+            errors.append(
+                ".claude-plugin/marketplace.json: name should be 'skilldeck', "
+                f"found {claude_mkt.get('name')!r}"
+            )
+        if claude_mkt.get("renames") != {"skills": "skilldeck", "skillverse": None}:
+            errors.append(
+                ".claude-plugin/marketplace.json: renames should map 'skills' to "
+                "'skilldeck' and 'skillverse' to null, "
+                f"found {claude_mkt.get('renames')!r}"
+            )
         if entry is None:
             errors.append(".claude-plugin/marketplace.json: no plugin named 'skilldeck'")
         elif entry.get("version") != canonical_version:

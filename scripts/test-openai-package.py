@@ -18,7 +18,7 @@ import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BUILDER = ROOT / "scripts" / "build-openai-plugin.py"
-SOURCE_MANIFEST = ROOT / ".codex-plugin" / "plugin.json"
+SOURCE_MANIFEST = ROOT / "plugins" / "skilldeck" / ".codex-plugin" / "plugin.json"
 PORTABLE_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 LINK = re.compile(r"\[[^\]]*\]\((?!https?://|#)([^)]+)\)")
 SUPPORTED_AGENT_FIELDS = {"interface", "policy", "dependencies"}
@@ -189,8 +189,8 @@ def validate_determinism() -> None:
         temporary_root = pathlib.Path(temporary)
         archives = []
         for label in ("first", "second"):
-            output = temporary_root / label / "jon"
-            archive = temporary_root / label / "jon-openai.zip"
+            output = temporary_root / label / "skilldeck"
+            archive = temporary_root / label / "skilldeck-openai.zip"
             subprocess.run(
                 [
                     sys.executable,

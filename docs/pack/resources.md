@@ -26,7 +26,7 @@ Small, composable skills that defer to the project in front of them, so they sta
 - `evals/` the test harness and its findings. `RESULTS.md` records what has and has not been measured, including what failed.
 - `scripts/validate.py` the checks: frontmatter parses, names match folders, guardrails present, cross-references and relative links resolve, manifests in sync, no undeclared external skill, and markdown style holds. `.githooks/pre-commit` runs it before a commit; `.github/workflows/validate.yml` runs it on push and pull request plus a weekly link check.
 - `.agents/conventions.md` how to write and extend a skill here. `AGENTS.md` instructions for an agent working on this repo, not for consumers.
-- `.claude-plugin/`, `.codex-plugin/`, `.cursor-plugin/` (marketplace) plus `plugins/skilldeck/` (Cursor plugin), `gemini-extension.json` one manifest per harness, kept in sync by the validator. `GEMINI.md` is the context file the Gemini extension loads.
+- `.claude-plugin/` and `.cursor-plugin/` are the Claude and Cursor marketplaces, both named `skilldeck`. `.agents/plugins/marketplace.json` is the Codex marketplace and points at `plugins/skilldeck`. That directory holds the Cursor and Codex plugin manifests. `gemini-extension.json` is the Gemini extension, also named `skilldeck`. The validator keeps them in sync. `GEMINI.md` is the context file the Gemini extension loads.
 
 ```bash
 pip install pyyaml
@@ -39,7 +39,7 @@ Skip the hook for one commit with `git commit --no-verify`. Without pyyaml the v
 
 ## Releasing
 
-The version lives in `.claude-plugin/plugin.json`, `plugins/skilldeck/.cursor-plugin/plugin.json`, `.codex-plugin/plugin.json`, `gemini-extension.json`, and on the `skilldeck` entry in `.claude-plugin/marketplace.json`. They move together.
+The version lives in `.claude-plugin/plugin.json`, `plugins/skilldeck/.cursor-plugin/plugin.json`, `plugins/skilldeck/.codex-plugin/plugin.json`, `gemini-extension.json`, and on the `skilldeck` entry in `.claude-plugin/marketplace.json`. They move together.
 
 1. Add each change under `## [Unreleased]` in [CHANGELOG.md](../../CHANGELOG.md) as you make it.
 2. On a clean `main`, run `python3 scripts/version.py patch` (or `minor` / `major`). It bumps the version, copies it into every manifest, turns Unreleased into a dated section, then commits and tags `vX.Y.Z`.
