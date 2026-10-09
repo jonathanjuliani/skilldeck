@@ -72,6 +72,8 @@ Then fully quit Cursor (`Cmd+Q`) and reopen, or run Developer: Reload Window. En
 
 **GitHub import (any plan).** Customize → Plugins → From GitHub Repository → `https://github.com/jonathanjuliani/skills`. Cursor reads `.cursor-plugin/marketplace.json` and installs `skilldeck` from `plugins/skilldeck`. Choose user or project scope. Setup is `/skilldeck:setup-skills` (or `/setup-skills` if Cursor does not namespace). If the import dialog closes with no plugin and no cache folder, use the local copy instead.
 
+**skilldeck marketplace.** Add `https://github.com/jonathanjuliani/skilldeck` the same way. Cursor reads that repo's `.cursor-plugin/marketplace.json` and installs the same `skilldeck` plugin. Skillverse is not in this catalog.
+
 **Team Marketplace.** On Teams or Enterprise, an admin can import the GitHub repo: Dashboard → Plugins → Add Marketplace → Import from Repo → `https://github.com/jonathanjuliani/skills`. Cursor reads `.cursor-plugin/marketplace.json`.
 
 **Official Marketplace.** Once listed, install from Customize → Marketplace. Until then, submit the public repo at [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish).
