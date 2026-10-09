@@ -94,7 +94,7 @@ Depends on: phase 1 merged to `main`
 Tasks:
 
 - [x] Working tree clean on `main`, including the local edits already in this clone, so the rename is not mixed with unrelated diffs.
-- [ ] `npm deprecate @jonathanjuliani/skilldeck "Retired. Engineering skills: /plugin marketplace add jonathanjuliani/skilldeck then /plugin install skilldeck@skilldeck. Skillverse: /plugin marketplace add jonathanjuliani/skillverse then /plugin install skillverse@skillverse."` Blocked on 2026-10-09: `npm whoami` is 401, and deprecate returns 404. `npm view` still shows 0.1.3 with no deprecation. Retry after `npm login`.
+- [ ] `npm deprecate @jonathanjuliani/skilldeck`. The owner will deprecate or delete this package. It is new, and this repo does not publish it.
 - [x] Hub repo: rename `jonathanjuliani/skilldeck` to `jonathanjuliani/skilldeck-hub`. Archive it. Replace `README.md` with the same migration paragraph. Do not delete the repo.
 - [x] This repo: GitHub Settings → rename `skills` to `skilldeck`. Do not create a repository named `skills` afterwards.
 - [x] Local clone: `git remote set-url origin git@github.com:jonathanjuliani/skilldeck.git`.
@@ -121,13 +121,13 @@ Depends on: phase 2
 
 Tasks:
 
-- [ ] Antigravity: do not add a second `plugin.json`. Run `agy plugin install ./plugins/skilldeck`. If `agy` rejects the manifest, record the error in `docs/install.md` and keep `npx skills add` as the path. Do not fork the schema to guess.
-- [ ] Copilot: from a clone, `copilot plugin marketplace add ./`. If the Claude marketplace is picked up, do not add `.github/plugin/marketplace.json`. If it is not, add that file with one entry, `source` `./`, and make `scripts/validate.py` fail when the two marketplace files differ.
-- [ ] VS Code: do not flatten `skills/<bucket>/<name>`. If `chat.plugins.marketplaces` lists the repo and the skills do not appear, record which file VS Code read and that nested folders were not discovered. The Claude and Cursor skill lists stay the supported install.
-- [ ] `.github/workflows/marketplace-check.yml`: `on: workflow_call`. Checkout the caller into `caller/`, checkout `jonathanjuliani/skilldeck` at the tag being released into `skilldeck/`, run a new `scripts/marketplace_check.py` against `caller/`. The script checks frontmatter `name` and `description`, manifest JSON, and that each relative `source` is a real plugin directory. Print `path: reason` on failure.
-- [ ] `.github/workflows/validate.yml`: run `scripts/marketplace_check.py` on this repo so the shared check and the full validator both run.
-- [ ] `scripts/version.py`: include any new manifest that has `version`.
-- [ ] Do not add `.devin-plugin/plugin.json`. The install doc tells Devin users to run `npx skills add jonathanjuliani/skilldeck -a devin`.
+- [x] Antigravity: do not add a second `plugin.json`. Run `agy plugin install ./plugins/skilldeck`. If `agy` rejects the manifest, record the error in `docs/install.md` and keep `npx skills add` as the path. Do not fork the schema to guess. `agy` is not on PATH (2026-10-09). The note is in `docs/pack/install.md`, which is the install page until phase 4 moves it to `docs/install.md`.
+- [x] Copilot: from a clone, `copilot plugin marketplace add ./`. If the Claude marketplace is picked up, do not add `.github/plugin/marketplace.json`. If it is not, add that file with one entry, `source` `./`, and make `scripts/validate.py` fail when the two marketplace files differ. `copilot` is not on PATH. The extra marketplace file was not added.
+- [x] VS Code: do not flatten `skills/<bucket>/<name>`. If `chat.plugins.marketplaces` lists the repo and the skills do not appear, record which file VS Code read and that nested folders were not discovered. The Claude and Cursor skill lists stay the supported install. User settings do not list the repo, so the skill list was not observed.
+- [x] `.github/workflows/marketplace-check.yml`: `on: workflow_call`. Checkout the caller into `caller/`, checkout `jonathanjuliani/skilldeck` at the tag being released into `skilldeck/`, run a new `scripts/marketplace_check.py` against `caller/`. The script checks frontmatter `name` and `description`, manifest JSON, and that each relative `source` is a real plugin directory. Print `path: reason` on failure.
+- [x] `.github/workflows/validate.yml`: run `scripts/marketplace_check.py` on this repo so the shared check and the full validator both run.
+- [x] `scripts/version.py`: include any new manifest that has `version`. No new versioned manifest. `.github/plugin/marketplace.json` was not added.
+- [x] Do not add `.devin-plugin/plugin.json`. The install doc tells Devin users to run `npx skills add jonathanjuliani/skilldeck -a devin`.
 
 Acceptance criteria:
 

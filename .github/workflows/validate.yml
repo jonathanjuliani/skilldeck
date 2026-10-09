@@ -17,6 +17,10 @@ jobs:
       - run: pip install pyyaml
       - name: Structural checks
         run: python3 scripts/validate.py
+      - name: Marketplace check
+        run: python3 scripts/marketplace_check.py .
+      - name: Marketplace check tests
+        run: python3 scripts/test_marketplace_check.py
       - name: Versions agree
         run: python3 scripts/version.py --check
       - name: Version script tests

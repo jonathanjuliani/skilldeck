@@ -6,6 +6,10 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+### Added
+
+- `scripts/marketplace_check.py` checks skill `name` and `description`, marketplace JSON, and that each `source` is a relative plugin directory. CI runs it. Another repo calls `.github/workflows/marketplace-check.yml` pinned to a tag.
+
 ### Changed
 
 - The GitHub repository is `jonathanjuliani/skilldeck`. `jonathanjuliani/skills` redirects here. The hub is archived as `jonathanjuliani/skilldeck-hub`.

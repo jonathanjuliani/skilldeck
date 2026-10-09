@@ -82,7 +82,17 @@ Then fully quit Cursor (`Cmd+Q`) and reopen, or run Developer: Reload Window. En
 gemini extensions install https://github.com/jonathanjuliani/skilldeck
 ```
 
-Reads `gemini-extension.json`, which loads `GEMINI.md` as context. That file tells the agent to open the routing block before a non-trivial task. The [Coverage](coverage.md) page is the human map of the same pack, not a second catalog for the agent.
+Reads `gemini-extension.json`, which loads `GEMINI.md` as context. That file tells the agent to open the routing block before a non-trivial task. The [Coverage](coverage.md) page is the human map of the same pack, not a second catalog for the agent. `gemini` was not on PATH on 2026-10-09. The extension name in that file is `skilldeck`.
+
+### Devin
+
+This release has no Devin plugin. `npx skills add jonathanjuliani/skilldeck -a devin` writes the skills to `.devin/skills/` or `~/.config/devin/skills/`.
+
+### Copilot, VS Code, and Antigravity
+
+`copilot` and `agy` were not on PATH on 2026-10-09, so neither install was run. No `.github/plugin/marketplace.json` and no second `plugin.json`. Copilot also reads `.claude-plugin/marketplace.json`. The Antigravity command to try is `agy plugin install ./plugins/skilldeck`. If that rejects the manifest, use `npx skills add jonathanjuliani/skilldeck`. Antigravity workspace skills live in `.agents/skills/`.
+
+VS Code user settings do not list this repo in `chat.plugins.marketplaces`, so the skill list was not observed. Skills stay at `plugins/skilldeck/skills/<bucket>/<name>/SKILL.md`. Claude and Cursor keep their explicit lists.
 
 ### Then, once per repo
 

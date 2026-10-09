@@ -1,0 +1,41 @@
+name: marketplace-check
+
+# Another repo calls this at a tag, not at main:
+#   uses: jonathanjuliani/skilldeck/.github/workflows/marketplace-check.yml@v1.0.0
+# github.workflow_sha is that pinned commit, so the script matches the workflow file.
+on:
+  workflow_call:
+    inputs:
+      skilldeck_ref:
+        description: Commit or tag of jonathanjuliani/skilldeck. Defaults to the pinned workflow commit.
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout caller
+        uses: actions/checkout@v4
+        with:
+          path: caller
+
+      - name: Checkout skilldeck check
+        uses: actions/checkout@v4
+        with:
+          repository: jonathanjuliani/skilldeck
+          ref: ${{ inputs.skilldeck_ref != '' && inputs.skilldeck_ref || github.workflow_sha }}
+          path: skilldeck
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pyyaml
+
+      - name: Marketplace check
+        run: python3 skilldeck/scripts/marketplace_check.py caller
