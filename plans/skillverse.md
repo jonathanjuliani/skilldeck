@@ -51,13 +51,13 @@ Depends on: skilldeck phase 2 (hub archived as `skilldeck-hub`)
 
 Tasks:
 
-- [ ] `README.md`: what it does; privacy (local reads, `127.0.0.1`, no prompts leaving the machine, jsDelivr for the page) with a link to `docs/how-it-works.md`; install by marketplace (`/plugin marketplace add jonathanjuliani/skillverse`, `/plugin install skillverse@skillverse`) and by npm (`npm i -g @jonathanjuliani/skillverse`); how to run `skillverse run` and `skillverse open`; link to `docs/develop.md`; release is a tag; link back to `https://github.com/jonathanjuliani/skilldeck`. One sentence that `npx skills add jonathanjuliani/skillverse` is not available until this repo has a skill. Delete the `@jonathanjuliani/skilldeck` / `skilldeck install skillverse` block.
-- [ ] `docs/install.md`: the same two routes, plus the update commands that already exist (`/plugin marketplace update skillverse`, `npm update -g @jonathanjuliani/skillverse`). Remove the hub. This is the file an agent fetches from raw GitHub. Repeat the sentence that `npx skills` waits on a skill.
-- [ ] `docs/how-it-works.md`: keep the current privacy section. Do not add a skill row.
-- [ ] `docs/develop.md`: state that a release tags `main`, publishes npm, and opens a GitHub Release. Do not document a skill path or a version pin.
-- [ ] `AGENTS.md` and `.jon-skills/config.yaml`: `jonathanjuliani/skills` becomes `jonathanjuliani/skilldeck` after that rename. Personal defaults still live in that pack.
-- [ ] `CHANGELOG.md`: under `## [Unreleased]`, hub removal. Do not claim a new skill or new manifests.
-- [ ] Search for `skilldeck install`, `skillverse@skilldeck`, and `@jonathanjuliani/skilldeck`. Remove them.
+- [x] `README.md`: what it does; privacy (local reads, `127.0.0.1`, no prompts leaving the machine, jsDelivr for the page) with a link to `docs/how-it-works.md`; install by marketplace (`/plugin marketplace add jonathanjuliani/skillverse`, `/plugin install skillverse@skillverse`) and by npm (`npm i -g @jonathanjuliani/skillverse`); how to run `skillverse run` and `skillverse open`; link to `docs/develop.md`; release is a tag; link back to `https://github.com/jonathanjuliani/skilldeck`. One sentence that `npx skills add jonathanjuliani/skillverse` is not available until this repo has a skill. Delete the `@jonathanjuliani/skilldeck` / `skilldeck install skillverse` block.
+- [x] `docs/install.md`: the same two routes, plus the update commands that already exist (`/plugin marketplace update skillverse`, `npm update -g @jonathanjuliani/skillverse`). Remove the hub. This is the file an agent fetches from raw GitHub. Repeat the sentence that `npx skills` waits on a skill.
+- [x] `docs/how-it-works.md`: keep the current privacy section. Do not add a skill row.
+- [x] `docs/develop.md`: state that a release tags `main`, publishes npm, and opens a GitHub Release. Do not document a skill path or a version pin.
+- [x] `AGENTS.md` and `.jon-skills/config.yaml`: `jonathanjuliani/skills` becomes `jonathanjuliani/skilldeck` after that rename. Personal defaults still live in that pack. The config parenthetical is now `plugin skilldeck`.
+- [x] `CHANGELOG.md`: under `## [Unreleased]`, hub removal. Do not claim a new skill or new manifests.
+- [x] Search for `skilldeck install`, `skillverse@skilldeck`, and `@jonathanjuliani/skilldeck`. Remove them. The 0.2.1 changelog bullet was reworded so it no longer names that command.
 
 Acceptance criteria:
 
@@ -79,11 +79,11 @@ Depends on: phase 1
 
 Tasks:
 
-- [ ] `CONTRIBUTING.md`: how to change the plugin, the CLI, or the docs. Run `pnpm run lint && pnpm test && pnpm run validate`. The pane code in `hooks/register.tsx` has its own rules in `AGENTS.md`. Link them. State that a new skill is out of scope until a later release, so this file does not include a `SKILL.md` template.
-- [ ] `.github/ISSUE_TEMPLATE/config.yml` and a bug or change template (what broke, which surface: pane, web app, or CLI).
-- [ ] `.github/PULL_REQUEST_TEMPLATE.md`: what changed, which commands were run, changelog line under `## [Unreleased]`.
-- [ ] `.github/CODEOWNERS`: `* @jonathanjuliani`.
-- [ ] `gh label create "good first skill" --description "A change to skillverse docs or a future skill"`. Mention it in `CONTRIBUTING.md` as a label for doc fixes. Do not file a skill issue as the example.
+- [x] `CONTRIBUTING.md`: how to change the plugin, the CLI, or the docs. Run `pnpm run lint && pnpm test && pnpm run validate`. The pane code in `hooks/register.tsx` has its own rules in `AGENTS.md`. Link them. State that a new skill is out of scope until a later release, so this file does not include a `SKILL.md` template.
+- [x] `.github/ISSUE_TEMPLATE/config.yml` and a bug or change template (what broke, which surface: pane, web app, or CLI).
+- [x] `.github/PULL_REQUEST_TEMPLATE.md`: what changed, which commands were run, changelog line under `## [Unreleased]`.
+- [x] `.github/CODEOWNERS`: `* @jonathanjuliani`.
+- [x] `gh label create "good first skill" --description "A change to skillverse docs or a future skill"`. Mention it in `CONTRIBUTING.md` as a label for doc fixes. Do not file a skill issue as the example.
 
 Acceptance criteria:
 
@@ -103,10 +103,10 @@ Depends on: phase 1. Phase 2 can land in the same release or the one after.
 
 Tasks:
 
-- [ ] Confirm `NPM_TOKEN`. If `v0.2.4` never reached npm, do not retag it. Re-run the failed release run with `gh run rerun`, or cut `v0.2.5` from `main` once the doc changes are in. `gh workflow run` does not apply to a `push` tag trigger.
-- [ ] `pnpm version patch` (or `minor` if the changelog warrants it) on clean `main`. `scripts/sync-version.mjs` keeps `package.json`, `.claude-plugin/plugin.json`, and `.claude-plugin/marketplace.json` on one version. Push with `--follow-tags`.
-- [ ] `.github/workflows/release.yml`: no change to the trigger. It already runs `node scripts/sync-version.mjs --check`.
-- [ ] Do not submit this repo at [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish) in the skilldeck batch.
+- [x] Confirm `NPM_TOKEN`. If `v0.2.4` never reached npm, do not retag it. Re-run the failed release run with `gh run rerun`, or cut `v0.2.5` from `main` once the doc changes are in. `gh workflow run` does not apply to a `push` tag trigger. `NPM_TOKEN` is set. `v0.2.4` was only a local tag. `git push --follow-tags` also pushed it; that release run was cancelled and the remote tag was deleted before npm showed `0.2.4`.
+- [x] `pnpm version patch` (or `minor` if the changelog warrants it) on clean `main`. `scripts/sync-version.mjs` keeps `package.json`, `.claude-plugin/plugin.json`, and `.claude-plugin/marketplace.json` on one version. Push with `--follow-tags`. The unreleased section already had new commands that had never reached npm, so the bump is minor: `0.3.0`. Release: https://github.com/jonathanjuliani/skillverse/releases/tag/v0.3.0
+- [x] `.github/workflows/release.yml`: no change to the trigger. It already runs `node scripts/sync-version.mjs --check`.
+- [x] Do not submit this repo at [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish) in the skilldeck batch. Not submitted.
 
 Acceptance criteria:
 
@@ -119,3 +119,12 @@ Acceptance criteria:
 Docs to update: the changelog section for the release.
 
 Risk / rollback: npm publish is not easily undone. Deprecate a bad version. Do not unpublish if anything has installed it. Marketplace rollback is a newer patch tag.
+
+Checked on 2026-10-09, from `main`. `feat/agent-views` (pull request 2) was left as it was.
+
+- `pnpm run lint` and `pnpm test` passed before the release (63 tests).
+- `node scripts/sync-version.mjs --check v0.3.0` passed on the tag. The release workflow succeeded.
+- `npm view @jonathanjuliani/skillverse version` is `0.3.0`. `npx @jonathanjuliani/skillverse@0.3.0 --help` printed the usage.
+- `claude plugin marketplace update skillverse` offers plugin `skillverse` `0.3.0`, source `./`.
+- `npm view @jonathanjuliani/skilldeck` is 404. Nothing from this repo published that name.
+- `find . -name SKILL.md` printed nothing. Cursor was not submitted.
