@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "skilldeck",
+  "description": "Detects a project's conventions and defers to them. Engineering, interface design, and delivery are one pack."
+}

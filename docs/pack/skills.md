@@ -2,7 +2,9 @@
 
 Every skill in the pack, one line each.
 Open this when you want the full breakdown, not the four-folder summary.
-Back to [skilldeck skills](../../README.md).
+Back to [skilldeck](../../README.md).
+
+A plugin install namespaces a command as `/skilldeck:`. `npx skills` stays unscoped.
 
 ## What makes it different
 

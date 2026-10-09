@@ -1,0 +1,30 @@
+name: Skill
+description: Propose a skill inside the skilldeck plugin.
+title: "skill: "
+body:
+  - type: input
+    id: skill-name
+    attributes:
+      label: Name
+      description: Folder name, lowercase with hyphens.
+    validations:
+      required: true
+  - type: dropdown
+    id: bucket
+    attributes:
+      label: Bucket
+      description: The four folders are one plugin, not four plugins.
+      options:
+        - foundation
+        - engineering
+        - design
+        - process
+    validations:
+      required: true
+  - type: textarea
+    id: when
+    attributes:
+      label: When it should run
+      description: The moment an agent should reach for it, and when it should not.
+    validations:
+      required: true

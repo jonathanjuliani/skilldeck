@@ -484,6 +484,26 @@ except FileNotFoundError:
 except Exception as e:
     errors.append(f".cursor-plugin/marketplace.json: {e}")
 
+AGY_MANIFEST = "plugins/skilldeck/plugin.json"
+AGY_SCHEMA = "https://antigravity.google/schemas/v1/plugin.json"
+AGY_KEYS = {"$schema", "name", "description"}
+try:
+    agy = json.loads((ROOT / AGY_MANIFEST).read_text())
+    extra = sorted(set(agy) - AGY_KEYS)
+    if extra:
+        errors.append(f"{AGY_MANIFEST}: unknown fields {extra}. Antigravity rejects them.")
+    if agy.get("$schema") != AGY_SCHEMA:
+        errors.append(f"{AGY_MANIFEST}: $schema should be {AGY_SCHEMA!r}, found {agy.get('$schema')!r}")
+    if agy.get("name") != "skilldeck":
+        errors.append(f"{AGY_MANIFEST}: name should be 'skilldeck', found {agy.get('name')!r}")
+    description = agy.get("description")
+    if not isinstance(description, str) or not description.strip():
+        errors.append(f"{AGY_MANIFEST}: missing description")
+except FileNotFoundError:
+    errors.append(f"{AGY_MANIFEST}: missing")
+except Exception as e:
+    errors.append(f"{AGY_MANIFEST}: {e}")
+
 try:
     codex_mkt = json.loads((ROOT / ".agents/plugins/marketplace.json").read_text())
     if codex_mkt.get("name") != "skilldeck":

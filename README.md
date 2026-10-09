@@ -1,46 +1,88 @@
-Moved from `jonathanjuliani/skills`. This repository is `jonathanjuliani/skilldeck`. The install id is `skilldeck@skilldeck`. The old id `skills@skilldeck` is retired.
+# skilldeck
 
-# skills
-
-36 skills for JavaScript, TypeScript, React, and React Native, installed from [skilldeck](https://github.com/jonathanjuliani/skilldeck).
-They read the repo before they pick a stack.
+36 skills for JavaScript, TypeScript, React, and React Native. They read the repo before they pick a stack.
 
 Detect before you decide. Recommend before you impose. Ask before you assume. Prove before you claim.
 
-## Do this
+| Plugin | What it is | Version |
+| --- | --- | --- |
+| `skilldeck` | Detects a project's conventions and defers to them. | 0.1.4 |
 
-Pick one install. Both at once installs every skill twice.
+## Install
 
-1. Any agent, choose which skills: `npx skills add jonathanjuliani/skills`
-2. All 36, as a plugin from skilldeck. In Claude Code, pick marketplace or npm. Codex uses the marketplace. Cursor and Gemini: [Install and remove](docs/pack/install.md).
+Pick one. A plugin install and `npx skills` together load every skill twice.
 
-Marketplace, in Claude Code:
+Commands for every tool are in [Install](docs/install.md). That is the page an agent should fetch.
+
+### Native plugin
+
+Claude Code:
 
 ```text
 /plugin marketplace add jonathanjuliani/skilldeck
-/plugin install skills@skilldeck
-```
-
-npm, in Claude Code:
-
-```bash
-npm i -g @jonathanjuliani/skilldeck
-skilldeck install skills
+/plugin install skilldeck@skilldeck
 ```
 
 Codex:
 
 ```bash
 codex plugin marketplace add jonathanjuliani/skilldeck
-codex plugin add skills@skilldeck
+codex plugin add skilldeck@skilldeck
 ```
 
-Start a new session after a plugin install. Then once per repo:
+Cursor: Customize → Plugins → From GitHub Repository → `https://github.com/jonathanjuliani/skilldeck`.
 
-- `/setup-skills`
-- `/skilldeck:setup-skills`
+GitHub Copilot:
 
-It asks whether to write `.skilldeck-skills/config.yaml`. It asks again before it edits anything else.
+```bash
+copilot plugin marketplace add jonathanjuliani/skilldeck
+copilot plugin install skilldeck@skilldeck
+```
+
+Antigravity, from a clone of this repo:
+
+```bash
+agy plugin install ./plugins/skilldeck
+```
+
+Gemini CLI:
+
+```bash
+gemini extensions install https://github.com/jonathanjuliani/skilldeck
+```
+
+After a plugin install, start a new session. Setup is `/skilldeck:setup-skills`.
+
+### Team
+
+On Cursor Teams or Enterprise, an admin imports `https://github.com/jonathanjuliani/skilldeck` at Dashboard → Plugins → Add Marketplace → Import from Repo.
+
+### Skills only
+
+`npx skills` copies the skills you choose and stays unscoped. Setup is `/setup-skills`.
+
+```bash
+npx skills add jonathanjuliani/skilldeck --list
+npx skills add jonathanjuliani/skilldeck
+```
+
+Devin: `npx skills add jonathanjuliani/skilldeck -a devin`.
+
+## Update
+
+Update the marketplace, then start a new session. Claude Code: `/plugin marketplace update skilldeck`, then `/plugin update skilldeck@skilldeck`. The other tools are in [Install](docs/install.md). A marketplace user receives a change only after a version bump.
+
+## Release
+
+On a clean `main`, run `python3 scripts/version.py patch` (or `minor` / `major`), then `git push --follow-tags`. The steps are in [Releasing](docs/pack/resources.md#releasing).
+
+## Moved from `skills`
+
+This repository was `jonathanjuliani/skills`. That URL redirects here. The old install id `skills@skilldeck` is retired. The install id is `skilldeck@skilldeck`.
+
+## Also from skilldeck
+
+[Skillverse](https://github.com/jonathanjuliani/skillverse) is a separate repository. Install it from there.
 
 ## The pack
 
@@ -60,8 +102,9 @@ One line per skill: [skills](docs/pack/skills.md).
 
 ## Read next
 
-- [Install and remove](docs/pack/install.md)
-- [Skills](docs/pack/skills.md) — full breakdown
-- [Coverage](docs/pack/coverage.md) — what the pack does and does not cover
-- [Inspirations](docs/pack/inspirations.md) — prior art and companions
-- [Resources](docs/pack/resources.md) — layout, checks, what was measured
+- [Install](docs/install.md)
+- [Contributing](CONTRIBUTING.md)
+- [Skills](docs/pack/skills.md)
+- [Coverage](docs/pack/coverage.md)
+- [Inspirations](docs/pack/inspirations.md)
+- [Resources](docs/pack/resources.md)

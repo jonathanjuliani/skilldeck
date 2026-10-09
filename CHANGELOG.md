@@ -12,7 +12,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ### Changed
 
-- The GitHub repository is `jonathanjuliani/skilldeck`. `jonathanjuliani/skills` redirects here. The hub is archived as `jonathanjuliani/skilldeck-hub`.
+- The install id is `skilldeck@skilldeck`. The hub install `skills@skilldeck` is retired. The hub repository is archived as `jonathanjuliani/skilldeck-hub`.
+- The GitHub repository is `jonathanjuliani/skilldeck`. `jonathanjuliani/skills` redirects here.
 - Claude, Cursor, Codex, and Gemini marketplaces are named `skilldeck`. The install id on this repo is `skilldeck@skilldeck`. The plugin is still the one pack.
 - Codex reads `plugins/skilldeck/.codex-plugin/plugin.json` via `.agents/plugins/marketplace.json`.
 - Claude `renames` maps the hub plugin `skills` to `skilldeck`, and records that `skillverse` is no longer in this marketplace.

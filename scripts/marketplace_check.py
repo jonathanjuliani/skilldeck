@@ -105,6 +105,7 @@ def plugin_manifest_paths(root: Path) -> list[Path]:
         if path.is_file():
             paths.append(path)
     for pattern in (
+        "plugins/*/plugin.json",
         "plugins/*/.claude-plugin/plugin.json",
         "plugins/*/.cursor-plugin/plugin.json",
         "plugins/*/.codex-plugin/plugin.json",

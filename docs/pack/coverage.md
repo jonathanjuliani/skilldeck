@@ -2,7 +2,9 @@
 
 Where the pack sits on an engineering job, and what it leaves out.
 Open this when you want the map, not a skill to run.
-Back to [skilldeck skills](../../README.md).
+Back to [skilldeck](../../README.md).
+
+A plugin install namespaces a command as `/skilldeck:`. `npx skills` stays unscoped.
 
 ## Coverage
 

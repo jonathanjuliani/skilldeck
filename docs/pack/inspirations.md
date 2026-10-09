@@ -2,7 +2,9 @@
 
 Prior art this pack learned from, and the optional companions a few skills name.
 Open this when you want something narrower, more opinionated, or more complete.
-Back to [skilldeck skills](../../README.md).
+Back to [skilldeck](../../README.md).
+
+A plugin install namespaces a command as `/skilldeck:`. `npx skills` stays unscoped.
 
 ## Optional companions
 

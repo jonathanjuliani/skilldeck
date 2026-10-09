@@ -94,7 +94,7 @@ Depends on: phase 1 merged to `main`
 Tasks:
 
 - [x] Working tree clean on `main`, including the local edits already in this clone, so the rename is not mixed with unrelated diffs.
-- [ ] `npm deprecate @jonathanjuliani/skilldeck`. The owner will deprecate or delete this package. It is new, and this repo does not publish it.
+- [x] `npm deprecate @jonathanjuliani/skilldeck`. The owner deleted the package. `npm view` returns 404.
 - [x] Hub repo: rename `jonathanjuliani/skilldeck` to `jonathanjuliani/skilldeck-hub`. Archive it. Replace `README.md` with the same migration paragraph. Do not delete the repo.
 - [x] This repo: GitHub Settings → rename `skills` to `skilldeck`. Do not create a repository named `skills` afterwards.
 - [x] Local clone: `git remote set-url origin git@github.com:jonathanjuliani/skilldeck.git`.
@@ -149,17 +149,17 @@ Depends on: phase 2. Can be written against phase 1 on the branch and published 
 
 Tasks:
 
-- [ ] `README.md`: what skilldeck is; one plugin row (name `skilldeck`, one-line description, version); install commands grouped as native plugin, Team, and skills-only fallback; how to update; how a release is cut; link to `CONTRIBUTING.md`; "Moved from `skills`" with the old id `skills@skilldeck` and the new id `skilldeck@skilldeck`; "Also from skilldeck: skillverse" linking to `https://github.com/jonathanjuliani/skillverse`. No hub command and no `@jonathanjuliani/skilldeck`. Devin's line is `npx skills add jonathanjuliani/skilldeck -a devin`.
-- [ ] `docs/install.md`: the agent page. State the tool, then the commands. An agent fetches `https://raw.githubusercontent.com/jonathanjuliani/skilldeck/main/docs/install.md`. Move the long per-harness detail out of `docs/pack/install.md` into this file, and leave `docs/pack/install.md` as a pointer, or replace it in place if the pack index should stay at `docs/pack/`. Pick one URL and use it in the README. Do not keep two install pages that can drift. Slash commands in that page stay `/skilldeck:…`. `npx skills` stays `/setup-skills`.
-- [ ] `docs/pack/skills.md`, `docs/pack/coverage.md`, `docs/pack/inspirations.md`, `docs/foundation/setup-skills.md`, `docs/process/*.md`: keep `/skilldeck:` for a plugin install. Say that `npx skills` stays unscoped.
-- [ ] `skills/foundation/setup-skills/routing-block.md` and `verification-block.md`: marker prefix `skilldeck-skills:` stays.
-- [ ] `CONTRIBUTING.md`: the shape is `plugins/skilldeck/skills/<bucket>/<name>/SKILL.md`, with `plugins/skilldeck/skills/engineering/debug/` as the example. Required frontmatter. Run `python3 scripts/validate.py`. Link `.agents/conventions.md`. The four bucket folders stay; they are not four plugins.
-- [ ] `.github/ISSUE_TEMPLATE/skill.yml`: name, bucket (`foundation`, `engineering`, `design`, `process`), when it should run.
-- [ ] `.github/PULL_REQUEST_TEMPLATE.md`: which bucket, validator run, changelog line under `## [Unreleased]`.
-- [ ] `.github/CODEOWNERS`: `* @jonathanjuliani`.
-- [ ] Label `good first skill`: `gh label create "good first skill" --description "A new skill inside the skilldeck plugin"`. Mention it in `CONTRIBUTING.md`.
-- [ ] `CHANGELOG.md`: under `## [Unreleased]`, the id change from `skills@skilldeck` to `skilldeck@skilldeck`, the rename, and the removed hub install.
-- [ ] Search the repo for `jonathanjuliani/skills`, `skilldeck-skills`, `npx skills add jonathanjuliani/skills`, and `@jonathanjuliani/skilldeck`. Each hit is updated or listed as an intentional keep (`.skilldeck-skills` is a keep). `skills@skilldeck` remains only in the migration note.
+- [x] `README.md`: what skilldeck is; one plugin row (name `skilldeck`, one-line description, version); install commands grouped as native plugin, Team, and skills-only fallback; how to update; how a release is cut; link to `CONTRIBUTING.md`; "Moved from `skills`" with the old id `skills@skilldeck` and the new id `skilldeck@skilldeck`; "Also from skilldeck: skillverse" linking to `https://github.com/jonathanjuliani/skillverse`. No hub command and no `@jonathanjuliani/skilldeck`. Devin's line is `npx skills add jonathanjuliani/skilldeck -a devin`. The version in the table is `0.1.4`. Phase 5 has to change that row when it bumps the manifests. `version.py` does not edit the README.
+- [x] `docs/install.md`: the agent page. State the tool, then the commands. An agent fetches `https://raw.githubusercontent.com/jonathanjuliani/skilldeck/main/docs/install.md`. Move the long per-harness detail out of `docs/pack/install.md` into this file, and leave `docs/pack/install.md` as a pointer, or replace it in place if the pack index should stay at `docs/pack/`. Pick one URL and use it in the README. Do not keep two install pages that can drift. Slash commands in that page stay `/skilldeck:…`. `npx skills` stays `/setup-skills`.
+- [x] `docs/pack/skills.md`, `docs/pack/coverage.md`, `docs/pack/inspirations.md`, `docs/foundation/setup-skills.md`, `docs/process/*.md`: keep `/skilldeck:` for a plugin install. Say that `npx skills` stays unscoped. There is no `docs/process/align-first.md` or `diagram.md`.
+- [x] `skills/foundation/setup-skills/routing-block.md` and `verification-block.md`: marker prefix `skilldeck-skills:` stays.
+- [x] `CONTRIBUTING.md`: the shape is `plugins/skilldeck/skills/<bucket>/<name>/SKILL.md`, with `plugins/skilldeck/skills/engineering/debug/` as the example. Required frontmatter. Run `python3 scripts/validate.py`. Link `.agents/conventions.md`. The four bucket folders stay; they are not four plugins.
+- [x] `.github/ISSUE_TEMPLATE/skill.yml`: name, bucket (`foundation`, `engineering`, `design`, `process`), when it should run.
+- [x] `.github/PULL_REQUEST_TEMPLATE.md`: which bucket, validator run, changelog line under `## [Unreleased]`.
+- [x] `.github/CODEOWNERS`: `* @jonathanjuliani`.
+- [x] Label `good first skill`: `gh label create "good first skill" --description "A new skill inside the skilldeck plugin"`. Mention it in `CONTRIBUTING.md`.
+- [x] `CHANGELOG.md`: under `## [Unreleased]`, the id change from `skills@skilldeck` to `skilldeck@skilldeck`, the rename, and the removed hub install.
+- [x] Search the repo for `jonathanjuliani/skills`, `skilldeck-skills`, `npx skills add jonathanjuliani/skills`, and `@jonathanjuliani/skilldeck`. Each hit is updated or listed as an intentional keep (`.skilldeck-skills` is a keep). `skills@skilldeck` remains only in the migration note. Keeps: past changelog sections, `plans/`, `CONTEXT.md`, skill files that name `.skilldeck-skills/` or `skilldeck-skills:` markers, and `evals/RESULTS.md`.
 
 Acceptance criteria:
 

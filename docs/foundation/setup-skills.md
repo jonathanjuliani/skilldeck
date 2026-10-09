@@ -37,7 +37,7 @@ No. Other skills detect conventions on demand. Running setup just caches the res
 
 ## Invoking it
 
-This page writes `/setup-skills` for brevity, but the prefix depends on how you installed. The plugin namespaces its skills, so it is `/skilldeck:setup-skills` in Claude Code and Cursor and `@skilldeck:setup-skills` in Codex. Installed as files with `npx skills`, it is plain `/setup-skills`.
+This page writes `/setup-skills` for brevity, but the prefix depends on how you installed. The plugin namespaces its skills, so it is `/skilldeck:setup-skills` in Claude Code and Cursor and `@skilldeck:setup-skills` in Codex. Installed as files with `npx skills`, the command stays unscoped: `/setup-skills`.
 
 ## It's working if
 
