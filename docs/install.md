@@ -157,3 +157,9 @@ npx skills remove --all
 ```
 
 `remove --all` removes every installed skill from every source, not only this pack.
+
+## skills.sh
+
+The listing URL is [skills.sh/jonathanjuliani/skilldeck](https://www.skills.sh/jonathanjuliani/skilldeck).
+On 2026-10-09 that path and [skills.sh/jonathanjuliani/skills](https://www.skills.sh/jonathanjuliani/skills) both returned 404.
+The index is filled by the skills CLI. This repo has no skills.sh config file.

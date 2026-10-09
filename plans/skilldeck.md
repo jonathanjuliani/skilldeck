@@ -181,11 +181,11 @@ Depends on: phases 2, 3, and 4
 
 Tasks:
 
-- [ ] `python3 scripts/version.py major` on clean `main`. Version becomes `1.0.0` in every manifest the script owns. Tag `v1.0.0`.
-- [ ] `git push --follow-tags`. `.github/workflows/release.yml` opens the GitHub Release from the changelog section. The body includes the migration commands: remove marketplace `skilldeck` if it was the hub, add `jonathanjuliani/skilldeck`, install `skilldeck@skilldeck`. Also give `skillverse@skillverse` for anyone who had installed Skillverse from the hub.
-- [ ] Pin a GitHub issue "Moved from skills" with those same commands for Claude, Codex, and Cursor.
-- [ ] Submit `https://github.com/jonathanjuliani/skilldeck` at [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish). One plugin. Further re-index requests only on minor or major tags. Do not submit skillverse in this batch.
-- [ ] After the tag exists, confirm `https://www.skills.sh/jonathanjuliani/skilldeck` (and the old `/skills` path). If the old path 404s and the new path is empty, the listing is populated by the skills CLI's own index, not by a file in this repo. Record the URL in `docs/install.md`. Do not add a skills.sh config file; none is documented.
+- [x] `python3 scripts/version.py major` on clean `main`. Version becomes `1.0.0` in every manifest the script owns. Tag `v1.0.0`. The README version row was set to `1.0.0` in the parent commit, because `version.py` does not edit the README.
+- [x] `git push --follow-tags`. `.github/workflows/release.yml` opens the GitHub Release from the changelog section. The body includes the migration commands: remove marketplace `skilldeck` if it was the hub, add `jonathanjuliani/skilldeck`, install `skilldeck@skilldeck`. Also give `skillverse@skillverse` for anyone who had installed Skillverse from the hub. Release: https://github.com/jonathanjuliani/skilldeck/releases/tag/v1.0.0
+- [x] Pin a GitHub issue "Moved from skills" with those same commands for Claude, Codex, and Cursor. https://github.com/jonathanjuliani/skilldeck/issues/2
+- [x] Submit `https://github.com/jonathanjuliani/skilldeck` at [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish). One plugin. Further re-index requests only on minor or major tags. Do not submit skillverse in this batch. On 2026-10-09 the page said "Sign in to apply" and had no form. The submission was not filed. That note is on the GitHub Release.
+- [x] After the tag exists, confirm `https://www.skills.sh/jonathanjuliani/skilldeck` (and the old `/skills` path). If the old path 404s and the new path is empty, the listing is populated by the skills CLI's own index, not by a file in this repo. Record the URL in `docs/install.md`. Do not add a skills.sh config file; none is documented. Both URLs returned 404 on 2026-10-09. The URL is recorded in `docs/install.md`.
 
 Acceptance criteria:
 
@@ -195,6 +195,14 @@ Acceptance criteria:
 - `/skilldeck:setup-skills` still runs.
 - The Cursor submission is filed, or a dated note in the release says the form was unavailable.
 
-Docs to update: release notes are the changelog section. `docs/pack/resources.md` already describes `version.py`; adjust the Codex manifest path if phase 1 moved it.
+Docs to update: release notes are the changelog section. `docs/pack/resources.md` already describes `version.py`; adjust the Codex manifest path if phase 1 moved it. The Codex path was already updated in phase 1.
 
 Risk / rollback: tags are not moved. A bad release is a `v1.0.1` fix. Yanking `v1.0.0` on GitHub does not roll back clones that already updated. Cursor listing can be pulled by the publisher if a review finds a problem.
+
+Checked on 2026-10-09:
+
+- `python3 scripts/version.py --check v1.0.0` passed on the tag. Validate and release workflows on `v1.0.0` succeeded.
+- The GitHub Release body tells a hub user to install one plugin, `skilldeck@skilldeck`, and `skillverse@skillverse` from `jonathanjuliani/skillverse`. It records that `skills@skilldeck` is retired.
+- `claude plugin marketplace update skilldeck` recloned this repo. The marketplace entry is plugin `skilldeck` version `1.0.0`. This machine still has marketplace `skills` at `jonathanjuliani/skills.git` and `jon@skills` 0.1.0 enabled, so `skilldeck@skilldeck` was not installed here.
+- `/skilldeck:setup-skills` was not started in a new session.
+- The Cursor publish page required sign-in. The dated note is on the release.
