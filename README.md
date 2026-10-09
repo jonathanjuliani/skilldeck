@@ -1,6 +1,6 @@
-# jon-skills
+# skills
 
-36 skills for JavaScript, TypeScript, React, and React Native.
+36 skills for JavaScript, TypeScript, React, and React Native, installed from [skilldeck](https://github.com/jonathanjuliani/skilldeck).
 They read the repo before they pick a stack.
 
 Detect before you decide. Recommend before you impose. Ask before you assume. Prove before you claim.
@@ -10,14 +10,35 @@ Detect before you decide. Recommend before you impose. Ask before you assume. Pr
 Pick one install. Both at once installs every skill twice.
 
 1. Any agent, choose which skills: `npx skills add jonathanjuliani/skills`
-2. All 36, as a plugin: [Claude, Codex, Cursor, or Gemini](docs/pack/install.md). In Claude Code, `jon@skills` and `skills@skilldeck` are the same pack; pick one.
+2. All 36, as a plugin from skilldeck. In Claude Code, pick marketplace or npm. Codex uses the marketplace. Cursor and Gemini: [Install and remove](docs/pack/install.md).
 
-Then once per repo:
+Marketplace, in Claude Code:
 
-- files: `/setup-skills`
-- plugin: `/jon:setup-skills`
+```text
+/plugin marketplace add jonathanjuliani/skilldeck
+/plugin install skills@skilldeck
+```
 
-That writes `.jon-skills/config.yaml`. It asks before it edits anything else.
+npm, in Claude Code:
+
+```bash
+npm i -g @jonathanjuliani/skilldeck
+skilldeck install skills
+```
+
+Codex:
+
+```bash
+codex plugin marketplace add jonathanjuliani/skilldeck
+codex plugin add skills@skilldeck
+```
+
+Start a new session after a plugin install. Then once per repo:
+
+- `/setup-skills`
+- `/skilldeck:setup-skills`
+
+It asks whether to write `.skilldeck-skills/config.yaml`. It asks again before it edits anything else.
 
 ## The pack
 

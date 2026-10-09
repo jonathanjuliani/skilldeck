@@ -155,7 +155,7 @@ for f in sorted(ROOT.glob("skills/*/*/SKILL.md")):
                           f"{skill_sources[fm['name']]}")
         skill_sources[fm["name"]] = rel
         skills[fm["name"]] = text
-        if len(f"jon:{fm['name']}") > 64:
+        if len(f"skilldeck:{fm['name']}") > 64:
             errors.append(f"{rel}: OpenAI plugin and skill identity exceeds 64 characters")
         body = skill_body(text)
         body_words = word_count(body)
@@ -408,11 +408,11 @@ on_disk = {str(p.parent.relative_to(ROOT)) for p in ROOT.glob("skills/*/*/SKILL.
 # Harness manifests. They drift the moment one is edited alone, so the shared
 # fields are compared rather than trusted. Claude Code and Cursor list every
 # leaf path because their plugin loaders do not recurse into bucket folders.
-# Codex walks ./skills/ itself. Cursor's plugin.json lives under plugins/jon
+# Codex walks ./skills/ itself. Cursor's plugin.json lives under plugins/skilldeck
 # so GitHub import can resolve a subdirectory source.
 MANIFESTS = {
     ".claude-plugin/plugin.json": "list",
-    "plugins/jon/.cursor-plugin/plugin.json": "list",
+    "plugins/skilldeck/.cursor-plugin/plugin.json": "list",
     ".codex-plugin/plugin.json": "dir",
 }
 loaded = {}
@@ -456,22 +456,22 @@ try:
         for banned in ("keywords", "category", "tags"):
             if banned in entry:
                 errors.append(f".cursor-plugin/marketplace.json: '{banned}' belongs on plugin.json, not the marketplace entry")
-        expected_name = loaded.get("plugins/jon/.cursor-plugin/plugin.json", {}).get("name")
+        expected_name = loaded.get("plugins/skilldeck/.cursor-plugin/plugin.json", {}).get("name")
         if expected_name and entry.get("name") != expected_name:
             errors.append(f".cursor-plugin/marketplace.json: plugin name {entry.get('name')!r} does not match plugin.json {expected_name!r}")
         if (mkt.get("metadata") or {}).get("pluginRoot") != "plugins":
             errors.append(".cursor-plugin/marketplace.json: metadata.pluginRoot should be 'plugins'")
-        if entry.get("source") != "jon":
-            errors.append(f".cursor-plugin/marketplace.json: source should be 'jon', found {entry.get('source')!r}")
+        if entry.get("source") != "skilldeck":
+            errors.append(f".cursor-plugin/marketplace.json: source should be 'skilldeck', found {entry.get('source')!r}")
         if mkt.get("name") != "jon-skills":
             errors.append(f".cursor-plugin/marketplace.json: name should be 'jon-skills', found {mkt.get('name')!r}")
-    cursor_skills = ROOT / "plugins/jon/skills"
+    cursor_skills = ROOT / "plugins/skilldeck/skills"
     if not cursor_skills.is_symlink():
-        errors.append("plugins/jon/skills: must be a symlink to ../../skills")
+        errors.append("plugins/skilldeck/skills: must be a symlink to ../../skills")
     else:
         link = cursor_skills.readlink()
         if str(link) != "../../skills":
-            errors.append(f"plugins/jon/skills: symlink should be ../../skills, found {str(link)!r}")
+            errors.append(f"plugins/skilldeck/skills: symlink should be ../../skills, found {str(link)!r}")
 except FileNotFoundError:
     errors.append(".cursor-plugin/marketplace.json: missing")
 except Exception as e:
@@ -513,11 +513,11 @@ if canonical_version:
     if isinstance(claude_mkt, dict):
         entry = next(
             (item for item in claude_mkt.get("plugins") or []
-             if isinstance(item, dict) and item.get("name") == "jon"),
+             if isinstance(item, dict) and item.get("name") == "skilldeck"),
             None,
         )
         if entry is None:
-            errors.append(".claude-plugin/marketplace.json: no plugin named 'jon'")
+            errors.append(".claude-plugin/marketplace.json: no plugin named 'skilldeck'")
         elif entry.get("version") != canonical_version:
             errors.append(
                 ".claude-plugin/marketplace.json: version "

@@ -14,7 +14,7 @@ The defining constraint: a convention is only ever *resolved*, never defaulted-i
 For every convention (package manager, formatter/linter, test runner, validation library, framework, folder layout, naming style, and so on), resolve in this order and stop at the first tier that answers:
 
 1. **Project (detected).** Read the repository. A lockfile, a `package.json` field, a config file, or the existing folder layout is the answer. Detection always wins. See [detection.md](detection.md).
-2. **Company.** If the repo carries `.jon-skills/company.yaml` or a company standardization skill (for example an in-repo code-standards skill), defer to it. It outranks personal and community defaults.
+2. **Company.** If the repo carries `.skilldeck-skills/company.yaml` or a company standardization skill (for example an in-repo code-standards skill), defer to it. It outranks personal and community defaults.
 3. **Personal.** The seeded tiebreakers in [defaults.yaml](defaults.yaml). Apply only when tiers 1 and 2 are silent.
 4. **Community.** For anything still unresolved on a greenfield project, recommend the current community default from [community-defaults.md](community-defaults.md) with a one-line rationale, then ask the user to confirm or override. Never apply a community default without confirmation.
 
@@ -22,7 +22,7 @@ A higher tier always wins. Never apply a lower tier over a resolved higher one: 
 
 ## How to use it
 
-1. **Read the cache.** If `.jon-skills/config.yaml` exists, it holds conventions already resolved for this repo. Trust it unless the repo has visibly changed. It is written by the `setup-skills` skill.
+1. **Read the cache.** If `.skilldeck-skills/config.yaml` exists, it holds conventions already resolved for this repo. Trust it unless the repo has visibly changed. It is written by the `setup-skills` skill.
 2. **Detect.** For each convention the task needs, run the checks in [detection.md](detection.md). Record what you found and how you found it (the evidence), so the choice is auditable.
 3. **Fill the gaps.** For conventions detection could not resolve, walk tiers 2 through 4. On greenfield, present the community recommendation and the personal default together and let the user pick.
 4. **Report the resolution.** State each resolved convention and the tier it came from, briefly. "Package manager: pnpm (detected: pnpm-lock.yaml). Test runner: none found, recommend Vitest (community default), your personal default is also Vitest, confirm?" Transparency is the point: the user should always see why a choice was made.

@@ -47,7 +47,7 @@ How to read a repository to resolve conventions from the project itself (tier 1)
 ## Existing conventions and standards
 
 - A `CONTEXT.md` at the repo root carries the project's own vocabulary; read it and let its terms win.
-- `.jon-skills/config.yaml` is a prior resolution cache. `.jon-skills/company.yaml` or an in-repo standards skill is tier 2 and outranks personal defaults.
+- `.skilldeck-skills/config.yaml` is a prior resolution cache. `.skilldeck-skills/company.yaml` or an in-repo standards skill is tier 2 and outranks personal defaults.
 - `.editorconfig`, `CONTRIBUTING.md`, and existing folder naming under `src` all encode conventions; honor them over any default.
 
 ## When detection is silent

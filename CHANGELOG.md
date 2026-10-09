@@ -6,6 +6,12 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+### Changed
+
+- Claude Code and Codex install this pack from skilldeck as `skills@skilldeck`.
+- The README is titled skills and shows the skilldeck marketplace and npm install.
+- Setup asks before writing `.skilldeck-skills/config.yaml`. The plugin command is `/skilldeck:setup-skills`.
+
 ## [0.1.1] - 2026-10-08
 
 ### Added

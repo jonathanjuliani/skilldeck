@@ -32,7 +32,7 @@ A pure library, a local script, and a prototype get no production instrumentatio
 
 The first feature, screen, or endpoint is not part of the skeleton. Call the Skill tool with "create" for that unit once the skeleton runs.
 
-Tell the user they can run `/setup-skills` to write `.jon-skills/config.yaml` and, if they want it, the routing block. That skill is user-invoked, so do not call it yourself. If they want `AGENTS.md` or `CLAUDE.md` as part of this bootstrap, call the Skill tool with "agent-instructions".
+Tell the user they can run `/setup-skills` to write `.skilldeck-skills/config.yaml` and, if they want it, the routing block. That skill is user-invoked, so do not call it yourself. If they want `AGENTS.md` or `CLAUDE.md` as part of this bootstrap, call the Skill tool with "agent-instructions".
 
 ## Rules
 

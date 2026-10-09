@@ -25,7 +25,7 @@ Problem briefs from `/investigate-product`, and your own sense of value and effo
 
 ## Invoking it
 
-This page writes `/plan-delivery` for brevity, but the prefix depends on how you installed. The plugin namespaces its skills, so it is `/jon:plan-delivery` in Claude Code and Cursor and `@jon:plan-delivery` in Codex. Installed as files with `npx skills`, it is plain `/plan-delivery`.
+This page writes `/plan-delivery` for brevity, but the prefix depends on how you installed. The plugin namespaces its skills, so it is `/skilldeck:plan-delivery` in Claude Code and Cursor and `@skilldeck:plan-delivery` in Codex. Installed as files with `npx skills`, it is plain `/plan-delivery`.
 
 ## It's working if
 

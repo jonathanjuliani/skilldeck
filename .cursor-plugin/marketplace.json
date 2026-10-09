@@ -9,8 +9,8 @@
   },
   "plugins": [
     {
-      "name": "jon",
-      "source": "jon",
+      "name": "skilldeck",
+      "source": "skilldeck",
       "description": "Detects a project's conventions and defers to them."
     }
   ]

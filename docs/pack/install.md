@@ -11,7 +11,7 @@ There are two ways in, and they behave differently. **Pick one**: installing bot
 | | **Plugin** | **Files** (`npx skills`) |
 | --- | --- | --- |
 | What you get | A managed bundle of all 36, updating when the repo ships | Editable copies of the skills you choose |
-| Invocation | Namespaced: `/jon:setup-skills` | Bare: `/setup-skills` |
+| Invocation | Namespaced: `/skilldeck:setup-skills` | Bare: `/setup-skills` |
 | Install everything | yes | yes |
 | Install one skill | no | yes |
 | Install one category | no | no, list the names |
@@ -35,12 +35,7 @@ There is no category flag, so a whole category means listing its names. Add `-g`
 
 ### Claude Code
 
-```bash
-/plugin marketplace add jonathanjuliani/skills
-/plugin install jon@skills
-```
-
-Or, from skilldeck. This is the same pack. Do not install both.
+Install the plugin from skilldeck. Marketplace or npm.
 
 ```bash
 /plugin marketplace add jonathanjuliani/skilldeck
@@ -52,20 +47,20 @@ npm i -g @jonathanjuliani/skilldeck
 skilldeck install skills
 ```
 
-Skills arrive namespaced, so setup is `/jon:setup-skills` either way. Choose a scope when prompted: **user** (all your projects), **project** (committed to `.claude/settings.json`, shared with collaborators) or **local** (this repo, just you). The `skilldeck` command installs at user scope.
+Skills arrive namespaced, so setup is `/skilldeck:setup-skills` either way. Choose a scope when prompted: **user** (all your projects), **project** (committed to `.claude/settings.json`, shared with collaborators) or **local** (this repo, just you). The `skilldeck` command installs at user scope.
 
 ### Codex
 
 Reads `.codex-plugin/plugin.json`, which points at `skills/`. Skills are invoked with `@`, so setup is `@setup-skills`.
 
 ```bash
-codex plugin marketplace add jonathanjuliani/skills
-codex plugin add jon@skills
+codex plugin marketplace add jonathanjuliani/skilldeck
+codex plugin add skills@skilldeck
 ```
 
 ### Cursor
 
-Reads `plugins/jon/.cursor-plugin/plugin.json`, which lists every skill path (Cursor plugins do not recurse into bucket folders). These are workflows, so they belong in the skills layer rather than pasted into `.cursor/rules/*.mdc`. GitHub import needs the plugin in a subdirectory: `.cursor-plugin/marketplace.json` points at `plugins/jon` with a bare `source` name. A repo-root `"source": "./"` is silently rejected.
+Reads `plugins/skilldeck/.cursor-plugin/plugin.json`, which lists every skill path (Cursor plugins do not recurse into bucket folders). These are workflows, so they belong in the skills layer rather than pasted into `.cursor/rules/*.mdc`. GitHub import needs the plugin in a subdirectory: `.cursor-plugin/marketplace.json` points at `plugins/skilldeck` with a bare `source` name. A repo-root `"source": "./"` is silently rejected.
 
 **Local copy (plugin development / offline).** Does not go through GitHub import. Cursor skips a symlink that points at a clone elsewhere on disk, so copy the plugin into `~/.cursor/plugins/local` instead:
 
@@ -73,9 +68,9 @@ Reads `plugins/jon/.cursor-plugin/plugin.json`, which lists every skill path (Cu
 ./scripts/install-cursor.sh
 ```
 
-Then fully quit Cursor (`Cmd+Q`) and reopen, or run Developer: Reload Window. Enable **Include third-party Plugins, Skills, and other configs**. On Teams or Enterprise, an admin also needs **Allow Local Plugin Imports**. Confirm all 36 skills under Customize → Skills, then run `/setup-skills` (or `/jon:setup-skills` if the plugin is namespaced). Re-run the script after you change the plugin locally.
+Then fully quit Cursor (`Cmd+Q`) and reopen, or run Developer: Reload Window. Enable **Include third-party Plugins, Skills, and other configs**. On Teams or Enterprise, an admin also needs **Allow Local Plugin Imports**. Confirm all 36 skills under Customize → Skills, then run `/setup-skills` (or `/skilldeck:setup-skills` if the plugin is namespaced). Re-run the script after you change the plugin locally.
 
-**GitHub import (any plan).** Customize → Plugins → From GitHub Repository → `https://github.com/jonathanjuliani/skills`. Cursor reads `.cursor-plugin/marketplace.json` and installs `jon` from `plugins/jon`. Choose user or project scope. Setup is `/jon:setup-skills` (or `/setup-skills` if Cursor does not namespace). If the import dialog closes with no plugin and no cache folder, use the local copy instead.
+**GitHub import (any plan).** Customize → Plugins → From GitHub Repository → `https://github.com/jonathanjuliani/skills`. Cursor reads `.cursor-plugin/marketplace.json` and installs `skilldeck` from `plugins/skilldeck`. Choose user or project scope. Setup is `/skilldeck:setup-skills` (or `/setup-skills` if Cursor does not namespace). If the import dialog closes with no plugin and no cache folder, use the local copy instead.
 
 **Team Marketplace.** On Teams or Enterprise, an admin can import the GitHub repo: Dashboard → Plugins → Add Marketplace → Import from Repo → `https://github.com/jonathanjuliani/skills`. Cursor reads `.cursor-plugin/marketplace.json`.
 
@@ -92,13 +87,11 @@ Reads `gemini-extension.json`, which loads `GEMINI.md` as context. That file tel
 ### Then, once per repo
 
 ```bash
-/jon:setup-skills     # plugin install
+/skilldeck:setup-skills     # plugin install
 /setup-skills         # installed as files
 ```
 
-Confirms your personal defaults, detects the project, writes `.jon-skills/config.yaml`, and offers to add a verification rule to the repo's `AGENTS.md` or `CLAUDE.md`. Everything it writes outside its own config needs an explicit yes.
-
-> Developing locally? Point the marketplace at your clone: `/plugin marketplace add ~/development/jon/skills`
+Confirms your personal defaults, detects the project, writes `.skilldeck-skills/config.yaml` only after a yes, and offers to add a verification rule to the repo's `AGENTS.md` or `CLAUDE.md`. Everything it writes outside its own config needs an explicit yes.
 
 ## Remove
 
@@ -116,17 +109,17 @@ npx skills remove --all              # everything
 ### Claude Code
 
 ```bash
-/plugin disable jon@skills     # keep it installed, stop loading it
-/plugin enable jon@skills      # put it back
-/plugin uninstall jon@skills   # remove it
+/plugin disable skills@skilldeck     # keep it installed, stop loading it
+/plugin enable skills@skilldeck      # put it back
+/plugin uninstall skills@skilldeck   # remove it
 ```
 
 Disable is the one to reach for first: it costs nothing to undo and it is how you find out whether a pack is earning its context. Use `/plugin list` to see what is installed.
 
-Removing the marketplace also uninstalls anything installed from it:
+Removing the skilldeck marketplace also uninstalls Skillverse when it came from there:
 
 ```bash
-/plugin marketplace remove skills
+/plugin marketplace remove skilldeck
 ```
 
 For scripting, the `claude plugin` shell commands do the same without opening the panel, and take `--scope`.

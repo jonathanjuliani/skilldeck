@@ -6,7 +6,7 @@
   "description": "Jonathan's dynamic, vendor-neutral skills for JS/TS/React/React Native engineering and product delivery, as an installable Claude Code plugin.",
   "plugins": [
     {
-      "name": "jon",
+      "name": "skilldeck",
       "version": "0.1.1",
       "source": "./",
       "description": "Detects a project's conventions and defers to them, recommends the current community default and asks before deciding. Engineering, interface design, and delivery are one pack.",

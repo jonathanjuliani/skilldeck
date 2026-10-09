@@ -22,7 +22,7 @@ Every skill also carries the guardrails that earn their place in it: **When this
 ### Foundation
 
 - **resolve-conventions** (model-invoked): the precedence engine. Detects a project's conventions and resolves anything unresolved against personal then community defaults.
-- **setup-skills** (user-invoked): one-time setup. Confirm personal defaults, detect the project, write `.jon-skills/config.yaml`, and **optionally** add two blocks to the repo's `AGENTS.md` or `CLAUDE.md`: a verification rule, and a routing table mapping the moments of a task to the skill that owns each. Each is asked separately and written only between its own markers.
+- **setup-skills** (user-invoked): one-time setup. Confirm personal defaults, detect the project, write `.skilldeck-skills/config.yaml`, and **optionally** add two blocks to the repo's `AGENTS.md` or `CLAUDE.md`: a verification rule, and a routing table mapping the moments of a task to the skill that owns each. Each is asked separately and written only between its own markers.
 - **agent-instructions** (model-invoked): write or repair a repo's `AGENTS.md` or `CLAUDE.md` so its rules actually bind, on the budget of being read every turn.
 
 ### Engineering

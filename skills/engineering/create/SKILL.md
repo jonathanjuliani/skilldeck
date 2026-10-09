@@ -24,7 +24,7 @@ Say which rung you stopped at and why, in one line. When a rung between 1 and 5 
 
 ## Steps
 
-1. **Resolve the stack.** Call the Skill tool with "resolve-conventions" to learn the package manager, language settings, test runner, validation library, and framework the project uses. If `.jon-skills/config.yaml` exists, it is the cache; trust it.
+1. **Resolve the stack.** Call the Skill tool with "resolve-conventions" to learn the package manager, language settings, test runner, validation library, and framework the project uses. If `.skilldeck-skills/config.yaml` exists, it is the cache; trust it.
 2. **Resolve the placement.** Call the Skill tool with "project-shape" to learn the shape (single-repo, monorepo, modular) and the surface (backend, frontend, mobile), so the new unit lands in the right folder with the right internal structure.
 3. **Apply the standards.** Call the Skill tool with "ts-standards" for naming, type shape, boundary validation, and module depth.
 4. **Confirm the plan, then generate.** State what will be created and where, in one short list (files, their folder, the conventions applied and their tier). On greenfield choices, show the recommendation and ask. Then write the files.

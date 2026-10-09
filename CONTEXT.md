@@ -15,8 +15,8 @@ Shared vocabulary for the jon-skills plugin. Skills read this so their words mea
 
 ## Config
 
-- `.jon-skills/config.yaml` (per repo): resolved conventions and project shape for this repo, written by `setup-skills`.
-- `.jon-skills/company.yaml` (per repo, optional): company standardization choices that outrank personal defaults.
+- `.skilldeck-skills/config.yaml` (per repo): resolved conventions and project shape for this repo, written by `setup-skills`.
+- `.skilldeck-skills/company.yaml` (per repo, optional): company standardization choices that outrank personal defaults.
 - `skills/design/design-inspiration/references/` (shipped with the plugin): starter design-reference captures, one file per source. Community seed for `design-inspiration`. Outranked by the personal store and by the project.
 - `~/.jon-skills/design/references/` (per machine, optional): captured design references, one file per source, written by `design-inspiration`. Personal, because an installed plugin is otherwise read-only and the value is in accumulating across projects. It is the design counterpart to tier 3 of the precedence chain and outranks the shipped seed.
 - **Agent instructions blocks** (per repo, optional): two short blocks `setup-skills` offers to write into the repo's `AGENTS.md` or `CLAUDE.md`, each between its own markers and each on its own yes. The **verification block** (`jon-skills:verification`) puts a completion gate in context without needing an invocation. The **routing block** (`jon-skills:routing`) does the same for which skill belongs to which moment in a task. Both exist because a file read every turn reaches the model and a skill description only reaches it when something goes looking.

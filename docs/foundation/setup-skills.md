@@ -1,10 +1,10 @@
 ## What it does
 
-Sets up jon-skills for a machine and a repo. It confirms your personal defaults, detects what the current project already uses, resolves any greenfield gaps with you, and writes a per-repo config cache the other skills read.
+Sets up jon-skills for a machine and a repo. It confirms your personal defaults, detects what the current project already uses, resolves any greenfield gaps with you, and asks before it writes a per-repo config cache the other skills read.
 
 It also offers three opt-in additions to the repo: a starter `CONTEXT.md` if there is none, a short verification rule in the repo's `AGENTS.md` or `CLAUDE.md`, and a routing table in the same file listing which skill belongs to which moment in a task. Each is asked separately and takes its own yes.
 
-It never changes a project's tooling: no installs, no build config edits, no refactors. Everything it writes outside its own config needs an explicit yes.
+It never changes a project's tooling: no installs, no build config edits, no refactors. It asks before writing `.skilldeck-skills/config.yaml`. Everything else it writes needs its own yes.
 
 ## When to reach for it
 
@@ -12,7 +12,7 @@ You invoke this by typing `/setup-skills`, and the agent will not reach for it o
 
 ## Prerequisites
 
-None to run. It writes `.jon-skills/config.yaml` in the current repo, and with your agreement can seed a `CONTEXT.md` and add a verification block and a routing block to `AGENTS.md` or `CLAUDE.md`. It reads your personal defaults from `skills/foundation/resolve-conventions/defaults.yaml`.
+None to run. After a yes, it writes `.skilldeck-skills/config.yaml` in the current repo, and with your agreement can seed a `CONTEXT.md` and add a verification block and a routing block to `AGENTS.md` or `CLAUDE.md`. It reads your personal defaults from `skills/foundation/resolve-conventions/defaults.yaml`.
 
 ## The two scopes
 
@@ -37,11 +37,11 @@ No. Other skills detect conventions on demand. Running setup just caches the res
 
 ## Invoking it
 
-This page writes `/setup-skills` for brevity, but the prefix depends on how you installed. The plugin namespaces its skills, so it is `/jon:setup-skills` in Claude Code and Cursor and `@jon:setup-skills` in Codex. Installed as files with `npx skills`, it is plain `/setup-skills`.
+This page writes `/setup-skills` for brevity, but the prefix depends on how you installed. The plugin namespaces its skills, so it is `/skilldeck:setup-skills` in Claude Code and Cursor and `@skilldeck:setup-skills` in Codex. Installed as files with `npx skills`, it is plain `/setup-skills`.
 
 ## It's working if
 
-- `.jon-skills/config.yaml` reflects what the repo actually uses, each entry tagged with how it was resolved.
+- `.skilldeck-skills/config.yaml` reflects what the repo actually uses, each entry tagged with how it was resolved.
 - Running `create` or `project-shape` afterward does not re-ask questions the config already answers.
 - Your personal defaults show up only where the project was genuinely silent.
 - Each block you accepted sits between its own markers in `AGENTS.md` or `CLAUDE.md`, and re-running setup updates that block rather than adding a second one.

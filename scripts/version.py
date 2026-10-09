@@ -25,11 +25,11 @@ from pathlib import Path
 
 
 REPO = "https://github.com/jonathanjuliani/skills"
-PLUGIN_NAME = "jon"
+PLUGIN_NAME = "skilldeck"
 CANONICAL = ".claude-plugin/plugin.json"
 VERSION_FILES = (
     ".claude-plugin/plugin.json",
-    "plugins/jon/.cursor-plugin/plugin.json",
+    "plugins/skilldeck/.cursor-plugin/plugin.json",
     ".codex-plugin/plugin.json",
     "gemini-extension.json",
 )
