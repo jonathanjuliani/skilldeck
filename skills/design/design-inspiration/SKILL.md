@@ -44,7 +44,7 @@ Treat the output as a **starting point to edit, never a result to ship**:
 
 ## Capture what you found
 
-A reference read and discarded teaches once. When you write the store entry, use the format and the rules in [capture.md](capture.md). Write the findings to the personal store at `~/.jon-skills/design/references/` (or another personal path confirmed this session), one file per reference, recording what you took, **what you rejected and why**, the surface and audience it came from, domains from [taxonomy.md](taxonomy.md), optional principles, and a date.
+A reference read and discarded teaches once. When you write the store entry, use the format and the rules in [capture.md](capture.md). Write the findings to the personal store at `~/.skilldeck-skills/design/references/` (or another personal path confirmed this session), one file per reference, recording what you took, **what you rejected and why**, the surface and audience it came from, domains from [taxonomy.md](taxonomy.md), optional principles, and a date.
 
 A shipped seed lives in [references/](references/). It is the community tier of this store: starter reads that travel with the plugin. New captures go to the personal store unless the user asks to ship them. Which seed or personal entries feed *this* task is a confirmed working set, not a silent outrank.
 

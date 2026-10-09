@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Structural checks for the jon-skills plugin. Run before committing.
+"""Structural checks for skilldeck skills. Run before committing.
 
 Catches what silently breaks a skill pack: frontmatter that is not valid YAML
 (an unquoted colon in a description is the recurring one), a name that does not
@@ -267,9 +267,9 @@ if gate_calls:
 # unbalanced pair means the splice has no end and would swallow their content.
 for payload in sorted((ROOT / "skills/foundation/setup-skills").glob("*-block.md")):
     text = payload.read_text()
-    for marker in set(re.findall(r"jon-skills:([a-z-]+):(?:begin|end)", text)):
-        begins = text.count(f"jon-skills:{marker}:begin")
-        ends = text.count(f"jon-skills:{marker}:end")
+    for marker in set(re.findall(r"skilldeck-skills:([a-z-]+):(?:begin|end)", text)):
+        begins = text.count(f"skilldeck-skills:{marker}:begin")
+        ends = text.count(f"skilldeck-skills:{marker}:end")
         if begins != 1 or ends != 1:
             errors.append(f"{payload.relative_to(ROOT)}: marker '{marker}' appears "
                           f"{begins} begin / {ends} end, expected exactly one of each.")
@@ -463,8 +463,8 @@ try:
             errors.append(".cursor-plugin/marketplace.json: metadata.pluginRoot should be 'plugins'")
         if entry.get("source") != "skilldeck":
             errors.append(f".cursor-plugin/marketplace.json: source should be 'skilldeck', found {entry.get('source')!r}")
-        if mkt.get("name") != "jon-skills":
-            errors.append(f".cursor-plugin/marketplace.json: name should be 'jon-skills', found {mkt.get('name')!r}")
+        if mkt.get("name") != "skilldeck-skills":
+            errors.append(f".cursor-plugin/marketplace.json: name should be 'skilldeck-skills', found {mkt.get('name')!r}")
     cursor_skills = ROOT / "plugins/skilldeck/skills"
     if not cursor_skills.is_symlink():
         errors.append("plugins/skilldeck/skills: must be a symlink to ../../skills")
@@ -553,7 +553,7 @@ if "--links" in sys.argv:
     for url in sorted(urls):
         try:
             req = urllib.request.Request(url, method="HEAD",
-                                         headers={"User-Agent": "jon-skills-validate"})
+                                         headers={"User-Agent": "skilldeck-skills-validate"})
             urllib.request.urlopen(req, timeout=10)
         except urllib.error.HTTPError as e:
             # 403/405: host refuses HEAD or this user agent. 429: rate limit.

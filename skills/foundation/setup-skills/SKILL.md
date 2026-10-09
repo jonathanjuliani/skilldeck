@@ -1,12 +1,12 @@
 ---
 name: setup-skills
-description: One-time setup for the jon skills plugin. Confirm your personal defaults, detect the current project's conventions, and write the per-repo config the other skills read.
+description: One-time setup for skilldeck skills. Confirm your personal defaults, detect the current project's conventions, and write the per-repo config the other skills read.
 disable-model-invocation: true
 ---
 
 # setup-skills
 
-Set up jon-skills for a machine and a repo: confirm the personal defaults, detect what the current project already uses, and cache the resolution so the other skills run without re-detecting every time.
+Set up skilldeck skills, part of the `jonathanjuliani/skilldeck` marketplace, for a machine and a repo: confirm the personal defaults, detect what the current project already uses, and cache the resolution so the other skills run without re-detecting every time.
 
 The defining constraint: this skill only records decisions, it never changes project tooling. It writes `.skilldeck-skills/config.yaml` only after a yes, and with a separate yes it seeds vocabulary and installs agent instructions blocks. It does not install packages, edit build config, or refactor.
 

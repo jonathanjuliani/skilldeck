@@ -2,7 +2,7 @@
 
 What has been measured, the philosophy, and how this repo is laid out.
 Open this when you are checking a claim, extending the pack, or running the validator.
-Back to [jon-skills](../../README.md).
+Back to [skilldeck skills](../../README.md).
 
 ## What is verified where
 

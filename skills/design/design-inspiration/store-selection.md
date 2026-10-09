@@ -18,7 +18,7 @@ Skip this companion when:
 Ordered defaults and offers. Scan a location only when this gate reaches that tier, and only after any prior confirm said to continue.
 
 1. **Shipped seed:** [references/](references/) indexed by [references/README.md](references/README.md). Community starter reads that travel with the plugin.
-2. **Default personal:** `~/.jon-skills/design/references/`. Writable per machine. Default destination for new captures unless this session confirmed another path.
+2. **Default personal:** `~/.skilldeck-skills/design/references/`. Writable per machine. Default destination for new captures unless this session confirmed another path.
 3. **Known alternates (offer text only, never auto-probe):** any other folder the user names.
 
 Do not invent paths. List the offer in the external-tier confirm and wait for a yes plus a concrete path.
@@ -44,14 +44,14 @@ Cheap-filter the seed index for the brief. Then **one confirm**:
 
 If they choose on-demand / skip stores, lock an empty working set and stop the gate.
 
-### 2. Personal tier (default `~/.jon-skills/design/references/`)
+### 2. Personal tier (default `~/.skilldeck-skills/design/references/`)
 
 Only after the seed step continued. Cheap-filter personal frontmatter the same way. Then **one confirm**:
 
 - **Related matches:** list candidates. Ask whether to use them, update/add more (curate/capture), or skip personal for this task.
 - **None related / missing dir:** ask whether to search/save personal refs, or proceed with the current choices (seed and/or on-demand).
 
-Default personal path stays `~/.jon-skills/design/references/` unless the user already named another write target this session.
+Default personal path stays `~/.skilldeck-skills/design/references/` unless the user already named another write target this session.
 
 ### 3. Combine seed and personal
 
@@ -74,7 +74,7 @@ Offer known alternates and "another folder or path you name." Do **not** scan un
 
 ### 5. Lock and open
 
-State the locked working set (paths and slugs). Open at most two or three capture bodies from it. Say which entries feed each recommendation. New captures this session write to the confirmed personal destination (default `~/.jon-skills/design/references/`) unless the user asked to ship into the plugin seed.
+State the locked working set (paths and slugs). Open at most two or three capture bodies from it. Say which entries feed each recommendation. New captures this session write to the confirmed personal destination (default `~/.skilldeck-skills/design/references/`) unless the user asked to ship into the plugin seed.
 
 When the accepted set is thin for the surface, audience, and domain, or the user asked to search/save, Call the Skill tool with "curate-design-inspiration" only after they agreed. That skill confirms scope before any crawl or write, and dedupes only against locations authorized this session.
 

@@ -4,8 +4,8 @@ How `setup-skills` adds one of this pack's blocks to a repository's agent instru
 
 | Block | Payload | Marker |
 | --- | --- | --- |
-| Verification | [verification-block.md](verification-block.md) | `jon-skills:verification` |
-| Routing | [routing-block.md](routing-block.md) | `jon-skills:routing` |
+| Verification | [verification-block.md](verification-block.md) | `skilldeck-skills:verification` |
+| Routing | [routing-block.md](routing-block.md) | `skilldeck-skills:routing` |
 
 Both exist for the same reason. The skills they stand in for are model-invoked, and a completion gate is needed at the moment a claim is written, while a routing hint is needed at the moment a task starts. Neither can wait to be reached for. A repo's agent instructions file is read every turn without an invocation, so a short version lives there and the skill stays as the detail behind it.
 

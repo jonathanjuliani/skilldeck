@@ -2,7 +2,7 @@
 
 Prior art this pack learned from, and the optional companions a few skills name.
 Open this when you want something narrower, more opinionated, or more complete.
-Back to [jon-skills](../../README.md).
+Back to [skilldeck skills](../../README.md).
 
 ## Optional companions
 

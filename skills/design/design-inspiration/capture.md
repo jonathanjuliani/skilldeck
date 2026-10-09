@@ -6,7 +6,7 @@ How a reference becomes a durable entry instead of a one-off reading. Without th
 
 There are two default stores, same format, different jobs. Optional alternate paths exist only when the user opts in during selection.
 
-- **Personal (default):** `~/.jon-skills/design/references/`, one markdown file per reference. Per machine, writable after install, accumulates across projects. This is where new captures go unless this session confirmed another personal path.
+- **Personal (default):** `~/.skilldeck-skills/design/references/`, one markdown file per reference. Per machine, writable after install, accumulates across projects. This is where new captures go unless this session confirmed another personal path.
 - **Shipped seed:** [references/](references/) in this skill. Travels with the plugin. Starter reads that cover the archetypes in [patterns.md](patterns.md) so the store is not empty on a fresh install.
 
 Shipping a new file into the plugin is an explicit ask. An installed plugin is otherwise a read-only bundle, which is why day-to-day capture is personal.
@@ -80,4 +80,4 @@ Say when a recommendation came from the store and from which entry, the same way
 
 The shipped seed exists so a fresh install is not starting from zero. Below roughly fifteen *personal* entries, scanning that directory's frontmatter is faster than any index, and the personal store is mostly a notebook. That is the correct shape for it at that size. Build search when scanning starts costing more than reading, not before, and note that an index over five entries is a worse version of a prose file.
 
-When the accepted working set is thin for the surface, audience, and domain in front of you, or the user wants the base populated or refreshed from galleries, Call the Skill tool with "curate-design-inspiration" only after they agreed in selection (or asked explicitly). That skill confirms scope first, deduplicates against locations authorized this session, and writes new capture files to the confirmed personal destination (default `~/.jon-skills/design/references/`).
+When the accepted working set is thin for the surface, audience, and domain in front of you, or the user wants the base populated or refreshed from galleries, Call the Skill tool with "curate-design-inspiration" only after they agreed in selection (or asked explicitly). That skill confirms scope first, deduplicates against locations authorized this session, and writes new capture files to the confirmed personal destination (default `~/.skilldeck-skills/design/references/`).

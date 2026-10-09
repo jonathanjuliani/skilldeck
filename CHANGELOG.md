@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to jon-skills are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+All notable changes to skilldeck skills are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 Add each change under **Unreleased** as you make it; `python3 scripts/version.py` moves them under the new version when you release (see [Releasing](docs/pack/resources.md#releasing)).
 
@@ -8,6 +8,7 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ### Changed
 
+- The pack is named skilldeck skills. Config ids, setup markers, and the personal design store use `skilldeck-skills`.
 - Claude Code and Codex install this pack from skilldeck as `skills@skilldeck`.
 - The README is titled skills and shows the skilldeck marketplace and npm install.
 - Setup asks before writing `.skilldeck-skills/config.yaml`. The plugin command is `/skilldeck:setup-skills`.

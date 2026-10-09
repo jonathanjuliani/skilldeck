@@ -1,4 +1,4 @@
-<!-- jon-skills:routing:begin -->
+<!-- skilldeck-skills:routing:begin -->
 ## Skill routing
 
 Which skill to reach for, by the moment it comes up. Each entry fires **once per task, not once per message**: if it has already run for the work in hand, it does not run again. This list routes only, and the skill itself carries the method, so open it rather than acting on the line here.
@@ -21,4 +21,4 @@ Which skill to reach for, by the moment it comes up. Each entry fires **once per
 | Before saying anything is done, fixed, passing, green or ready | `verify-before-done` |
 
 Anything not listed is still available; these are the moments that recur often enough to be worth naming.
-<!-- jon-skills:routing:end -->
+<!-- skilldeck-skills:routing:end -->

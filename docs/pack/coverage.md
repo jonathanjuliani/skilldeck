@@ -2,7 +2,7 @@
 
 Where the pack sits on an engineering job, and what it leaves out.
 Open this when you want the map, not a skill to run.
-Back to [jon-skills](../../README.md).
+Back to [skilldeck skills](../../README.md).
 
 ## Coverage
 

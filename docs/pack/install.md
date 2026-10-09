@@ -1,8 +1,8 @@
 # Install
 
-How to install and remove jon-skills, per agent.
+How to install and remove skilldeck skills, per agent.
 Open this when you are installing, updating, or taking the pack back out.
-Back to [jon-skills](../../README.md).
+Back to [skilldeck skills](../../README.md).
 
 ## Install
 

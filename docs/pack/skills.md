@@ -2,7 +2,7 @@
 
 Every skill in the pack, one line each.
 Open this when you want the full breakdown, not the four-folder summary.
-Back to [jon-skills](../../README.md).
+Back to [skilldeck skills](../../README.md).
 
 ## What makes it different
 
@@ -63,7 +63,7 @@ These skills are the decide half of System at Designs. The folder stays so that 
 
 They run in that order on a new surface: a read, then the structure, then the direction and its tokens, then the build in `engineering/`, then the score. On an existing product most of it is already answered and the job is to inherit rather than decide.
 
-`design-inspiration` ships a seed of captured references under `skills/design/design-inspiration/references/`, and accumulates further reads in a personal store at `~/.jon-skills/design/references/` by default. One file per reference, recording what was taken, what was rejected, and the audience it came from. New captures go to the personal store unless asked to ship. When a task needs the store (not only a named live URL or paste), `design-inspiration` confirms a session working set via `store-selection.md` before opening captures: seed, then default personal, then an alternate folder only if the user names the path. Merge and override apply to that task only and do not change files on disk. Both stores sit above the conventions in `patterns.md`. When the accepted set is thin or needs a gallery-driven refresh, `curate-design-inspiration` confirms scope, deduplicates against authorized locations, and writes new personal entries.
+`design-inspiration` ships a seed of captured references under `skills/design/design-inspiration/references/`, and accumulates further reads in a personal store at `~/.skilldeck-skills/design/references/` by default. One file per reference, recording what was taken, what was rejected, and the audience it came from. New captures go to the personal store unless asked to ship. When a task needs the store (not only a named live URL or paste), `design-inspiration` confirms a session working set via `store-selection.md` before opening captures: seed, then default personal, then an alternate folder only if the user names the path. Merge and override apply to that task only and do not change files on disk. Both stores sit above the conventions in `patterns.md`. When the accepted set is thin or needs a gallery-driven refresh, `curate-design-inspiration` confirms scope, deduplicates against authorized locations, and writes new personal entries.
 
 Accessibility splits three ways rather than being one pass: a linter catches the static mistakes, `axe` in CI catches the computed ones, and only what neither can see reaches a human review. `frontend-craft` carries that split, and `design-review` refuses to spend attention on anything the first two tiers should have gated.
 

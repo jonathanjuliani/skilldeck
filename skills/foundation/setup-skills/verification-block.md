@@ -1,4 +1,4 @@
-<!-- jon-skills:verification:begin -->
+<!-- skilldeck-skills:verification:begin -->
 ## Verification
 
 No completion claim without fresh evidence. Before stating that anything is done, fixed, passing, green, or ready:
@@ -14,4 +14,4 @@ The tests are part of the change, not a follow-up. If nothing covers what you ch
 "Should work", "seems fixed", and a delegate's report of success are not verification. Where the check is genuinely unavailable, say what you could not verify and what it would take, rather than upgrading an assumption into a claim.
 
 This does not apply to explaining, exploring, or answering a question, where there is no claim to prove.
-<!-- jon-skills:verification:end -->
+<!-- skilldeck-skills:verification:end -->

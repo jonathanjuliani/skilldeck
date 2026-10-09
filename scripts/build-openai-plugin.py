@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a deterministic, OpenAI-compatible distribution of jon-skills."""
+"""Build a deterministic, OpenAI-compatible distribution of skilldeck skills."""
 
 from __future__ import annotations
 
@@ -33,7 +33,7 @@ IGNORED_NAMES = {".DS_Store", "__pycache__"}
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Build the flattened jon-skills package for OpenAI import."
+        description="Build the flattened skilldeck skills package for OpenAI import."
     )
     parser.add_argument(
         "--output",

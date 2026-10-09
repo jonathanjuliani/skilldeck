@@ -27,7 +27,7 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "jon-skills",
+    "displayName": "skilldeck skills",
     "shortDescription": "Vendor-neutral JS/TS/React skills that resolve a project's stack instead of assuming one",
     "longDescription": "Engineering and delivery skills for JavaScript, TypeScript, React and React Native. Every tool choice is resolved from the project first, then a company standard, then a personal default, then the current community default offered and confirmed. Covers project shape, scaffolding, refactoring, API and state design, testing, security, frontend craft, surface design, performance, observability, shipping, migration, and delivery around the code.",
     "developerName": "Jonathan Juliani",

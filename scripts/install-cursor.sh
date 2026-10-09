@@ -9,7 +9,7 @@ if ! command -v rsync >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "==> jon-skills Cursor local installer"
+echo "==> skilldeck skills Cursor local installer"
 echo "Repo: ${REPO_ROOT}"
 echo "Dest: ${DEST}"
 echo

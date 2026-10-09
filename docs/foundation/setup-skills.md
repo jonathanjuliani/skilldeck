@@ -1,6 +1,6 @@
 ## What it does
 
-Sets up jon-skills for a machine and a repo. It confirms your personal defaults, detects what the current project already uses, resolves any greenfield gaps with you, and asks before it writes a per-repo config cache the other skills read.
+Sets up skilldeck skills, part of the `jonathanjuliani/skilldeck` marketplace, for a machine and a repo. It confirms your personal defaults, detects what the current project already uses, resolves any greenfield gaps with you, and asks before it writes a per-repo config cache the other skills read.
 
 It also offers three opt-in additions to the repo: a starter `CONTEXT.md` if there is none, a short verification rule in the repo's `AGENTS.md` or `CLAUDE.md`, and a routing table in the same file listing which skill belongs to which moment in a task. Each is asked separately and takes its own yes.
 

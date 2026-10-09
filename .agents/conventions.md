@@ -1,4 +1,4 @@
-# Authoring conventions for jon-skills
+# Authoring conventions for skilldeck skills
 
 Rules for writing and extending skills in this plugin. Keep the set consistent as it grows.
 
