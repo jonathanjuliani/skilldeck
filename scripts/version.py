@@ -24,7 +24,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-REPO = "https://github.com/jonathanjuliani/skills"
+REPO = "https://github.com/jonathanjuliani/skilldeck"
 PLUGIN_NAME = "skilldeck"
 CANONICAL = ".claude-plugin/plugin.json"
 VERSION_FILES = (

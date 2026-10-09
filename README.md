@@ -1,3 +1,5 @@
+Moved from `jonathanjuliani/skills`. This repository is `jonathanjuliani/skilldeck`. The install id is `skilldeck@skilldeck`. The old id `skills@skilldeck` is retired.
+
 # skills
 
 36 skills for JavaScript, TypeScript, React, and React Native, installed from [skilldeck](https://github.com/jonathanjuliani/skilldeck).

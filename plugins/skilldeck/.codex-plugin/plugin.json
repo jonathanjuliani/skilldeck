@@ -5,8 +5,8 @@
   "author": {
     "name": "Jonathan Juliani"
   },
-  "homepage": "https://github.com/jonathanjuliani/skills",
-  "repository": "https://github.com/jonathanjuliani/skills",
+  "homepage": "https://github.com/jonathanjuliani/skilldeck",
+  "repository": "https://github.com/jonathanjuliani/skilldeck",
   "license": "MIT",
   "keywords": [
     "skills",
@@ -37,7 +37,7 @@
       "Read",
       "Write"
     ],
-    "websiteURL": "https://github.com/jonathanjuliani/skills",
+    "websiteURL": "https://github.com/jonathanjuliani/skilldeck",
     "defaultPrompt": [
       "Resolve this project's conventions before we change anything",
       "Scaffold this the way the rest of the project is built"

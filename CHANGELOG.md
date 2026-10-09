@@ -8,6 +8,7 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ### Changed
 
+- The GitHub repository is `jonathanjuliani/skilldeck`. `jonathanjuliani/skills` redirects here. The hub is archived as `jonathanjuliani/skilldeck-hub`.
 - Claude, Cursor, Codex, and Gemini marketplaces are named `skilldeck`. The install id on this repo is `skilldeck@skilldeck`. The plugin is still the one pack.
 - Codex reads `plugins/skilldeck/.codex-plugin/plugin.json` via `.agents/plugins/marketplace.json`.
 - Claude `renames` maps the hub plugin `skills` to `skilldeck`, and records that `skillverse` is no longer in this marketplace.
@@ -53,9 +54,9 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skills/compare/v0.1.4...HEAD
-[0.1.4]: https://github.com/jonathanjuliani/skills/compare/v0.1.3...v0.1.4
-[0.1.3]: https://github.com/jonathanjuliani/skills/compare/v0.1.2...v0.1.3
-[0.1.2]: https://github.com/jonathanjuliani/skills/compare/v0.1.1...v0.1.2
-[0.1.1]: https://github.com/jonathanjuliani/skills/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/jonathanjuliani/skills/releases/tag/v0.1.0
+[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.4...HEAD
+[0.1.4]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.3...v0.1.4
+[0.1.3]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.2...v0.1.3
+[0.1.2]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.1...v0.1.2
+[0.1.1]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/jonathanjuliani/skilldeck/releases/tag/v0.1.0

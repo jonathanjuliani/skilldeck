@@ -93,13 +93,13 @@ Depends on: phase 1 merged to `main`
 
 Tasks:
 
-- [ ] Working tree clean on `main`, including the local edits already in this clone, so the rename is not mixed with unrelated diffs.
-- [ ] `npm deprecate @jonathanjuliani/skilldeck "Retired. Engineering skills: /plugin marketplace add jonathanjuliani/skilldeck then /plugin install skilldeck@skilldeck. Skillverse: /plugin marketplace add jonathanjuliani/skillverse then /plugin install skillverse@skillverse."`
-- [ ] Hub repo: rename `jonathanjuliani/skilldeck` to `jonathanjuliani/skilldeck-hub`. Archive it. Replace `README.md` with the same migration paragraph. Do not delete the repo.
-- [ ] This repo: GitHub Settings → rename `skills` to `skilldeck`. Do not create a repository named `skills` afterwards.
-- [ ] Local clone: `git remote set-url origin git@github.com:jonathanjuliani/skilldeck.git`.
-- [ ] Every `https://github.com/jonathanjuliani/skills` in manifests, `CHANGELOG.md` link definitions, `docs/`, `README.md`, and `GEMINI.md`: change to `https://github.com/jonathanjuliani/skilldeck`.
-- [ ] `private-skills` blob link in `plugins/jon/skills/personal-design-refs/references/README.md`: update after the redirect responds. That edit is in the other repo; it is not a skilldeck release.
+- [x] Working tree clean on `main`, including the local edits already in this clone, so the rename is not mixed with unrelated diffs.
+- [ ] `npm deprecate @jonathanjuliani/skilldeck "Retired. Engineering skills: /plugin marketplace add jonathanjuliani/skilldeck then /plugin install skilldeck@skilldeck. Skillverse: /plugin marketplace add jonathanjuliani/skillverse then /plugin install skillverse@skillverse."` Blocked on 2026-10-09: `npm whoami` is 401, and deprecate returns 404. `npm view` still shows 0.1.3 with no deprecation. Retry after `npm login`.
+- [x] Hub repo: rename `jonathanjuliani/skilldeck` to `jonathanjuliani/skilldeck-hub`. Archive it. Replace `README.md` with the same migration paragraph. Do not delete the repo.
+- [x] This repo: GitHub Settings → rename `skills` to `skilldeck`. Do not create a repository named `skills` afterwards.
+- [x] Local clone: `git remote set-url origin git@github.com:jonathanjuliani/skilldeck.git`.
+- [x] Every `https://github.com/jonathanjuliani/skills` in manifests, `CHANGELOG.md` link definitions, `docs/`, `README.md`, and `GEMINI.md`: change to `https://github.com/jonathanjuliani/skilldeck`. `GEMINI.md` had no such URL. `scripts/version.py` writes the changelog links, so its `REPO` constant moved too.
+- [x] `private-skills` blob link in `plugins/jon/skills/personal-design-refs/references/README.md`: update after the redirect responds. That edit is in the other repo; it is not a skilldeck release. The old blob redirects to `skills/design/...`, which is a symlink and returns 404. The link now targets `plugins/skilldeck/skills/design/design-inspiration/references/duolingo.md`.
 
 Acceptance criteria:
 
