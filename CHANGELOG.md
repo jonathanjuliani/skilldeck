@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-10-09
+
 ### Changed
 
 - Cursor can install this pack from the skilldeck marketplace as well as from this repo.
@@ -34,7 +36,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skills/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skills/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/jonathanjuliani/skills/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/jonathanjuliani/skills/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/jonathanjuliani/skills/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/jonathanjuliani/skills/releases/tag/v0.1.0

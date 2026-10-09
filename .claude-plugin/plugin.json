@@ -1,6 +1,6 @@
 {
   "name": "skilldeck",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Dynamic, vendor-neutral agent skills for JS/TS/React/React Native. Detects a project's conventions and defers to them; recommends the current community default and asks before deciding. Engineering, interface design, and delivery are one pack.",
   "author": {
     "name": "Jonathan Juliani"
