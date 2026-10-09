@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-10-09
+
 ### Changed
 
 - The pack is named skilldeck skills. Config ids, setup markers, and the personal design store use `skilldeck-skills`.
@@ -28,6 +30,7 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skills/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skills/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/jonathanjuliani/skills/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/jonathanjuliani/skills/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/jonathanjuliani/skills/releases/tag/v0.1.0
