@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [0.1.4] - 2026-10-09
+
 ### Changed
 
 - Cursor installs this pack from this repo. The skilldeck marketplace is Claude Code and Codex.
@@ -40,7 +42,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skills/compare/v0.1.3...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skills/compare/v0.1.4...HEAD
+[0.1.4]: https://github.com/jonathanjuliani/skills/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/jonathanjuliani/skills/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/jonathanjuliani/skills/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/jonathanjuliani/skills/compare/v0.1.0...v0.1.1
