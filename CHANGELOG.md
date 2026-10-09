@@ -6,6 +6,10 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+### Changed
+
+- Cursor installs this pack from this repo. The skilldeck marketplace is Claude Code and Codex.
+
 ## [0.1.3] - 2026-10-09
 
 ### Changed
