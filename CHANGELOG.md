@@ -6,6 +6,10 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+### Added
+
+- The README points at `jonathanjuliani/adhd-focus`, a separate public plugin. It is not part of this pack.
+
 ## [1.0.0] - 2026-10-09
 
 ### Added

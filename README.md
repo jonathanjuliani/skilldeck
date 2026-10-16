@@ -84,6 +84,8 @@ This repository was `jonathanjuliani/skills`. That URL redirects here. The old i
 
 [Skillverse](https://github.com/jonathanjuliani/skillverse) is a separate repository. Install it from there.
 
+[adhd-focus](https://github.com/jonathanjuliani/adhd-focus) is a separate repository. Install it from there.
+
 ## The pack
 
 - **foundation** (3) — detect conventions, set up, write agent instructions
