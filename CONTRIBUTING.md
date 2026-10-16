@@ -31,6 +31,8 @@ description: One line that says when to run it, and when not to.
 python3 scripts/validate.py
 ```
 
+A new or moved skill also goes in the skill map in [README.md](README.md). Regenerate the shareable image with `python3 scripts/skill_map.py`, which needs `npx` and runs mermaid-cli. The validator fails when the image is stale.
+
 Add a line under `## [Unreleased]` in [CHANGELOG.md](CHANGELOG.md).
 
 Issues for a new skill use the Skill template: name, bucket, and when it should run. The label `good first skill` is for a new skill inside this plugin that a new contributor can finish.

@@ -445,6 +445,50 @@ for path, kind in MANIFESTS.items():
             for stale in sorted(names - on_disk):
                 errors.append(f"{path}: {stale} registered but not on disk")
 
+# README skill map. It is the picture people share, so a skill missing from it
+# or filed under the wrong bucket misstates the pack. Depth-1 nodes are buckets;
+# deeper nodes that are not skill names are rung labels and are skipped.
+import skill_map
+map_src = skill_map.source((ROOT / "README.md").read_text())
+if map_src is None:
+    errors.append("README.md: no mermaid block between skill-map markers")
+else:
+    expected = {p.split("/")[2]: p.split("/")[1] for p in on_disk}
+    placed, bucket, root_indent, bucket_indent = {}, None, None, None
+    for line in map_src.splitlines()[1:]:
+        if not line.strip():
+            continue
+        indent, node = len(line) - len(line.lstrip()), line.strip()
+        if root_indent is None:
+            root_indent = indent
+            continue
+        if bucket_indent is None:
+            bucket_indent = indent
+        if indent == bucket_indent:
+            bucket = node
+            continue
+        if node in expected or re.fullmatch(r"[a-z][a-z0-9-]+", node):
+            placed.setdefault(node, []).append(bucket)
+    for name, buckets in sorted(placed.items()):
+        if name not in expected:
+            errors.append(f"README.md skill map: '{name}' is not a skill on disk")
+        elif len(buckets) > 1:
+            errors.append(f"README.md skill map: '{name}' appears {len(buckets)} times")
+        elif buckets[0] != expected[name]:
+            errors.append(f"README.md skill map: '{name}' is under '{buckets[0]}', "
+                          f"its folder is '{expected[name]}'")
+    for name in sorted(set(expected) - set(placed)):
+        errors.append(f"README.md skill map: '{name}' is missing. Add it under "
+                      f"'{expected[name]}'.")
+    svg_rel = skill_map.SVG.relative_to(ROOT)
+    if not skill_map.SVG.exists():
+        errors.append(f"{svg_rel}: missing. Run python3 scripts/skill_map.py")
+    else:
+        found = skill_map.HASH.search(skill_map.SVG.read_text())
+        if not found or found.group(1) != skill_map.digest(map_src):
+            errors.append(f"{svg_rel}: stale against the README skill map. "
+                          f"Run python3 scripts/skill_map.py")
+
 try:
     json.loads((ROOT / ".claude-plugin/marketplace.json").read_text())
 except Exception as e:
