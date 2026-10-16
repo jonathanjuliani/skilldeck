@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-10-16
+
 ### Added
 
 - The README points at `jonathanjuliani/adhd-focus`, a separate public plugin. It is not part of this pack.
@@ -68,7 +70,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.4...v1.0.0
 [0.1.4]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.2...v0.1.3
