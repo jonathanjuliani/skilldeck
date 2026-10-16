@@ -21,6 +21,7 @@ A new skill is not installed until it is listed in every harness manifest, and t
 - `.claude-plugin/plugin.json` and `plugins/skilldeck/.cursor-plugin/plugin.json` list each skill path explicitly (plugin loaders do not recurse into bucket folders).
 - `plugins/skilldeck/.codex-plugin/plugin.json` points at `./skills/` as a directory and needs no per-skill entry. Codex finds it from `.agents/plugins/marketplace.json`.
 - `docs/pack/skills.md` lists the skill under its bucket, and the four-bucket counts in `README.md` stay in sync.
+- The skill map in `README.md` places the skill under its bucket (an engineering skill goes under one of its rungs). Then run `python3 scripts/skill_map.py` to regenerate `docs/pack/skill-map.svg`.
 - A **user-invoked** skill also needs `disable-model-invocation: true` in its frontmatter, `policy.allow_implicit_invocation: false` in its `agents/openai.yaml`, and a page under `docs/<bucket>/`.
 
 ## When changing how skills reach each other

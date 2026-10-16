@@ -88,6 +88,59 @@ This repository was `jonathanjuliani/skills`. That URL redirects here. The old i
 
 ## The pack
 
+<!-- skill-map:begin -->
+```mermaid
+mindmap
+  root((skilldeck))
+    foundation
+      resolve-conventions
+      setup-skills
+      agent-instructions
+    design
+      design-brief
+      information-architecture
+      design-inspiration
+      curate-design-inspiration
+      design-tokens
+      design-review
+    engineering
+      Shape
+        project-shape
+        bootstrap-repo
+        ts-standards
+        dependency-choice
+      Build
+        create
+        refactor
+        api-design
+        data-model
+        state-management
+        forms
+        frontend-craft
+        security-hardening
+      Quality
+        testing-strategy
+        debug
+        verify-before-done
+        perf-audit
+      Ship and operate
+        ship-flow
+        release-flow
+        migration
+        observability
+        mitigate-incident
+        record-decision
+    process
+      align-first
+      investigate-product
+      plan-delivery
+      diagram
+      retro
+```
+<!-- skill-map:end -->
+
+To share the map outside GitHub, use [skill-map.svg](docs/pack/skill-map.svg).
+
 - **foundation** (3) — detect conventions, set up, write agent instructions
 - **engineering** (22) — build, test, and ship
 - **design** (6) — decide the surface before building it
