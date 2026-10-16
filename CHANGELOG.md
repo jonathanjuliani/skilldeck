@@ -11,6 +11,10 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 - The README points at `jonathanjuliani/adhd-focus`, a separate public plugin. It is not part of this pack.
 - The README has a Mermaid mind map of every skill, with engineering split into Shape, Build, Quality, and Ship and operate. `scripts/skill_map.py` exports it to `docs/pack/skill-map.svg` for sharing. `validate.py` fails when a skill is missing from the map, filed under the wrong bucket, or the SVG is missing or stale. CI and the pre-commit hook run it.
 
+### Fixed
+
+- Link check no longer fails on the Antigravity `$schema` identifier (Google documents it; the schema host 404s) or on `skilldeck-hub` (archived hub is public again).
+
 ## [1.0.0] - 2026-10-09
 
 ### Added
