@@ -185,7 +185,7 @@ def sha256(path: pathlib.Path) -> str:
 
 
 def validate_determinism() -> None:
-    with tempfile.TemporaryDirectory(prefix="jon-openai-package-") as temporary:
+    with tempfile.TemporaryDirectory(prefix="skilldeck-openai-package-") as temporary:
         temporary_root = pathlib.Path(temporary)
         archives = []
         for label in ("first", "second"):

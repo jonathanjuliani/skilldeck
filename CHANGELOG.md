@@ -6,6 +6,10 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+### Added
+
+- Each GitHub Release includes `skilldeck-openai.zip`, the flat package ChatGPT and OpenAI web import. Codex still reads the bucketed tree.
+
 ## [1.0.1] - 2026-10-16
 
 ### Added

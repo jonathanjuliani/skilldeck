@@ -16,7 +16,7 @@ import yaml
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SOURCE_MANIFEST = ROOT / "plugins" / "skilldeck" / ".codex-plugin" / "plugin.json"
 SOURCE_SKILLS = ROOT / "skills"
-DEFAULT_OUTPUT = ROOT / "dist" / "openai" / "jon"
+DEFAULT_OUTPUT = ROOT / "dist" / "openai" / "skilldeck"
 PORTABLE_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 PORTABLE_FIELDS = (
     "name",

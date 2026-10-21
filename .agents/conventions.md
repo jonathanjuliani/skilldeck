@@ -14,6 +14,10 @@ Buckets: `foundation/` (the engine and setup), `engineering/` (code), `design/` 
 
 Those buckets are the install layout: `skills/<bucket>/<skill-name>/`, and discovery stops there. Do not add a level for an engineering axis, and do not merge `design/` or `process/` into `engineering/` so the tree matches the Coverage page in `docs/pack/coverage.md`. That section can list one skill on two axes. A folder cannot. The line between `design/` and `engineering/` stays: design decides and engineering builds. A skill that settles what a surface should look like, how it is structured, or whether it is any good belongs in `design/`. A skill that writes the components and meets the accessibility numbers in code belongs in `engineering/`.
 
+## OpenAI package
+
+Codex reads the bucketed tree under `plugins/skilldeck/skills/` directly via `.codex-plugin/plugin.json`. ChatGPT and OpenAI web import the flat zip that CI attaches to each GitHub Release. `scripts/build-openai-plugin.py` builds that zip. Author only under `plugins/skilldeck/skills/<bucket>/<skill-name>/` (or via the root `skills` symlink). Do not commit a flat `skills/<name>/` mirror.
+
 ## Progressive disclosure
 
 Harnesses already load skills in three layers. This pack uses that split; it does not rebuild a loader, add a catalog file, or rename folders.

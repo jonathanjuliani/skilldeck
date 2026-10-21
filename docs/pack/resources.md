@@ -44,7 +44,7 @@ The version lives in `.claude-plugin/plugin.json`, `plugins/skilldeck/.cursor-pl
 
 1. Add each change under `## [Unreleased]` in [CHANGELOG.md](../../CHANGELOG.md) as you make it.
 2. On a clean `main`, run `python3 scripts/version.py patch` (or `minor` / `major`). It bumps the version, copies it into every manifest, turns Unreleased into a dated section, then commits and tags `vX.Y.Z`.
-3. `git push --follow-tags`. The [release workflow](../../.github/workflows/release.yml) checks that the tag, the manifests and the changelog agree, runs the validator, and creates the GitHub Release from that version's changelog section.
+3. `git push --follow-tags`. The [release workflow](../../.github/workflows/release.yml) checks that the tag, the manifests and the changelog agree, runs the validator, builds `skilldeck-openai.zip`, and creates the GitHub Release from that version's changelog section with the zip attached.
 
 Marketplace users only receive a change after a version bump, so every release needs one. `python3 scripts/version.py --check` checks the manifests agree. CI and the pre-commit hook run it.
 

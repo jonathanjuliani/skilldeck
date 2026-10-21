@@ -47,6 +47,16 @@ The marketplace file is `.agents/plugins/marketplace.json`. The plugin manifest 
 
 Update the marketplace from Codex, then start a new session.
 
+## ChatGPT and OpenAI web
+
+Download `skilldeck-openai.zip` from the GitHub Release for the version you want, and import that zip. Codex keeps reading the bucketed tree. Do not upload the repository root.
+
+To rebuild the same zip from a clone:
+
+```bash
+python3 scripts/build-openai-plugin.py --output /tmp/skilldeck --archive /tmp/skilldeck-openai.zip
+```
+
 ## Cursor
 
 GitHub import: Customize → Plugins → From GitHub Repository → `https://github.com/jonathanjuliani/skilldeck`.
