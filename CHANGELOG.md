@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-10-21
+
 ### Added
 
 - Each GitHub Release includes `skilldeck-openai.zip`, the flat package ChatGPT and OpenAI web import. Codex still reads the bucketed tree.
@@ -74,7 +76,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.4...v1.0.0
 [0.1.4]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.3...v0.1.4
