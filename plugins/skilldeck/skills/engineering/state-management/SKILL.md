@@ -30,6 +30,7 @@ Forms are their own category: use the project's form library with schema validat
 - **Reach for a global store last.** Local, then lifted, then context, then a store. Each step only when the previous genuinely does not fit.
 - **Context is for low-frequency, wide values.** Putting fast-changing state in context re-renders the whole tree; that is a store's job.
 - **One library per role.** One server-state library, one client store; do not run two of either. The specific libraries come from resolve-conventions, deferring to whatever the project already uses.
+- **In-flight work that must survive a reload lives in session storage with its idempotency key.** A key that dies with the page cannot be reused, so the retry becomes a second attempt.
 
 ## Excuses that do not hold
 

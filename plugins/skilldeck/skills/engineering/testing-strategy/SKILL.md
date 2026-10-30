@@ -16,7 +16,7 @@ A seam is a public boundary where behavior is observable without reaching inside
 - **Backend:** the service or use-case layer (inputs in, outputs out, datastore faked) is the primary seam. The HTTP layer gets a thin integration test that the wiring works.
 - **Frontend / mobile:** the seam is behavior a user can observe. Test a component or hook through its public props and rendered output, not its internal state.
 
-Concentrate tests on complex logic and critical paths (the flows whose failure hurts most). Leave trivial glue and framework boilerplate untested.
+Concentrate tests on complex logic and critical paths (the flows whose failure hurts most). Leave trivial glue and framework boilerplate untested. When the code handles a dependency that can fail, time out, or duplicate, read [failure-paths.md](failure-paths.md).
 
 ## Choose the kind of test
 

@@ -93,3 +93,7 @@ Score the judgement tier here. Anything a linter or `axe` would have caught belo
 Look for: semantic elements before ARIA; keyboard reachable in an order matching the visual one; a visible focus indicator; an accessible name on every control; real labels rather than placeholders; contrast and target sizes meeting the numbers; nothing signalled by colour alone; reduced-motion honoured.
 
 Common failure: a custom control built from a `div`, unreachable by keyboard and silent to a screen reader.
+
+## Unattended or shared device
+
+When the brief named this kind, add one question to heuristic 9: can a stranger recover alone, and will the next person see nothing of the previous person? A missing idle reset that leaves personal state on the screen is a finding. Do not ask it of a desktop or phone app a person owns.

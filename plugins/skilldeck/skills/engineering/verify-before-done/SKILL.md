@@ -60,6 +60,7 @@ The steps that get skipped are 5 and 6, and they fail differently. Running the c
 | Requirements are met | Each criterion walked and matched | The suite being green |
 | Behavior changed as intended | A test asserting the new behavior, plus the old assertions updated to match | The old tests deleted, skipped, or loosened until the suite passes |
 | This change is covered | A test at the seam it touches, failing without the change | A green suite that never exercised the path you edited |
+| A stranger can clone the repo and run it | A clean environment, the readme followed literally, the outcome recorded | The suite passing on the machine that wrote the repo |
 
 ## Persistence
 
@@ -82,6 +83,8 @@ It stops applying when the user says to stop verifying, and the user is entitled
 ## When this does not apply
 
 Not every exchange makes a claim about the state of the code. Skip the gate when explaining, exploring, reading, or answering a question, and when producing work that has no executable check at all, such as a plan or a brief. In those cases there is nothing to run, and inventing a ritual around it wastes the user's time.
+
+The fresh-clone row applies only to a claim that someone else can clone the repo and run it. A one-line typo, and any change that does not make that claim, does not get a clean-environment run.
 
 The gate also yields when the user explicitly asks for an unverified draft, or when the verification is genuinely unavailable (no runner is configured at all, the build needs credentials you do not have). An existing runner with no test covering your change is not that case: that is the test you write. Then the shape survives even though the rule yields: say plainly what you could not verify and what it would take, rather than quietly upgrading an assumption into a claim.
 

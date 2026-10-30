@@ -6,6 +6,18 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+### Added
+
+- Companions for the failures that show up on any JS/TS product, not a payments or kiosk skill: idempotency on `api-design`, money and transactions on `data-model`, a resilient client and unattended surfaces on `frontend-craft`, and failure-path tests on `testing-strategy`. The case spec is `evals/gap-cases.jsonl`. `evals/run.sh` does not load it.
+
+### Changed
+
+- `ts-standards` states that money is an integer in minor units with a currency.
+- `state-management` keeps in-flight work that must survive a reload in session storage, with its idempotency key.
+- `security-hardening` names what card data may be stored, and that the full number and the security code may not.
+- `design-brief` names an unattended or shared device as a surface kind, with dials. `design-review` asks whether a stranger on that surface can recover alone.
+- `bootstrap-repo` states the readme contract for a stranger cloning an app. `verify-before-done` requires a clean-environment run only when the claim is that they can.
+
 ## [1.0.2] - 2026-10-21
 
 ### Added

@@ -13,8 +13,11 @@ Snapshot date: 2026-09. This is convention, not standard, unlike the accessibili
 | Marketing page, landing, pricing | medium to high | medium | low |
 | Portfolio, editorial, brand-led | high | medium to high | low |
 | Regulated, public sector, accessibility-critical | low | minimal | medium |
+| Unattended or shared device | low | minimal | low |
 
 Higher variance means asymmetry, overlap, and a looser grid. Higher motion means more transition and entrance work. Higher density means tighter spacing and more information per screen. When the read is ambiguous between two rows, take the lower-variance one: a restrained interface that is wrong reads as plain, an exuberant one that is wrong reads as broken.
+
+An unattended or shared device trades discovery for speed, motion for a stable screen, and density for one action. Recovery with nobody to ask, and privacy between one user and the next, outrank the dials. Do not use this row for a phone or desktop app a person owns.
 
 ## Named motion levels
 

@@ -20,9 +20,10 @@ Build to the read, and say which part of it a decision came from when it is not 
 - **A component owns one reason to change.** When a component fetches, decides, and renders, those three reasons collide in one file. Keep data access at the edge of a screen and let the pieces below it take what they need as props.
 - **Compose rather than configure.** A component that has accumulated boolean props to cover variants has become a switchboard. Prefer smaller pieces the caller assembles, and reserve props for genuine data.
 - **Keep the public surface small.** A component's props are its contract, so expose what a caller must decide and hide the rest. This is module depth applied to UI: call the Skill tool with "ts-standards" for the underlying principle.
-- **Ask the platform first.** A container query, `:has()`, `color-mix()` or `text-wrap: balance` replaces a surprising amount of component JavaScript and several dependencies. When a platform CSS feature would replace component JavaScript, read [modern-css.md](modern-css.md) (the answer sheet for rung 4 of the ladder in `create`).
+- **Ask the platform first.** A container query, `:has()`, `color-mix()` or `text-wrap: balance` replaces a surprising amount of component JavaScript and several dependencies. When a platform CSS feature would replace component JavaScript, read [modern-css.md](modern-css.md).
 - **Split when a reason appears, not in advance.** A long component that does one thing is fine. Extract when a piece is reused, or when a part changes for reasons the rest does not.
 - **State is a separate question.** Call the Skill tool with "state-management" for where a piece of state lives. Do not settle it inside a component by reflex.
+- When the client calls an API whose failure the user would notice, read [resilient-client.md](resilient-client.md).
 
 ## Accessibility is part of building it
 
@@ -31,7 +32,7 @@ Not a pass at the end, because the things that go wrong are structural and expen
 - **Semantic elements before ARIA.** A real button, link, label, heading, and list carry keyboard behavior, focus handling, and screen reader semantics for free. ARIA is for what the platform does not express, and a wrong ARIA attribute is worse than none.
 - **Everything reachable by keyboard**, in an order that matches the visual one, with a focus indicator that is actually visible. Anything that traps focus, such as a modal, returns it where it came from.
 - **Every control has an accessible name**, and every input has a real label rather than a placeholder standing in for one.
-- **Contrast and target size meet the numbers.** When checking contrast or target size, the numbers are in [design-defaults.md](design-defaults.md). These are not preferences, and they are the easiest thing to get right at build time.
+- **Contrast and target size meet the numbers.** When checking contrast or target size, the numbers are in [design-defaults.md](design-defaults.md). When the brief named an unattended or shared device, read [unattended.md](unattended.md).
 - **Let the machine catch what it can.** Most of the list above is checkable by a linter or by `axe` in CI, and anything checkable should be a gate rather than a thing someone notices later. When deciding which accessibility obligations a linter or axe should gate, the tiers are in [a11y-baseline.md](a11y-baseline.md).
 - **Never signal with colour alone**, and honour a reduced-motion preference. On React Native the same obligations run through the accessibility props rather than through semantic tags.
 

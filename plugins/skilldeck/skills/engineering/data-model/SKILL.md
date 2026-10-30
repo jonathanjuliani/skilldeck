@@ -24,6 +24,8 @@ After you know which kind of store the project uses, read one companion. Do not 
 - Relational (tables, rows, foreign keys): [relational.md](relational.md)
 - Document (collections, embedded or referenced documents): [document.md](document.md)
 
+When an entity holds an amount, read [money.md](money.md). When one operation writes more than one row, or two writers can touch the same row, read [transactions.md](transactions.md).
+
 State what is denormalized and why. A copy that exists for a read path needs a named owner for how it stays true. A copy with no owner becomes a second source of truth.
 
 Write the evolution note for this change in expand, migrate, contract form: what is added while the old shape still works, what moves, what is deleted later and who deletes it. That note is for a shape something already depends on. The first design of a model nothing calls yet is this skill. Retiring a shape callers still use is `migration`, and this skill does not start that work.

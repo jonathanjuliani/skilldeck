@@ -53,6 +53,8 @@ one() { # id fixture arm prompt
 }
 
 i=0
+# Companion specs live in gap-cases.jsonl. This loop does not score them.
+# See rubric.md. Do not concatenate that file into cases.jsonl.
 while IFS= read -r line; do
   id=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['id'])" "$line")
   pr=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['prompt'])" "$line")

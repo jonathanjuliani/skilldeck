@@ -26,6 +26,7 @@ It yields the moment the project speaks, which is the constraint above rather th
 
 - **Prefer `type` aliases; reach for `interface` when you need declaration merging or `extends` ergonomics.** Pick one style per codebase and hold it.
 - **Model the domain in the type system.** Use unions and discriminated unions to make illegal states unrepresentable. A `status: "loading" | "error" | "ready"` with per-variant fields beats a bag of optional booleans.
+- **When a value is money, it is an integer in minor units with a currency, never a `number` you divide.** How that amount is stored and rounded is the money companion in `data-model`. The project wins when it already has a money type.
 - **`unknown` over `any`.** `any` disables checking silently; `unknown` forces a narrowing at the boundary. Ban `any` except at genuinely untyped edges, and narrow immediately there.
 - **Infer, do not annotate, what the compiler already knows.** Annotate function inputs and public return types for stability; let locals infer.
 - **Keep types close to their use.** Domain types live with their feature or module, not in a global `types.ts` dumping ground.

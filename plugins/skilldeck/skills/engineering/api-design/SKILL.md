@@ -27,7 +27,7 @@ State the choice and the reason. When it is a close call, present the two credib
 - **Design for evolution.** Additive changes over breaking ones. For public REST, version explicitly. Make fields that might grow into objects objects from the start.
 - **Assume every observable behavior is depended on.** With enough consumers, what your contract promises stops being the boundary: the ordering you never guaranteed, the exact error string, the incidental latency, the field that happens to be present all become things someone relies on. Two consequences. Make the surface as narrow as you can afford, since anything visible is effectively promised. And treat "nobody should be relying on that" as a hypothesis to check against real usage, not a defence.
 - **One live version of a contract, wherever you can manage it.** Every additional supported version multiplies the states you test, the paths you debug, and the places a fix has to land. Prefer rolling consumers forward over keeping versions alive in parallel, and where a second version is genuinely necessary, it comes with a removal date and an owner. Call the Skill tool with "migration" for how to retire the old one.
-- **Pagination, filtering, idempotency** are decided at design time for any collection or mutation that needs them, not bolted on later. Cursor pagination for large or live sets; idempotency keys for unsafe retried operations.
+- **Pagination, filtering, idempotency** are decided at design time for any collection or mutation that needs them, not bolted on later. Cursor pagination for large or live sets; idempotency keys for unsafe retried operations. When a mutation can be retried by a client or the network, read [idempotency.md](idempotency.md).
 
 ## Rules
 
