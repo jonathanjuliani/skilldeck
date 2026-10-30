@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-10-30
+
 ### Added
 
 - Companions for the failures that show up on any JS/TS product, not a payments or kiosk skill: idempotency on `api-design`, money and transactions on `data-model`, a resilient client and unattended surfaces on `frontend-craft`, and failure-path tests on `testing-strategy`. The case spec is `evals/gap-cases.jsonl`. `evals/run.sh` does not load it.
@@ -88,7 +90,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/jonathanjuliani/skilldeck/compare/v0.1.4...v1.0.0
