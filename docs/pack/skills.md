@@ -30,6 +30,7 @@ Every skill also carries the guardrails that earn their place in it: **When this
 ### Engineering
 
 - **project-shape** (model-invoked): detect single-repo, monorepo, or modular, and recommend folder and structure best practices per surface (backend, frontend, mobile).
+- **survey-structure** (user-invoked): read an existing repo against its shape and module rules and return a refactor backlog, without editing. Not a bug hunt or a quality review.
 - **bootstrap-repo** (model-invoked): turn an empty or near-empty repo into the smallest runnable project, with community defaults confirmed before they are written.
 - **ts-standards** (model-invoked): JS/TS conventions reference (naming, types, error handling, module boundaries, validation at boundaries). Principles, not vendors.
 - **create** (model-invoked): scaffold a new component, module, package, service, or screen to the resolved conventions and shape. Walks a YAGNI ladder first, since the cheapest unit of code is the one nobody writes.

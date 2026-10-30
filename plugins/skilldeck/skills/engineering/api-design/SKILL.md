@@ -33,7 +33,7 @@ State the choice and the reason. When it is a close call, present the two credib
 
 - **Consumer picks the style.** Do not default to your favorite transport; default to what the caller needs.
 - **No unvalidated input reaches logic.** The boundary is where trust begins.
-- **The transport stays thin.** Handlers parse, call a service, and shape the response. Business logic lives behind the boundary, where the `create` and `project-shape` skills place it.
+- **The transport stays thin.** Handlers parse, call a service, and shape the response. Business logic lives behind the boundary. When this design is about to become files, call the Skill tool with "project-shape" for where the handler lives, and call the Skill tool with "ts-standards" for module depth and validation at the edge. A new unit with its own folder stays with `create`, so a style decision does not grow a feature.
 - **Contracts are shared, not duplicated.** In a monorepo, schemas and client types live in a shared package so both sides use one source of truth.
 
 ## Trust and signals on the new operation

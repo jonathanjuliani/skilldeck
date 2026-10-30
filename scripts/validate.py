@@ -263,6 +263,40 @@ if gate_calls:
     errors.append(f"verify-before-done calls {sorted(gate_calls)}. It is the terminal gate "
                   f"and must stay a sink; state the guidance inline instead.")
 
+# Organization standards stay reachable on the paths that write or move code,
+# and the survey that lists refactors must not start one. Presence of the
+# load-bearing phrase is the check. A conditional in the same sentence is fine.
+REQUIRED_CALLS = {
+    "bootstrap-repo": ("project-shape", "ts-standards"),
+    "create": ("project-shape", "ts-standards"),
+    "refactor": ("ts-standards", "project-shape"),
+    "api-design": ("project-shape", "ts-standards"),
+    "frontend-craft": ("ts-standards",),
+    "survey-structure": ("resolve-conventions", "project-shape", "ts-standards"),
+}
+for name, refs in sorted(REQUIRED_CALLS.items()):
+    if name not in skills:
+        errors.append(f"{name}: listed in REQUIRED_CALLS but is not a skill")
+        continue
+    missing = [ref for ref in refs if ref not in graph.get(name, [])]
+    if missing:
+        errors.append(f"{name}: must call the Skill tool with {missing}")
+if "refactor" in graph.get("survey-structure", []):
+    errors.append("survey-structure calls 'refactor'. It reports a backlog and must not start one.")
+
+ROUTING = ROOT / "skills/foundation/setup-skills/routing-block.md"
+routing_text = ROUTING.read_text() if ROUTING.exists() else ""
+routing_rel = ROUTING.relative_to(ROOT)
+if not routing_text:
+    errors.append(f"{routing_rel}: missing")
+else:
+    for skill in ("ts-standards", "project-shape", "create", "refactor"):
+        if f"`{skill}`" not in routing_text:
+            errors.append(f"{routing_rel}: missing a row for `{skill}`")
+    for skill in ("bootstrap-repo", "survey-structure"):
+        if f"`{skill}`" in routing_text:
+            errors.append(f"{routing_rel}: `{skill}` is listed. It stays off the every-task table.")
+
 # Payload blocks are spliced into a file the user owns, between markers. An
 # unbalanced pair means the splice has no end and would swallow their content.
 for payload in sorted((ROOT / "skills/foundation/setup-skills").glob("*-block.md")):

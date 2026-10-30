@@ -1,0 +1,5 @@
+interface:
+  display_name: "Survey Structure"
+  short_description: "Read a repo and return a refactor backlog, without editing"
+policy:
+  allow_implicit_invocation: false

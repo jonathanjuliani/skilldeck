@@ -6,6 +6,17 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+### Added
+
+- `survey-structure` (user-invoked) reads an existing repo against `project-shape` and `ts-standards` and returns a refactor backlog without editing.
+
+### Changed
+
+- `refactor` calls `project-shape` when a move crosses folders, using the phrase the pack treats as a real skill call.
+- `bootstrap-repo` calls `ts-standards` before it writes the skeleton.
+- The routing block reaches `ts-standards` when writing or reviewing JS/TS, and skips a typo, a copy change, generated or vendored code, and a throwaway script.
+- `api-design` calls `project-shape` and `ts-standards` when a contract is about to become files.
+
 ## [1.0.3] - 2026-10-30
 
 ### Added

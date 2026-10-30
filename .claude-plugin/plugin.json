@@ -33,6 +33,7 @@
     "./skills/foundation/setup-skills",
     "./skills/foundation/agent-instructions",
     "./skills/engineering/project-shape",
+    "./skills/engineering/survey-structure",
     "./skills/engineering/ts-standards",
     "./skills/engineering/bootstrap-repo",
     "./skills/engineering/create",

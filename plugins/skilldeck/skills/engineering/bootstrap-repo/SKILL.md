@@ -19,7 +19,7 @@ Near-empty means a repository with a readme or a license and nothing that instal
 
 Call the Skill tool with "resolve-conventions". On an empty tree the project tier is silent, so the community tier applies: recommend each default with a reason and wait for confirmation. Do not install or write files on an unconfirmed stack.
 
-Call the Skill tool with "project-shape" for the surface the user is starting (backend, frontend, mobile, or a library) and the layout that surface wants. Then write the smallest runnable skeleton, and nothing else.
+Call the Skill tool with "project-shape" for the surface the user is starting (backend, frontend, mobile, or a library) and the layout that surface wants. Call the Skill tool with "ts-standards" for naming, module depth, and validation at the edge. Then write the smallest runnable skeleton, and nothing else.
 
 After you know whether this is an app or a library, read one companion. Do not open both.
 

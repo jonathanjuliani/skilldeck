@@ -1,12 +1,12 @@
 # skilldeck
 
-36 skills for JavaScript, TypeScript, React, and React Native. They read the repo before they pick a stack.
+37 skills for JavaScript, TypeScript, React, and React Native. They read the repo before they pick a stack.
 
 Detect before you decide. Recommend before you impose. Ask before you assume. Prove before you claim.
 
 | Plugin | What it is | Version |
 | --- | --- | --- |
-| `skilldeck` | Detects a project's conventions and defers to them. | 1.0.0 |
+| `skilldeck` | Detects a project's conventions and defers to them. | 1.0.3 |
 
 ## Install
 
@@ -106,6 +106,7 @@ mindmap
     engineering
       Shape
         project-shape
+        survey-structure
         bootstrap-repo
         ts-standards
         dependency-choice
@@ -142,7 +143,7 @@ mindmap
 To share the map outside GitHub, use [skill-map.svg](docs/pack/skill-map.svg).
 
 - **foundation** (3) — detect conventions, set up, write agent instructions
-- **engineering** (22) — build, test, and ship
+- **engineering** (23) — build, test, and ship
 - **design** (6) — decide the surface before building it
 - **process** (5) — align, investigate, plan, diagram, retro
 

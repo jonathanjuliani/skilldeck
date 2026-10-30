@@ -1,18 +1,18 @@
 ---
 name: refactor
-description: Execute a targeted, behavior-preserving refactor of existing JS/TS code to bring it in line with the project's conventions and standards. Use when the user wants to clean up, restructure, extract, rename, or de-duplicate code without changing what it does. Defers convention choices to the project. Not for work that changes behavior, not for finding why a behavior is wrong, which is debug, and not for retiring something the codebase still depends on, which is migration.
+description: Execute a targeted, behavior-preserving refactor of existing JS/TS code to bring it in line with the project's conventions and standards. Use when the user wants to clean up, restructure, extract, rename, or de-duplicate code without changing what it does. Defers convention choices to the project. Not for work that changes behavior, not for finding why a behavior is wrong, which is debug, not for retiring something the codebase still depends on, which is migration, and not for listing the refactors across a repo, which is survey-structure.
 ---
 
 # Refactor
 
-Change the shape of existing code without changing its behavior, moving it toward the project's conventions. This is the execution counterpart to a survey: a survey finds opportunities, this skill performs one cleanly.
+Change the shape of existing code without changing its behavior, moving it toward the project's conventions. This is the execution counterpart to `survey-structure`: that skill finds the opportunities, this skill performs one cleanly.
 
 The defining constraint: behavior is preserved and provable. Tests stay green through every step, and if the code under refactor has no tests at the seam you are changing, you add them first so the refactor has a safety net. A refactor that needs a behavior change is two changes: do the refactor first, the behavior change after, never blended.
 
 ## Before touching code
 
 1. **State the motivation in one sentence.** "Extract the pricing logic out of the handler so it is testable." One motivation per refactor. If you find a second, note it and do it separately.
-2. **Resolve the target shape.** Call the Skill tool with "ts-standards" for the conventions, and "resolve-conventions" for the project's actual posture. The target is the project's style, not an abstract ideal. Call "project-shape" when the refactor moves code between folders or modules.
+2. **Resolve the target shape.** Call the Skill tool with "ts-standards" for the conventions, and "resolve-conventions" for the project's actual posture. The target is the project's style, not an abstract ideal. Call the Skill tool with "project-shape" when the refactor moves code between folders or modules.
 3. **Understand the fence before you remove it.** Code that looks pointless usually is not. Before deleting a guard, a null check, a workaround, or an odd-looking branch, find out why it is there: `git blame`, the test that covers it, the issue it references, the bug it was added for. If you cannot find a reason, say so explicitly and treat the removal as a behavior change needing agreement, not as a refactor.
 4. **Establish the safety net.** Identify the seam whose behavior must not change and confirm there is a test at it. If there is not, write one that pins current behavior before you refactor. For the discipline of writing that test first, call the Skill tool with "testing-strategy".
 
