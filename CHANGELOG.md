@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-30
+
 ### Added
 
 - `survey-structure` (user-invoked) reads an existing repo against `project-shape` and `ts-standards` and returns a refactor backlog without editing.
@@ -101,7 +103,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.3...v1.1.0
 [1.0.3]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.0...v1.0.1
