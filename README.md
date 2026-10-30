@@ -6,7 +6,7 @@ Detect before you decide. Recommend before you impose. Ask before you assume. Pr
 
 | Plugin | What it is | Version |
 | --- | --- | --- |
-| `skilldeck` | Detects a project's conventions and defers to them. | 1.0.3 |
+| `skilldeck` | Detects a project's conventions and defers to them. | 1.1.0 |
 
 ## Install
 
