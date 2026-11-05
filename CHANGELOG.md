@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-11-05
+
 ### Changed
 
 - `design-inspiration` reads the public design-reference library at `jonathanjuliani/design-references` when a store lookup needs it: a checkout at `~/.skilldeck-skills/design/library` when that folder is the repo, otherwise the public README. A checkout that is behind the remote gets one offer to pull. New captures are written into that checkout only after a yes. Otherwise they stay in `~/.skilldeck-skills/design/references/`.
@@ -107,7 +109,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/jonathanjuliani/skilldeck/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.3...v1.1.0
 [1.0.3]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.1...v1.0.2
