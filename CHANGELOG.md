@@ -6,6 +6,10 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+### Changed
+
+- `design-inspiration` reads the public design-reference library at `jonathanjuliani/design-references` when a store lookup needs it: a checkout at `~/.skilldeck-skills/design/library` when that folder is the repo, otherwise the public README. A checkout that is behind the remote gets one offer to pull. New captures are written into that checkout only after a yes. Otherwise they stay in `~/.skilldeck-skills/design/references/`.
+
 ## [1.1.0] - 2026-10-30
 
 ### Added

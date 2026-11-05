@@ -44,9 +44,9 @@ Treat the output as a **starting point to edit, never a result to ship**:
 
 ## Capture what you found
 
-A reference read and discarded teaches once. When you write the store entry, use the format and the rules in [capture.md](capture.md). Write the findings to the personal store at `~/.skilldeck-skills/design/references/` (or another personal path confirmed this session), one file per reference, recording what you took, **what you rejected and why**, the surface and audience it came from, domains from [taxonomy.md](taxonomy.md), optional principles, and a date.
+A reference read and discarded teaches once. When you write the store entry, use the format and the rules in [capture.md](capture.md), including where it goes: the public library checkout when they want it published, the scratch pad otherwise, the shipped seed in [references/](references/) only when they ask to ship a starter. One file per reference, recording what you took, **what you rejected and why**, the surface and audience it came from, domains from [taxonomy.md](taxonomy.md), optional principles, and a date. Do not commit or push.
 
-A shipped seed lives in [references/](references/). It is the community tier of this store: starter reads that travel with the plugin. New captures go to the personal store unless the user asks to ship them. Which seed or personal entries feed *this* task is a confirmed working set, not a silent outrank.
+Which entries feed *this* task is a confirmed working set, not a silent outrank. The seed is the starter that travels with the plugin. The public library is the larger set.
 
 Offer capture rather than writing silently. When this task needs the inspiration *store* (not only a named live URL, screenshot, or paste), read [store-selection.md](store-selection.md) before opening any capture; stop until the user confirms the task working set. Do not load that companion when the store is unused. After the set is locked, open at most two or three bodies and follow [capture.md](capture.md). When the accepted set is thin for this surface, audience, and domain, or the user wants the base updated from galleries, Call the Skill tool with "curate-design-inspiration" (it will confirm before any crawl or write).
 
