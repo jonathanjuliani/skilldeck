@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-11-06
+
 ### Added
 
 - `design-inspiration` taxonomy includes `events` (invitations, RSVP, guest lists, shared checklists, draws). The seed has no events captures yet.
@@ -113,7 +115,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/jonathanjuliani/skilldeck/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/jonathanjuliani/skilldeck/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.3...v1.1.0
 [1.0.3]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.2...v1.0.3
