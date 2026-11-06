@@ -31,6 +31,7 @@ Vertical or product family. One to three per capture. Primary filter for "does t
 | `creative-tools` | Design, canvas, motion, photo, site builders |
 | `social` | Feeds, communities, saving and sharing |
 | `legal` | Contracts, e-sign, deal rooms, counsel workflows |
+| `events` | Invitations, RSVP, guest lists, shared checklists, draws |
 
 Audience mismatch still wins over a domain match. A beautiful finance marketing page is the wrong reference for an operator table in the same vertical if the audience job differs.
 

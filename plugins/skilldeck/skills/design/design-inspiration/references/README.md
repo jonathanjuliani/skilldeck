@@ -33,6 +33,8 @@ Primary project filter. Prefer this before archetype or motion when the brief ha
 | `social` | [are-na.md](are-na.md), [hacker-news.md](hacker-news.md), [lobsters.md](lobsters.md), [pinterest.md](pinterest.md) |
 | `legal` | [formable.md](formable.md), [papermark.md](papermark.md) |
 
+`events` is in the taxonomy (invitations, RSVP, guest lists, shared checklists, draws). The seed has no `events` files yet; those captures live in the public library.
+
 ## By principle (taxonomy.md)
 
 Craft axes only. Use when the brief names a principle (density, restraint, search-first) rather than a vertical. A capture can appear under more than one principle.

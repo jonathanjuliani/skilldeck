@@ -6,6 +6,10 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+### Added
+
+- `design-inspiration` taxonomy includes `events` (invitations, RSVP, guest lists, shared checklists, draws). The seed has no events captures yet.
+
 ## [1.2.0] - 2026-11-05
 
 ### Changed
