@@ -6,6 +6,10 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+### Added
+
+- Manus upload packages. `python3 scripts/build-manus-skills.py` writes one `.skill` file per skill, plus `skilldeck-manus.zip` as a download bundle. A GitHub Release attaches them beside `skilldeck-openai.zip`. The skill files in the repository are unchanged.
+
 ## [1.2.1] - 2026-11-06
 
 ### Added

@@ -33,6 +33,12 @@ jobs:
       - name: Validate OpenAI import package
         run: python3 scripts/test-openai-package.py "$RUNNER_TEMP/skilldeck" --archive "$RUNNER_TEMP/skilldeck-openai.zip"
 
+      - name: Build Manus skill archives
+        run: python3 scripts/build-manus-skills.py --output "$RUNNER_TEMP/manus"
+
+      - name: Validate Manus skill archives
+        run: python3 scripts/test-manus-package.py "$RUNNER_TEMP/manus"
+
       - name: GitHub Release from the changelog
         run: |
           version="${GITHUB_REF_NAME#v}"
@@ -42,6 +48,10 @@ jobs:
             found && /^\[[^]]+\]: / { exit }
             found { print }
           ' CHANGELOG.md > notes.md
-          gh release create "$GITHUB_REF_NAME" --title "skilldeck skills $version" --notes-file notes.md --verify-tag "$RUNNER_TEMP/skilldeck-openai.zip#skilldeck-openai.zip"
+          mapfile -t skills < <(find "$RUNNER_TEMP/manus" -name '*.skill' | sort)
+          gh release create "$GITHUB_REF_NAME" --title "skilldeck skills $version" --notes-file notes.md --verify-tag \
+            "$RUNNER_TEMP/skilldeck-openai.zip#skilldeck-openai.zip" \
+            "$RUNNER_TEMP/manus/skilldeck-manus.zip#skilldeck-manus.zip" \
+            "${skills[@]}"
         env:
           GH_TOKEN: ${{ github.token }}

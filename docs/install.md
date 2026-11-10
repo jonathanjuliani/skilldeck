@@ -57,6 +57,20 @@ To rebuild the same zip from a clone:
 python3 scripts/build-openai-plugin.py --output /tmp/skilldeck --archive /tmp/skilldeck-openai.zip
 ```
 
+## Manus
+
+Manus imports one skill per upload. It does not install this plugin. Download the `.skill` files from the GitHub Release, or unzip `skilldeck-manus.zip` and upload the `.skill` files one at a time: Skills, then + Add, then Upload a skill. One archive does not register every skill. The repository URL and a skill-folder URL load the Claude text, which does not behave on Manus.
+
+There are 37 skills. Upload the ones you will use. A skill that names another one needs that other skill uploaded as well. `setup-skills` is optional. Detection still runs inside `resolve-conventions`.
+
+To rebuild the archives from a clone:
+
+```bash
+python3 scripts/build-manus-skills.py --output /tmp/manus
+```
+
+`/tmp/manus` then contains one `<name>.skill` per skill and `skilldeck-manus.zip`. That zip is only a way to download them together. `skilldeck-openai.zip` is unchanged and is still the ChatGPT import.
+
 ## Cursor
 
 GitHub import: Customize → Plugins → From GitHub Repository → `https://github.com/jonathanjuliani/skilldeck`.
