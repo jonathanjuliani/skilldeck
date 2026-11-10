@@ -6,6 +6,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 ## [Unreleased]
 
+## [1.2.2] - 2026-11-10
+
 ### Added
 
 - Manus upload packages. `python3 scripts/build-manus-skills.py` writes one `.skill` file per skill, plus `skilldeck-manus.zip` as a download bundle. A GitHub Release attaches them beside `skilldeck-openai.zip`. The skill files in the repository are unchanged.
@@ -119,7 +121,8 @@ Add each change under **Unreleased** as you make it; `python3 scripts/version.py
 
 Baseline. The manifests already said 0.1.0. History before this file is in git.
 
-[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.2.1...HEAD
+[Unreleased]: https://github.com/jonathanjuliani/skilldeck/compare/v1.2.2...HEAD
+[1.2.2]: https://github.com/jonathanjuliani/skilldeck/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/jonathanjuliani/skilldeck/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/jonathanjuliani/skilldeck/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/jonathanjuliani/skilldeck/compare/v1.0.3...v1.1.0
